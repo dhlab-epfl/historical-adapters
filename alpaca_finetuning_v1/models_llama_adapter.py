@@ -15,10 +15,10 @@ def Llama7B_adapter(args, **kwargs):
     llama_model_path =args.llama_model_path
     model_name = '7B'
 
-    checkpoint = torch.load(llama_model_path + model_name + '/consolidated.00.pth', map_location="cpu")
-    print(llama_model_path + model_name + '/consolidated.00.pth')
+    checkpoint = torch.load(llama_model_path  + '/consolidated.00.pth', map_location="cpu")
+    print(llama_model_path + '/consolidated.00.pth')
 
-    with open(llama_model_path + model_name + "/params.json", "r") as f:
+    with open(llama_model_path + "/params.json", "r") as f:
         params = json.loads(f.read())
 
     model_args: ModelArgs = ModelArgs(

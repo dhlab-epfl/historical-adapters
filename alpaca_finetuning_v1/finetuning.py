@@ -51,7 +51,7 @@ class InstructionDataset(Dataset):
             self.ann = self.ann[:200]
 
         self.max_words = max_words
-        tokenizer = Tokenizer(model_path= model_path + './tokenizer.model')
+        tokenizer = Tokenizer(model_path= model_path + '/tokenizer.model')
         self.tokenizer1 = tokenizer
 
     def __len__(self):
@@ -152,6 +152,8 @@ def get_args_parser():
     parser.add_argument('--dist_on_itp', action='store_true')
     parser.add_argument('--dist_url', default='env://',
                         help='url used to set up distributed training')
+
+    # parser.add_argument('--deepspeed', type=str)
 
     return parser
 
