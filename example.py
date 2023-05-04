@@ -19,13 +19,17 @@ PROMPT_DICT = {
     "prompt_input": (
         "Below is an instruction that describes a task, paired with an input that provides further context. "
         "Write a response that appropriately completes the request.\n\n"
-        "### Instruction:\n{instruction}\n\n### Input:\n{input}\n\n### Response:"
+        "### Question:\n{instruction}\n\n### Input:\n{input}\n\n### Response:"
     ),
     "prompt_no_input": (
         "Below is an instruction that describes a task. "
         "Write a response that appropriately completes the request.\n\n"
         "### Instruction:\n{instruction}\n\n### Response:"
     ),
+
+    "prompt_QA": (
+        "### Question: {q}\n### Context: {context}\n### Choices: {choice}\n### Answer:"
+    )
 }
 
 def setup_model_parallel() -> Tuple[int, int]:
@@ -94,18 +98,22 @@ def main(
     generator = load(
         ckpt_dir, tokenizer_path, adapter_path, local_rank, world_size, max_seq_len, max_batch_size
     )
-    instructs = [
-        "Tell me about alpacas.",
-        "Tell me about the president of Mexico in 2019.",
-        "Tell me about the king of France in 2019.",
-        "List all Canadian provinces in alphabetical order.",
-        "Write a Python program that prints the first 10 Fibonacci numbers.",
-        "Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'.",
-        "Tell me five words that rhyme with 'shock'.",
-        "Translate the sentence 'I have no mouth but I must scream' into Spanish.",
-        "Count up from 1 to 500."]
-    prompts = [PROMPT_DICT['prompt_no_input'].format_map({'instruction':x, 'input': ''}) for x in instructs]
-
+    # instructs = [
+    #     "Tell me about alpacas.",
+    #     "Tell me about the president of Mexico in 2019.",
+    #     "Tell me about the king of France in 2019.",
+    #     "List all Canadian provinces in alphabetical order.",
+    #     "Write a Python program that prints the first 10 Fibonacci numbers.",
+    #     "Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'.",
+    #     "Tell me five words that rhyme with 'shock'.",
+    #     "Translate the sentence 'I have no mouth but I must scream' into Spanish.",
+    #     "Count up from 1 to 500."]
+    # prompts = [PROMPT_DICT['prompt_no_input'].format_map({'instruction':x, 'input': ''}) for x in instructs]
+    with open('./ScienceQA_test_text/test.json', encoding='utf-8') as f:
+        data = json.load(f)             
+    
+    # prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': x['choices']}) for i, x in data.items()]
+    # print(prompts[10])
     results = generator.generate(
         prompts, max_gen_len=512, temperature=temperature, top_p=top_p
     )
