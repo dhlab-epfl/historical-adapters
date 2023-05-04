@@ -2,7 +2,7 @@ import torch
 
 
 
-model = torch.load('./checkpoint/checkpoint-4.pth', map_location='cpu')
+model = torch.load('/nlpdata1/home/sooh/llama_adapter/checkpoint/checkpoint-4.pth', map_location='cpu')
 new_model = dict()
 weight_list = ['layers.' + str(i) + '.attention.gate' for i in range(32)]
 old_weight_list = ['layers.' + str(i) + '.attention.gate' for i in range(32)]
