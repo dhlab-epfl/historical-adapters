@@ -111,8 +111,9 @@ def main(
     # prompts = [PROMPT_DICT['prompt_no_input'].format_map({'instruction':x, 'input': ''}) for x in instructs]
     with open('./ScienceQA_test_text/test.json', encoding='utf-8') as f:
         data = json.load(f)             
-    
-    # prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': x['choices']}) for i, x in data.items()]
+    # https://github.com/ZrrSkywalker/LLaMA-Adapter/issues/16
+        # multiple gpu for inference is not possible at this moment with this code!
+    prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': x['choices']}) for i, x in data.items()]
     # print(prompts[10])
     results = generator.generate(
         prompts, max_gen_len=512, temperature=temperature, top_p=top_p
