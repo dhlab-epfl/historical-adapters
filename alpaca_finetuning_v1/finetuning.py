@@ -51,7 +51,7 @@ class InstructionDataset(Dataset):
             self.ann = self.ann[:200]
 
         self.max_words = max_words
-        tokenizer = Tokenizer(model_path= model_path + '/tokenizer.model')
+        tokenizer = Tokenizer(model_path= model_path + './tokenizer.model')
         self.tokenizer1 = tokenizer
 
     def __len__(self):
