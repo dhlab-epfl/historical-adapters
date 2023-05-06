@@ -3,7 +3,11 @@ The repository for the development of a LLaMA adapter for historical documents.
 
 ## Fine-tuning
 
-1. Build conda env `conda create -n <env_name> -y python=3.8`
+1. Build conda env 
+```
+conda create -n <env_name> -y python=3.8
+```
+
 2. Install dependency
 ```
 pip install -r requirements.txt
@@ -11,7 +15,7 @@ pip install -e .
 ```
 3. Run script as below. Please change the `TARGET_FOLDER` and `output_dir` accordingly
 
-`bash run.sh`
+`bash ./alpaca_finetuning_v1/finetuning.sh`
 
 
 ## Inference
