@@ -15,7 +15,9 @@ pip install -e .
 ```
 3. Run script as below. Please change the `TARGET_FOLDER` and `output_dir` accordingly
 
-`bash ./alpaca_finetuning_v1/finetuning.sh`
+```
+bash ./alpaca_finetuning_v1/finetuning.sh
+```
 
 
 ## Inference
