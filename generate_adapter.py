@@ -6,6 +6,7 @@ from typing import Optional
 
 import lightning as L
 import torch
+import json
 
 from generate import generate
 from lit_llama import Tokenizer
@@ -13,6 +14,11 @@ from lit_llama.adapter import LLaMA
 from lit_llama.utils import EmptyInitOnDevice, lazy_load, llama_model_lookup
 from scripts.prepare_alpaca import generate_prompt
 
+PROMPT_DICT = {
+    "prompt_QA": (
+        "### Question: {q}\n### Context: {context}\n### Choices: {choice}\n### Answer:"
+    )
+}
 
 def main(
     prompt: str = "What food do lamas eat?",
@@ -55,8 +61,8 @@ def main(
     assert pretrained_path.is_file()
     assert tokenizer_path.is_file()
 
-    fabric = L.Fabric(devices=4)
-    fabric.launch()
+    fabric = L.Fabric(devices=1)
+    # fabric.launch()
     dtype = torch.bfloat16 if fabric.device.type == "cuda" and torch.cuda.is_bf16_supported() else torch.float32
 
     print("Loading model ...", file=sys.stderr)
@@ -85,29 +91,36 @@ def main(
     model = fabric.setup_module(model)
 
     tokenizer = Tokenizer(tokenizer_path)
-    sample = {"instruction": prompt, "input": input}
-    prompt = generate_prompt(sample)
-    encoded = tokenizer.encode(prompt, bos=True, eos=False, device=model.device)
 
-    t0 = time.perf_counter()
-    output = generate(
-        model,
-        idx=encoded,
-        max_seq_length=max_new_tokens,
-        max_new_tokens=max_new_tokens,
-        temperature=temperature,
-        top_k=top_k,
-        eos_id=tokenizer.eos_id
-    )
-    t = time.perf_counter() - t0
+    with open('../historical-adapters/ScienceQA_test_text/test.json', encoding='utf-8') as f:
+        data = json.load(f)    
+    prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': x['choices']}) for i, x in data.items()]
+    # sample = {"instruction": prompt, "input": input}
+    # prompt = generate_prompt(sample)
+    
+    for i in prompts[:20]:
 
-    output = tokenizer.decode(output)
-    output = output.split("### Response:")[1].strip()
-    print(output)
+        encoded = tokenizer.encode(i, bos=True, eos=False, device=model.device)
 
-    print(f"\n\nTime for inference: {t:.02f} sec total, {max_new_tokens / t:.02f} tokens/sec", file=sys.stderr)
-    if fabric.device.type == "cuda":
-        print(f"Memory used: {torch.cuda.max_memory_reserved() / 1e9:.02f} GB", file=sys.stderr)
+        t0 = time.perf_counter()
+        output = generate(
+            model,
+            idx=encoded,
+            max_seq_length=max_new_tokens,
+            max_new_tokens=max_new_tokens,
+            temperature=temperature,
+            top_k=top_k,
+            eos_id=tokenizer.eos_id
+        )
+        t = time.perf_counter() - t0
+
+        output = tokenizer.decode(output)
+        output = output.split("### Answer:")[1].strip()
+        print(output)
+
+        print(f"\n\nTime for inference: {t:.02f} sec total, {max_new_tokens / t:.02f} tokens/sec", file=sys.stderr)
+        if fabric.device.type == "cuda":
+            print(f"Memory used: {torch.cuda.max_memory_reserved() / 1e9:.02f} GB", file=sys.stderr)
 
 
 if __name__ == "__main__":
