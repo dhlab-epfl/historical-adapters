@@ -55,7 +55,8 @@ def main(
     assert pretrained_path.is_file()
     assert tokenizer_path.is_file()
 
-    fabric = L.Fabric(devices=1)
+    fabric = L.Fabric(devices=4)
+    fabric.launch()
     dtype = torch.bfloat16 if fabric.device.type == "cuda" and torch.cuda.is_bf16_supported() else torch.float32
 
     print("Loading model ...", file=sys.stderr)
