@@ -16,7 +16,14 @@ from scripts.prepare_alpaca import generate_prompt
 
 PROMPT_DICT = {
     "prompt_QA": (
-        "### Question: {q}\n### Context: {context}\n### Choices: {choice}\n### Answer:"
+        # "Choose the correct answer from Choices."
+        "\n### Question: {q}\n### Context: {context}\n### Choices: {choice}\n### Answer:"
+    )
+}
+
+numbering = {
+    'scienceQA': (
+        "({i}) {ele}"
     )
 }
 
@@ -27,7 +34,7 @@ def main(
     pretrained_path: Optional[Path] = None,
     tokenizer_path: Optional[Path] = None,
     quantize: Optional[str] = None,
-    max_new_tokens: int = 100,
+    max_new_tokens: int = 50,
     top_k: int = 200,
     temperature: float = 0.8,
 ) -> None:
@@ -92,14 +99,17 @@ def main(
 
     tokenizer = Tokenizer(tokenizer_path)
 
-    with open('../historical-adapters/ScienceQA_test_text/test.json', encoding='utf-8') as f:
+    with open('./ScienceQA_test_text/test.json', encoding='utf-8') as f:
         data = json.load(f)    
-    prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': x['choices']}) for i, x in data.items()]
+
+    # prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': x['choices']}) for i, x in data.items()]
+    num_dict = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E'}
+    prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': ' '.join([numbering['scienceQA'].format_map({'i': num_dict[idx], 'ele': ele}) for idx, ele in enumerate(x['choices'])])}) for i, x in data.items()]
     # sample = {"instruction": prompt, "input": input}
     # prompt = generate_prompt(sample)
     
     for i in prompts[:20]:
-
+        print(i)
         encoded = tokenizer.encode(i, bos=True, eos=False, device=model.device)
 
         t0 = time.perf_counter()
@@ -116,6 +126,7 @@ def main(
 
         output = tokenizer.decode(output)
         output = output.split("### Answer:")[1].strip()
+
         print(output)
 
         print(f"\n\nTime for inference: {t:.02f} sec total, {max_new_tokens / t:.02f} tokens/sec", file=sys.stderr)
