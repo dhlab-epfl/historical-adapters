@@ -3,22 +3,32 @@ The repository for the development of a LLaMA adapter for historical documents.
 
 ## Fine-tuning
 
-1. Build conda env 
-```
-conda create -n <env_name> -y python=3.8
-```
+### Org
+Please refer:
+https://github.com/ZrrSkywalker/LLaMA-Adapter/tree/main
 
-2. Install dependency
+### lit
+In this implementation, I referred lit-directory for fine-tuning.
+Please refer (here)[https://github.com/Lightning-AI/lit-llama] for details!
+
+1. Clone the lit git
+```
+git clone https://github.com/Lightning-AI/lit-llama
+cd lit-llama
+```
+2. Install dependencies
 ```
 pip install -r requirements.txt
-pip install -e .
 ```
-3. Run script as below. Please change the `TARGET_FOLDER` and `output_dir` accordingly
-
+3. Convert the weights into lit format
 ```
-bash ./alpaca_finetuning_v1/finetuning.sh
+python scripts/convert_checkpoint.py --model_size 7B
 ```
-
+4. Fine tuning LLaMA with adapter technique using alpaca dataset
+```
+python finetune_adapter.py
+```
+[Note] If you are using 8 gpus, you can fine-tune the model under 1 hour! (I used 4 gpus, and it took about 6 hours 🤔)
 
 ## Inference
 
