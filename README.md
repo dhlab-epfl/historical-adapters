@@ -22,13 +22,18 @@ bash ./alpaca_finetuning_v1/finetuning.sh
 
 ## Inference
 
-1. Used LLaMA 7B model from [Meta](https://github.com/facebookresearch/llama)
-2. Run `python ./alpaca_finetuning_v1/extract_adapter_from_checkpoint.py` (You need weights of fine-tuned LLaMA with alpaca dataset on adapter technique)
-3. Run `bash generate.sh`
-
 ### lit-adapter generation
-
 https://github.com/Lightning-AI/lit-llama/blob/main/generate_adapter.py
+
+#### ScienceQA
+
+1. Used LLaMA 7B model from [Meta](https://github.com/facebookresearch/llama)
+2. Run 
+```
+python generate_adapter.py
+```
+-- You need lit format converted weights of fine-tuned LLaMA with alpaca dataset on adapter technique into
+
 
 
 
