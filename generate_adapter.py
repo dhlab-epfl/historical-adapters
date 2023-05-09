@@ -99,8 +99,12 @@ def main(
 
     tokenizer = Tokenizer(tokenizer_path)
 
+    data_idx_list = []
     with open('./ScienceQA_test_text/test.json', encoding='utf-8') as f:
         data = json.load(f)    
+        for i, ele in data.items():
+            data_idx_list.append(i)
+
 
     # prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': x['choices']}) for i, x in data.items()]
     num_dict = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E'}
@@ -108,9 +112,14 @@ def main(
     # sample = {"instruction": prompt, "input": input}
     # prompt = generate_prompt(sample)
     
-    for i in prompts[:20]:
-        print(i)
-        encoded = tokenizer.encode(i, bos=True, eos=False, device=model.device)
+    save_results_json = {}
+    all_prompts = []
+    all_outputs = []
+    all_ans = []
+
+    acc = 0
+    for idx in range(len(prompts)):
+        encoded = tokenizer.encode(prompts[idx], bos=True, eos=False, device=model.device)
 
         t0 = time.perf_counter()
         output = generate(
@@ -127,11 +136,38 @@ def main(
         output = tokenizer.decode(output)
         output = output.split("### Answer:")[1].strip()
 
+        print(prompts[idx])
+        print('================Prediction================')
         print(output)
+        print('================Correct Answer================')
+        gt = data[data_idx_list[idx]]['choices'][data[data_idx_list[idx]]['answer']]
+        print(gt)
+    
+        if num_dict[data[data_idx_list[idx]]['answer']] in output:
+            acc += 1
+            print('Correct!')
+        elif gt in output:
+            acc += 1
+            print('Correct!')
 
-        print(f"\n\nTime for inference: {t:.02f} sec total, {max_new_tokens / t:.02f} tokens/sec", file=sys.stderr)
-        if fabric.device.type == "cuda":
-            print(f"Memory used: {torch.cuda.max_memory_reserved() / 1e9:.02f} GB", file=sys.stderr)
+        all_prompts.append(prompts[idx])
+        all_outputs.append(output)
+        all_ans.append(gt)
+            
+
+    print('*****************Accuracy*****************')
+    print((acc / len(prompts)) * 100)
+
+    save_results_json['prompts'] = all_prompts
+    save_results_json['output'] = all_outputs
+    save_results_json['answer'] = all_ans
+    save_results_json['acc'] = (acc / len(prompts)) * 100
+
+    with open('result.json', 'w') as fp:
+        json.dump(save_results_json, fp, indent=4)
+        # print(f"\n\nTime for inference: {t:.02f} sec total, {max_new_tokens / t:.02f} tokens/sec", file=sys.stderr)
+        # if fabric.device.type == "cuda":
+        #     print(f"Memory used: {torch.cuda.max_memory_reserved() / 1e9:.02f} GB", file=sys.stderr)
 
 
 if __name__ == "__main__":
