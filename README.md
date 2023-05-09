@@ -32,7 +32,7 @@ https://github.com/Lightning-AI/lit-llama/blob/main/generate_adapter.py
 ```
 python generate_adapter.py
 ```
--- You need lit format converted weights of fine-tuned LLaMA with alpaca dataset on adapter technique into
+-- You need lit format converted weights of fine-tuned LLaMA with alpaca dataset on adapter technique
 
 
 
