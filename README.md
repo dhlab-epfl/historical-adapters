@@ -3,10 +3,12 @@ The repository for the development of a LLaMA adapter for historical documents.
 
 ## Fine-tuning
 
-### Original Repo
+### Fine-tuning with alpaca
+
+#### Original Repo
 Please refer [here](https://github.com/ZrrSkywalker/LLaMA-Adapter/tree/main)
 
-### Lightning Repo
+#### Lightning Repo
 In this implementation, I referred lit-directory for fine-tuning: [Pytorch Lightning framework](https://lightning.ai/docs/pytorch/stable/)
 Please refer [here](https://github.com/Lightning-AI/lit-llama) for details!
 
@@ -28,6 +30,10 @@ python scripts/convert_checkpoint.py --model_size 7B
 python finetune_adapter.py
 ```
 [Note] If you are using 8 gpus, you can fine-tune the model under 1 hour
+
+### Fine-tuning with customized dataset
+Working on ScienceQA dataset
+https://github.com/Lightning-AI/lit-llama/blob/main/howto/finetune_adapter.md
 
 ## Inference
 
