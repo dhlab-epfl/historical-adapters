@@ -35,6 +35,18 @@ python finetune_adapter.py
 Working on ScienceQA dataset
 https://github.com/Lightning-AI/lit-llama/blob/main/howto/finetune_adapter.md
 
+1. Prepare customized ScienceQA dataset
+
+```
+python scripts/prepare_scienceQA.py
+```
+
+2. Fine-tuning
+
+```
+python finetune-adapter.py
+```
+
 ## Inference
 
 ### lit-adapter generation
