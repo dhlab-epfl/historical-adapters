@@ -37,7 +37,7 @@ eval_interval = 600
 save_interval = 1000
 eval_iters = 100
 log_interval = 1
-devices = 1
+devices = 4
 
 # Hyperparameters
 learning_rate = 9e-3
@@ -59,16 +59,16 @@ ds_config = {
 
 
 def main(
-    data_dir: str = "data/science", 
+    data_dir: str = "/nlpdata1/home/sooh/lit-llama/science", 
     pretrained_path: str = "/nlpdata1/home/sooh/lit-llama/7B/lit-llama.pth",
-    out_dir: str = "out/adapter/science",
+    out_dir: str = "/nlpdata1/home/sooh/lit-llama/science",
 ):
 
     fabric = L.Fabric(
         accelerator="cuda", 
         devices=devices, 
         strategy=(DeepSpeedStrategy(config=ds_config) if devices > 1 else "auto"), 
-        precision="bf16-true",
+        precision="16-mixed",
     )
     fabric.launch()
     fabric.seed_everything(1337 + fabric.global_rank)
@@ -158,7 +158,7 @@ def train(
 def generate_response(model, instruction, input=""):
     tokenizer = Tokenizer("/nlpdata1/home/sooh/lit-llama/tokenizer.model")
     sample = {"instruction": instruction, "input": input}
-    prompt = build_prompt(sample)
+    prompt = generate_prompt(sample)
     encoded = tokenizer.encode(prompt, bos=True, eos=False, device=model.device)
 
     output = generate(
