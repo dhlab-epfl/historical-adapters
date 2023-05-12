@@ -44,7 +44,9 @@ learning_rate = 9e-3
 batch_size = 64 / devices
 micro_batch_size = 4
 gradient_accumulation_steps = batch_size // micro_batch_size
-epoch_size = 50000  # train dataset size
+epoch_size = 12700
+# 50000  # train dataset size
+# 12700
 num_epochs = 5
 max_iters = num_epochs * epoch_size // devices
 weight_decay = 0.02
@@ -61,7 +63,7 @@ ds_config = {
 def main(
     data_dir: str = "/nlpdata1/home/sooh/lit-llama/science", 
     pretrained_path: str = "/nlpdata1/home/sooh/lit-llama/7B/lit-llama.pth",
-    out_dir: str = "/nlpdata1/home/sooh/lit-llama/science",
+    out_dir: str = "/nlpdata1/home/sooh/lit-llama/science/checkpoints",
 ):
 
     fabric = L.Fabric(
