@@ -13,19 +13,10 @@ from lit_llama import Tokenizer
 from lit_llama.adapter import LLaMA
 from lit_llama.utils import EmptyInitOnDevice, lazy_load, llama_model_lookup
 from scripts.prepare_alpaca import generate_prompt
+from scripts.prompt_generate import *
+import re
+import random
 
-PROMPT_DICT = {
-    "prompt_QA": (
-        # "Choose the correct answer from Choices."
-        "\n### Question: {q}\n### Context: {context}\n### Choices: {choice}\n### Answer:"
-    )
-}
-
-numbering = {
-    'scienceQA': (
-        "({i}) {ele}"
-    )
-}
 
 def main(
     prompt: str = "What food do lamas eat?",
@@ -58,7 +49,7 @@ def main(
             samples.
     """
     if not adapter_path:
-        adapter_path = Path("/nlpdata1/home/sooh/lit-llama/adapter/lit-llama-adapter-finetuned.pth")
+        adapter_path = Path("/nlpdata1/home/sooh/lit-llama/science/checkpoints/lit-llama-adapter-scienceQA-finetuned.pth")
     if not pretrained_path:
         pretrained_path = Path(f"/nlpdata1/home/sooh/lit-llama/7B/lit-llama.pth")
     if not tokenizer_path:
@@ -99,71 +90,72 @@ def main(
 
     tokenizer = Tokenizer(tokenizer_path)
 
-    data_idx_list = []
-    with open('./ScienceQA_test_text/test.json', encoding='utf-8') as f:
-        data = json.load(f)    
-        for i, ele in data.items():
-            data_idx_list.append(i)
-
-
-    # prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': x['choices']}) for i, x in data.items()]
-    num_dict = {0: 'A', 1: 'B', 2: 'C', 3: 'D', 4: 'E'}
-    prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': ' '.join([numbering['scienceQA'].format_map({'i': num_dict[idx], 'ele': ele}) for idx, ele in enumerate(x['choices'])])}) for i, x in data.items()]
-    # sample = {"instruction": prompt, "input": input}
-    # prompt = generate_prompt(sample)
-    
     save_results_json = {}
     all_prompts = []
     all_outputs = []
+    all_sbjs = []
     all_ans = []
+    options=['A', 'B', 'C', 'D', 'E']
+    cnt = 0
+ 
+    with open('./ScienceQA_test_text/test.json', encoding='utf-8') as f:
+        data = json.load(f)    
+        for i, ele in data.items():
+            prompt = build_prompt(data[i], True)
+            # print(prompt)
+            encoded = tokenizer.encode(prompt, bos=True, eos=False, device=model.device)
 
-    acc = 0
-    for idx in range(len(prompts)):
-        encoded = tokenizer.encode(prompts[idx], bos=True, eos=False, device=model.device)
+            t0 = time.perf_counter()
+            output = generate(
+                model,
+                idx=encoded,
+                max_seq_length=max_new_tokens,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature,
+                top_k=top_k,
+                eos_id=tokenizer.eos_id
+            )
+            t = time.perf_counter() - t0
 
-        t0 = time.perf_counter()
-        output = generate(
-            model,
-            idx=encoded,
-            max_seq_length=max_new_tokens,
-            max_new_tokens=max_new_tokens,
-            temperature=temperature,
-            top_k=top_k,
-            eos_id=tokenizer.eos_id
-        )
-        t = time.perf_counter() - t0
+            output = tokenizer.decode(output).strip()
+            # output = output.split("Answer:")[1].strip()
+            
+            pattern = re.compile(r'The answer is ([A-Z]).')
+            res = pattern.findall(output)
+            
+            if len(res) == 1:
+                pred = res[0]  # 'A', 'B', ...
+            else:
+                pred = "FAILED"
 
-        output = tokenizer.decode(output)
-        output = output.split("### Answer:")[1].strip()
+            choices = data[i]['choices']
+            sbj = data[i]['subject']
+            ground_truth = data[i]['answer']
+            ground_truth = options[ground_truth]
+            pred_idx = get_pred_idx(pred, choices, options)
 
-        print(prompts[idx])
-        print('================Prediction================')
-        print(output)
-        print('================Correct Answer================')
-        gt = data[data_idx_list[idx]]['choices'][data[data_idx_list[idx]]['answer']]
-        print(gt)
-    
-        if num_dict[data[data_idx_list[idx]]['answer']] in output:
-            acc += 1
-            print('Correct!')
-        elif gt in output:
-            acc += 1
-            print('Correct!')
-
-        all_prompts.append(prompts[idx])
-        all_outputs.append(output)
-        all_ans.append(gt)
+            if pred_idx == ground_truth:
+                cnt += 1
+                print(cnt)
+                
+            all_prompts.append(prompt)
+            all_outputs.append(output)
+            all_sbjs.append(sbj)
+            all_ans.append(ground_truth)
+        
+        acc = (correct / len(data)) * 100
             
 
     print('*****************Accuracy*****************')
-    print((acc / len(prompts)) * 100)
+    print(acc)
 
     save_results_json['prompts'] = all_prompts
     save_results_json['output'] = all_outputs
     save_results_json['answer'] = all_ans
-    save_results_json['acc'] = (acc / len(prompts)) * 100
+    save_results_json['subject'] = all_sbjs
+    save_results_json['acc'] = acc
 
-    with open('result.json', 'w') as fp:
+    with open('/nlpdata1/home/sooh/lit-llama/science/result.json', 'w') as fp:
         json.dump(save_results_json, fp, indent=4)
         # print(f"\n\nTime for inference: {t:.02f} sec total, {max_new_tokens / t:.02f} tokens/sec", file=sys.stderr)
         # if fabric.device.type == "cuda":

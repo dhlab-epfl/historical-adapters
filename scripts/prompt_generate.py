@@ -1,3 +1,5 @@
+import random
+
 def create_one_example(question, context, choice, answer, test=False):
     input = f"Question: {question}\nContext: {context}\nOptions: {choice}\n"
 
@@ -44,3 +46,13 @@ def build_prompt(example, test=False):
     prompt = create_one_example(question, context, choice, answer, test)
 
     return prompt
+
+
+def get_pred_idx(prediction, choices, options=['A', 'B', 'C', 'D', 'E']):
+    """
+    Get the index (e.g. 2) from the prediction (e.g. 'C')
+    """
+    if prediction in options[:len(choices)]:
+        return options.index(prediction)
+    else:
+        return random.choice(range(len(choices)))
