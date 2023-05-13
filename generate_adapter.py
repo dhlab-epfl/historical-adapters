@@ -131,7 +131,6 @@ def main(
             choices = data[i]['choices']
             sbj = data[i]['subject']
             ground_truth = data[i]['answer']
-            ground_truth = options[ground_truth]
             pred_idx = get_pred_idx(pred, choices, options)
 
             if pred_idx == ground_truth:
