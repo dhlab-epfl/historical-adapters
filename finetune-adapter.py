@@ -11,6 +11,7 @@ devices variable to `devices = 8` and `micro_batch_size = 8` (or higher).
 Note: If you run into a CUDA error "Expected is_sm80 to be true, but got false", uncomment the line
 `torch.backends.cuda.enable_flash_sdp(False)` in the script below (see https://github.com/Lightning-AI/lit-llama/issues/101).
 """
+from doctest import Example
 import os
 import sys
 import time
@@ -44,9 +45,9 @@ learning_rate = 9e-3
 batch_size = 64 / devices
 micro_batch_size = 4
 gradient_accumulation_steps = batch_size // micro_batch_size
-epoch_size = 12700
+epoch_size = 17000
 # 50000  # train dataset size
-# 12700
+# 12700 + 4241
 num_epochs = 5
 max_iters = num_epochs * epoch_size // devices
 weight_decay = 0.02
@@ -157,10 +158,9 @@ def train(
             fabric.print(f"iter {iter_num}: loss {loss.item():.4f}, time: {dt*1000:.2f}ms")
 
 
-def generate_response(model, instruction, input=""):
+def generate_response(model, example):
     tokenizer = Tokenizer("/nlpdata1/home/sooh/lit-llama/tokenizer.model")
-    sample = {"instruction": instruction, "input": input}
-    prompt = generate_prompt(sample)
+    prompt = build_prompt(example, test=True)
     encoded = tokenizer.encode(prompt, bos=True, eos=False, device=model.device)
 
     output = generate(
@@ -187,9 +187,14 @@ def validate(fabric: L.Fabric, model: torch.nn.Module, val_data: np.ndarray) -> 
     val_loss = losses.mean()
 
     # produce an example:
-    instruction = "Recommend a movie for me to watch during the weekend and explain the reason."
-    output = generate_response(model, instruction)
-    fabric.print(instruction)
+    example = {'question':"Which type of force from the baby's hand opens the cabinet door?",
+    'hint':"A baby wants to know what is inside of a cabinet. Her hand applies a force to the door, and the door opens.",
+    'choices':['pull', 'push'],
+    'answer':0
+    }
+
+    output = generate_response(model, example)
+    fabric.print(build_prompt(example))
     fabric.print(output)
 
     model.train()
