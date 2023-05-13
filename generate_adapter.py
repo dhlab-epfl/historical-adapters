@@ -142,7 +142,7 @@ def main(
             all_sbjs.append(sbj)
             all_ans.append(ground_truth)
         
-        acc = (correct / len(data)) * 100
+        acc = (cnt / len(data)) * 100
             
 
     print('*****************Accuracy*****************')
