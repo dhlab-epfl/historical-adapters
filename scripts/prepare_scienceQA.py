@@ -62,11 +62,11 @@ def prepare(
 
     print("Processing train split ...")
     train_set = [prepare_sample(sample, tokenizer, max_seq_length, mask_inputs) for sample in tqdm(train_set)]
-    torch.save(train_set, "train.pt")
+    torch.save(train_set, "/nlpdata1/home/sooh/lit-llama/science/train.pt")
 
     print("Processing val split ...")
     test_set = [prepare_sample(sample, tokenizer, max_seq_length, mask_inputs) for sample in tqdm(test_set)]
-    torch.save(test_set, "val.pt")
+    torch.save(test_set, "/nlpdata1/home/sooh/lit-llama/science/val.pt")
 
 
 def download(file_path: Path):
@@ -94,8 +94,8 @@ def prepare_sample(example: dict, tokenizer: Tokenizer, max_length: int, mask_in
     Finally, both the prompt and the label get tokenized. If desired, all tokens
     in the label that correspond to the original input prompt get masked out (default).
     """
-    full_prompt = build_prompt(example, test=False)
-    full_prompt_and_response = build_prompt(example, test=True)
+    full_prompt = build_prompt(example, test=True)
+    full_prompt_and_response = build_prompt(example, test=False)
     encoded_full_prompt = tokenize(tokenizer, full_prompt, max_length=max_length, eos=False)
     encoded_full_prompt_and_response = tokenize(tokenizer, full_prompt_and_response, eos=True, max_length=max_length)
 

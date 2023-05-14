@@ -1,8 +1,9 @@
 import random
 
 def create_one_example(question, context, choice, answer, test=False):
-    input = f"Question: {question}\nContext: {context}\nOptions: {choice}\n"
-
+    input = (
+        f"Question: {question}\nContext: {context}\nOptions: {choice}\n"
+    )
     if test:
         output = "Answer: The answer is "
     else:

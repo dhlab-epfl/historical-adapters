@@ -16,7 +16,11 @@ from scripts.prepare_alpaca import generate_prompt
 from scripts.prompt_generate import *
 import re
 import random
+from datasets import load_dataset
 
+dataset = load_dataset("derek-thomas/ScienceQA")
+testset = dataset['test']
+print(f"test has {len(testset):,} samples")
 
 def main(
     prompt: str = "What food do lamas eat?",
@@ -25,7 +29,7 @@ def main(
     pretrained_path: Optional[Path] = None,
     tokenizer_path: Optional[Path] = None,
     quantize: Optional[str] = None,
-    max_new_tokens: int = 50,
+    max_new_tokens: int = 100,
     top_k: int = 200,
     temperature: float = 0.8,
 ) -> None:
@@ -97,53 +101,49 @@ def main(
     all_ans = []
     options=['A', 'B', 'C', 'D', 'E']
     cnt = 0
- 
-    with open('./ScienceQA_test_text/test.json', encoding='utf-8') as f:
-        data = json.load(f)    
-        for i, ele in data.items():
-            prompt = build_prompt(data[i], True)
-            # print(prompt)
-            encoded = tokenizer.encode(prompt, bos=True, eos=False, device=model.device)
+    
+    for i in range(len(testset)):
+        prompt = build_prompt(testset[i], True)
+        encoded = tokenizer.encode(prompt, bos=True, eos=False, device=model.device)
 
-            t0 = time.perf_counter()
-            output = generate(
-                model,
-                idx=encoded,
-                max_seq_length=max_new_tokens,
-                max_new_tokens=max_new_tokens,
-                temperature=temperature,
-                top_k=top_k,
-                eos_id=tokenizer.eos_id
-            )
-            t = time.perf_counter() - t0
+        t0 = time.perf_counter()
+        output = generate(
+            model,
+            idx=encoded,
+            max_seq_length=max_new_tokens,
+            max_new_tokens=max_new_tokens,
+            temperature=temperature,
+            top_k=top_k,
+            eos_id=tokenizer.eos_id
+        )
+        t = time.perf_counter() - t0
 
-            output = tokenizer.decode(output).strip()
+        output = tokenizer.decode(output).strip()
             # output = output.split("Answer:")[1].strip()
             
-            pattern = re.compile(r'The answer is ([A-Z]).')
-            res = pattern.findall(output)
+        pattern = re.compile(r'The answer is ([A-Z]).')
+        res = pattern.findall(output)
             
-            if len(res) == 1:
-                pred = res[0]  # 'A', 'B', ...
-            else:
-                pred = "FAILED"
+        if len(res) == 1:
+            pred = res[0]  # 'A', 'B', ...
+        else:
+            pred = "FAILED"
 
-            choices = data[i]['choices']
-            sbj = data[i]['subject']
-            ground_truth = data[i]['answer']
-            pred_idx = get_pred_idx(pred, choices, options)
+        choices = testset[i]['choices']
+        sbj = testset[i]['subject']
+        ground_truth = testset[i]['answer']
+        pred_idx = get_pred_idx(pred, choices, options)
 
-            if pred_idx == ground_truth:
-                cnt += 1
-                print(cnt)
+        if pred_idx == ground_truth:
+            cnt += 1
+            print(str(cnt) + ' out of ' + str(i))
                 
-            all_prompts.append(prompt)
-            all_outputs.append(output)
-            all_sbjs.append(sbj)
-            all_ans.append(ground_truth)
-        
-        acc = (cnt / len(data)) * 100
-            
+        all_prompts.append(prompt)
+        all_outputs.append(output)
+        all_sbjs.append(sbj)
+        all_ans.append(ground_truth)
+    
+    acc = (cnt / len(testset)) * 100
 
     print('*****************Accuracy*****************')
     print(acc)
