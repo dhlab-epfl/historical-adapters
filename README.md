@@ -67,9 +67,6 @@ pip install -r requirements.txt
 python generate_adapter.py
 ```
 
-Basically, it's zero shot learning set-up. Achieved 48% accuracy. 
-
-
 
 
 
