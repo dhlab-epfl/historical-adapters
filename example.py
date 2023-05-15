@@ -15,6 +15,17 @@ from fairscale.nn.model_parallel.initialize import initialize_model_parallel
 
 from llama import ModelArgs, Transformer, Tokenizer, LLaMA
 import pdb
+
+from scripts.prepare_alpaca import generate_prompt
+from scripts.prompt_generate import *
+import re
+import random
+from datasets import load_dataset
+
+dataset = load_dataset("derek-thomas/ScienceQA")
+testset = dataset['test']
+print(f"test has {len(testset):,} samples")
+
 PROMPT_DICT = {
     "prompt_input": (
         "Below is an instruction that describes a task, paired with an input that provides further context. "
@@ -34,7 +45,8 @@ PROMPT_DICT = {
 
 def setup_model_parallel() -> Tuple[int, int]:
     local_rank = int(os.environ.get("LOCAL_RANK", -1))
-    world_size = int(os.environ.get("WORLD_SIZE", -1))
+    world_size = 1
+    # int(os.environ.get("WORLD_SIZE", -1))
 
     torch.distributed.init_process_group("nccl")
     initialize_model_parallel(world_size)
@@ -89,7 +101,7 @@ def main(
     temperature: float = 0.1,
     top_p: float = 0.75,
     max_seq_len: int = 512,
-    max_batch_size: int = 32,
+    max_batch_size: int = 1,
 ):
     local_rank, world_size = setup_model_parallel()
     if local_rank > 0:
@@ -109,19 +121,60 @@ def main(
     #     "Translate the sentence 'I have no mouth but I must scream' into Spanish.",
     #     "Count up from 1 to 500."]
     # prompts = [PROMPT_DICT['prompt_no_input'].format_map({'instruction':x, 'input': ''}) for x in instructs]
-    with open('./ScienceQA_test_text/test.json', encoding='utf-8') as f:
-        data = json.load(f)             
+    # with open('./ScienceQA_test_text/test.json', encoding='utf-8') as f:
+        # data = json.load(f)             
     # https://github.com/ZrrSkywalker/LLaMA-Adapter/issues/16
         # multiple gpu for inference is not possible at this moment with this code!
-    prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': x['choices']}) for i, x in data.items()]
+    # prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': x['choices']}) for i, x in data.items()]
     # print(prompts[10])
-    results = generator.generate(
-        prompts, max_gen_len=512, temperature=temperature, top_p=top_p
-    )
+    
+    pattern = re.compile(r'The answer is ([A-Z]).')
+    options=['A', 'B', 'C', 'D', 'E']
+    cnt = 0
+    save_results_json = {}
+    all_outputs = []
+    all_sbjs = []
+    all_ans = []
+  
+    for i in range(len(testset)):
+        prompt = build_prompt(testset[i], test=True)
 
-    for result in results:
-        print(result)
-        print("\n==================================\n")
+        result = generator.generate(
+            [prompt], max_gen_len=512, temperature=temperature, top_p=top_p
+        )
+
+        res = pattern.findall(result[j])
+        print(res)
+
+        if len(res) == 1:
+            pred = res[0]
+        else:
+            pred = "FAILED"
+        
+        choices = testset[i]['choices']
+        ground_truth = testset[i]['answer']
+        pred_idx = get_pred_idx(pred, choices, options)
+
+        if pred_idx == ground_truth:
+            cnt += 1
+            print(str(cnt) + ' out of ' + str(j))
+
+        
+        all_outputs.append(results[j])
+        all_sbjs.append(testset[j]['subject'])
+        all_ans.append(ground_truth)
+
+    acc = (cnt / len(results)) * 100
+
+    print(acc)
+
+    save_results_json['output'] = all_outputs
+    save_results_json['answer'] = all_ans
+    save_results_json['subject'] = all_sbjs
+    save_results_json['acc'] = acc          
+
+    with open('result.json', 'w') as fp:
+        json.dump(save_results_json, fp, indent=4)
 
 
 if __name__ == "__main__":
