@@ -143,7 +143,7 @@ def main(
             [prompt], max_gen_len=512, temperature=temperature, top_p=top_p
         )
 
-        res = pattern.findall(result[j])
+        res = pattern.findall(result)
         print(res)
 
         if len(res) == 1:
@@ -157,14 +157,14 @@ def main(
 
         if pred_idx == ground_truth:
             cnt += 1
-            print(str(cnt) + ' out of ' + str(j))
+            print(str(cnt) + ' out of ' + str(i))
 
         
-        all_outputs.append(results[j])
-        all_sbjs.append(testset[j]['subject'])
+        all_outputs.append(result)
+        all_sbjs.append(testset[i]['subject'])
         all_ans.append(ground_truth)
 
-    acc = (cnt / len(results)) * 100
+    acc = (cnt / len(testset)) * 100
 
     print(acc)
 
