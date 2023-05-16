@@ -9,3 +9,5 @@ datasets  # evaluate.py
 zstandard  # prepare_redpajama.py
 Pillow
 deepspeed
+fire
+fairscale
