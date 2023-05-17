@@ -178,7 +178,7 @@ def main(
 
             if pred_idx == answer[i]:
                 cnt += 1
-                print(str(cnt) + ' out of ' + str(i))
+                print(str(cnt) + ' out of ' + str(end))
 
             
             all_outputs.append(results[i])
