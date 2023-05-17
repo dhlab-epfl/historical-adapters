@@ -101,7 +101,7 @@ def main(
     adapter_path: str,
     temperature: float = 0.1,
     top_p: float = 0.75,
-    max_seq_len: int = 512,
+    max_seq_len: int = 540,
     max_batch_size: int = 64,
 ):
     local_rank, world_size = setup_model_parallel()
@@ -148,9 +148,9 @@ def main(
     for i in range(len(testset)):
         prompt = build_prompt(testset[i], test=True)
         prompts.append(prompt)
-        choice = testset[i]
+        choice = testset[i]['choices']
         choices.append(choice)
-        answer = testset[i]
+        answer = testset[i]['answer']
         answers.append(answer)
 
     for start in range(0, n_samples, batch):
@@ -163,7 +163,7 @@ def main(
         # prompt = prompts[batch_idx]
 
         results = generator.generate(
-                prompt, max_gen_len=512, temperature=temperature, top_p=top_p
+                prompt, max_gen_len=540, temperature=temperature, top_p=top_p
             )
 
         for i in range(len(results)):
