@@ -137,6 +137,8 @@ def main(
     all_sbjs = []
     all_ans = []
     prompts = []
+    choices = []
+    answers = []
     batch = 64
     n_samples = len(testset)
     # indices = np.arange(n_samples)
@@ -146,11 +148,17 @@ def main(
     for i in range(len(testset)):
         prompt = build_prompt(testset[i], test=True)
         prompts.append(prompt)
+        choice = testset[i]
+        choices.append(choice)
+        answer = testset[i]
+        answers.append(answer)
 
     for start in range(0, n_samples, batch):
         end = min(start + batch, n_samples)
         # batch_idx = indices[start:end]
         prompt = prompts[start:end]
+        choice = choices[start:end]
+        answer = answers[start:end]
 
         # prompt = prompts[batch_idx]
 
@@ -166,18 +174,15 @@ def main(
             else:
                 pred = "FAILED"
             
-            choices = testset[i]['choices']
-            ground_truth = testset[i]['answer']
-            pred_idx = get_pred_idx(pred, choices, options)
+            pred_idx = get_pred_idx(pred, choice[i], options)
 
-            if pred_idx == ground_truth:
+            if pred_idx == answer[i]:
                 cnt += 1
                 print(str(cnt) + ' out of ' + str(i))
 
             
             all_outputs.append(results[i])
-            all_sbjs.append(testset[i]['subject'])
-            all_ans.append(ground_truth)
+            all_ans.append(answer[i])
 
     acc = (cnt / len(testset)) * 100
 
