@@ -18,6 +18,8 @@ import time
 from pathlib import Path
 import shutil
 
+import wandb
+
 import lightning as L
 import numpy as np
 import torch
@@ -38,16 +40,14 @@ eval_interval = 600
 save_interval = 1000
 eval_iters = 100
 log_interval = 1
-devices = 4
+devices = 8
 
 # Hyperparameters
 learning_rate = 9e-3
 batch_size = 64 / devices
 micro_batch_size = 4
 gradient_accumulation_steps = batch_size // micro_batch_size
-epoch_size = 17000
-# 50000  # train dataset size
-# 12700 + 4241
+epoch_size = 13000 # 50000  # train dataset size
 num_epochs = 5
 max_iters = num_epochs * epoch_size // devices
 weight_decay = 0.02
@@ -61,12 +61,24 @@ ds_config = {
 }
 
 
+
 def main(
     data_dir: str = "/nlpdata1/home/sooh/lit-llama/science", 
     pretrained_path: str = "/nlpdata1/home/sooh/lit-llama/7B/lit-llama.pth",
-    out_dir: str = "/nlpdata1/home/sooh/lit-llama/science/checkpoints",
+    out_dir: str = "/nlpdata1/home/sooh/lit-llama/science/checkpoints2",
 ):
-
+    wandb.init(
+    # set the wandb project where this run will be logged
+    project="adapter",
+    
+    # track hyperparameters and run metadata
+    config={
+    "learning_rate": learning_rate,
+    "architecture": "adapter",
+    "dataset": "ScienceQA",
+    "epochs": 5,
+    }
+)
     fabric = L.Fabric(
         accelerator="cuda", 
         devices=devices, 
@@ -102,6 +114,8 @@ def main(
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=weight_decay)
     model, optimizer = fabric.setup(model, optimizer)
+    wandb.watch(model)
+
     train(fabric, model, optimizer, train_data, val_data, out_dir)
 
     # Save the final checkpoint at the end of training
@@ -146,6 +160,7 @@ def train(
             if step_count % eval_interval == 0:
                 val_loss = validate(fabric, model, val_data)
                 fabric.print(f"step {iter_num}: val loss {val_loss:.4f}")
+                wandb.log({"val_loss": val_loss})
                 fabric.barrier()
 
             if step_count % save_interval == 0:
@@ -156,6 +171,7 @@ def train(
         dt = time.time() - t0
         if iter_num % log_interval == 0:
             fabric.print(f"iter {iter_num}: loss {loss.item():.4f}, time: {dt*1000:.2f}ms")
+            wandb.log({"train_loss": loss.item()})
 
 
 def generate_response(model, example):
