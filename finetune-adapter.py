@@ -43,16 +43,16 @@ log_interval = 1
 devices = 8
 
 # Hyperparameters
-learning_rate = 9e-3
+learning_rate = 2e-5
 batch_size = 64 / devices
-micro_batch_size = 4
+micro_batch_size = 8
 gradient_accumulation_steps = batch_size // micro_batch_size
 epoch_size = 13000 # 50000  # train dataset size
-num_epochs = 5
+num_epochs = 12
 max_iters = num_epochs * epoch_size // devices
 weight_decay = 0.02
 max_seq_length = 256  # see scripts/prepare_alpaca.py
-warmup_steps = epoch_size * 2 // micro_batch_size // devices  # 2 epochs
+warmup_steps = 2 # 2 epochs
 
 ds_config = {
     "train_micro_batch_size_per_gpu": micro_batch_size,
@@ -65,18 +65,18 @@ ds_config = {
 def main(
     data_dir: str = "/nlpdata1/home/sooh/lit-llama/science", 
     pretrained_path: str = "/nlpdata1/home/sooh/lit-llama/7B/lit-llama.pth",
-    out_dir: str = "/nlpdata1/home/sooh/lit-llama/science/checkpoints2",
+    out_dir: str = "/nlpdata1/home/sooh/lit-llama/science/checkpoints3",
 ):
     wandb.init(
     # set the wandb project where this run will be logged
-    project="adapter",
+    project="adapter-latest",
     
     # track hyperparameters and run metadata
     config={
     "learning_rate": learning_rate,
     "architecture": "adapter",
     "dataset": "ScienceQA",
-    "epochs": 5,
+    "epochs": num_epochs,
     }
 )
     fabric = L.Fabric(
