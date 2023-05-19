@@ -1,9 +1,8 @@
 TARGET_FOLDER='/nlpdata1/home/sooh/llama'
 
-torchrun --nproc_per_node 4 finetuning.py \
+torchrun --nproc_per_node 8 finetuning.py \
     --model Llama7B_adapter \
     --llama_model_path $TARGET_FOLDER/ \
-    --data_path alpaca_data.json \
     --adapter_layer 30 \
     --adapter_len 10 \
     --max_seq_len 512 \
