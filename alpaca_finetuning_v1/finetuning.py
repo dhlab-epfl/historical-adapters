@@ -26,8 +26,8 @@ from transformers import BertTokenizer, GPT2Tokenizer
 from llama import ModelArgs, Transformer, Tokenizer, LLaMA
 import models_llama_adapter
 from datasets import load_dataset
-from scripts.prompt_generate import *
-
+from util.prompt_generate import *
+import wandb
 
 
 PROMPT_DICT = {
@@ -169,7 +169,18 @@ def get_args_parser():
 
 
 def main(args):
-
+    wandb.init(
+    # set the wandb project where this run will be logged
+    project="adapter-orig-first",
+    
+    # track hyperparameters and run metadata
+    config={
+    "learning_rate": args.lr,
+    "architecture": "adapter",
+    "dataset": "ScienceQA",
+    "epochs": args.epochs,
+    }
+)
     misc.init_distributed_mode(args)
 
     print('job dir: {}'.format(os.path.dirname(os.path.realpath(__file__))))
@@ -230,9 +241,10 @@ def main(args):
     
     # define the model
     model = models_llama_adapter.__dict__[args.model](args)
-
+    
     model.to(device)
-
+    wandb.watch(model)
+    
     model_without_ddp = model
     print("Model = %s" % str(model_without_ddp))
 
@@ -289,6 +301,7 @@ def main(args):
         log_stats = {**{f'train_{k}': v for k, v in train_stats.items()},
                         'epoch': epoch, 
                         **{f'val_{k}': v for k, v in val_stats.items()}}
+        wandb.log(log_stats)
 
 
         if args.output_dir and misc.is_main_process():
