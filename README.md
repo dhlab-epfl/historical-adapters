@@ -31,8 +31,15 @@ python finetune_adapter.py
 ```
 [Note] If you are using 8 gpus, you can fine-tune the model under 1 hour
 
-### Fine-tuning with customized dataset
-Working on ScienceQA dataset
+### Fine-tuning with ScienceQA dataset
+
+#### Original repo framework fine-tuning
+
+```
+bash alpaca_finetuning_v1/finetuning.sh
+```
+
+#### Lightning framework fine-tuning
 https://github.com/Lightning-AI/lit-llama/blob/main/howto/finetune_adapter.md
 
 1. Prepare customized ScienceQA dataset
