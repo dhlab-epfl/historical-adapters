@@ -11,3 +11,8 @@ Pillow
 deepspeed
 fire
 fairscale
+torchvision
+wandb
+tensorboard
+timm
+transformers
