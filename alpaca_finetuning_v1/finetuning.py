@@ -50,12 +50,12 @@ print(f"val has {len(test_set):,} samples")
 
 
 class InstructionDataset(Dataset):
-    def __init__(self, data_path, model_path, max_words=30, partition='train'):
-        self.ann = json.load(open(data_path))
-        # if partition == 'train':
-        #     self.ann = self.ann
-        # else:
-        #     self.ann = self.ann[:200]
+    def __init__(self, model_path, max_words=30, partition='train'):
+        
+        if partition == 'train':
+            self.ann = train_set
+        else:
+            self.ann = test_set
 
         self.max_words = max_words
         tokenizer = Tokenizer(model_path= model_path + './tokenizer.model')
@@ -184,8 +184,8 @@ def main(args):
 
     cudnn.benchmark = True
 
-    dataset_train = InstructionDataset(data_path=args.data_path, model_path = args.llama_model_path, max_words=args.max_seq_len, partition='train')
-    dataset_val = InstructionDataset(data_path=args.data_path, model_path = args.llama_model_path, max_words=args.max_seq_len, partition='val')
+    dataset_train = InstructionDataset(model_path = args.llama_model_path, max_words=args.max_seq_len, partition='train')
+    dataset_val = InstructionDataset(model_path = args.llama_model_path, max_words=args.max_seq_len, partition='val')
 
     print(dataset_train)
     print(dataset_val)
