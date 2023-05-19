@@ -25,6 +25,8 @@ from engine_finetuning import train_one_epoch, val_one_epoch
 from transformers import BertTokenizer, GPT2Tokenizer
 from llama import ModelArgs, Transformer, Tokenizer, LLaMA
 import models_llama_adapter
+from datasets import load_dataset
+from scripts.prompt_generate import *
 
 
 
@@ -41,14 +43,19 @@ PROMPT_DICT = {
     ),
 }
 
+dataset = load_dataset("derek-thomas/ScienceQA")
+train_set, test_set = dataset['train'], dataset['validation']
+print(f"train has {len(train_set):,} samples")
+print(f"val has {len(test_set):,} samples")
+
 
 class InstructionDataset(Dataset):
     def __init__(self, data_path, model_path, max_words=30, partition='train'):
         self.ann = json.load(open(data_path))
-        if partition == 'train':
-            self.ann = self.ann
-        else:
-            self.ann = self.ann[:200]
+        # if partition == 'train':
+        #     self.ann = self.ann
+        # else:
+        #     self.ann = self.ann[:200]
 
         self.max_words = max_words
         tokenizer = Tokenizer(model_path= model_path + './tokenizer.model')
@@ -60,11 +67,14 @@ class InstructionDataset(Dataset):
     def __getitem__(self, index):
 
         ann = self.ann[index]
-        if ann.get("input", "") == "":
-            prompt = PROMPT_DICT['prompt_no_input'].format_map(ann)
-        else:
-            prompt = PROMPT_DICT['prompt_input'].format_map(ann)
-        example = prompt + ann['output']
+
+        prompt = build_prompt(ann, test=True)
+        example = build_prompt(ann, test=False)
+        # if ann.get("input", "") == "":
+        #     prompt = PROMPT_DICT['prompt_no_input'].format_map(ann)
+        # else:
+        #     prompt = PROMPT_DICT['prompt_input'].format_map(ann)
+        # example = prompt + ann['output']
         prompt = torch.tensor(self.tokenizer1.encode(prompt, bos=True, eos=False), dtype=torch.int64)
         example = torch.tensor(self.tokenizer1.encode(example, bos=True, eos=True), dtype=torch.int64)
         padding = self.max_words - example.shape[0]
