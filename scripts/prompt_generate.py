@@ -5,7 +5,7 @@ def create_one_example(question, context, choice, answer, test=False):
         f"Question: {question}\nContext: {context}\nOptions: {choice}\n"
     )
     if test:
-        output = "Answer: The answer is "
+        output = "Answer: "
     else:
         output = f"Answer: The answer is {answer}."
 
