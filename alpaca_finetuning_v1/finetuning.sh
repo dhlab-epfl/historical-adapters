@@ -1,4 +1,4 @@
-TARGET_FOLDER='/nlpdata1/home/sooh/llama'
+TARGET_FOLDER='/scratch/sooh/llama'
 
 torchrun --nproc_per_node 8 finetuning.py \
     --model Llama7B_adapter \
@@ -11,4 +11,4 @@ torchrun --nproc_per_node 8 finetuning.py \
     --warmup_epochs 2 \
     --blr 9e-3 \
     --weight_decay 0.02 \
-    --output_dir /nlpdata1/home/sooh/llama_adapter/checkpoint/
+    --output_dir /scratch/sooh/llama/checkpoint/
