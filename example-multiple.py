@@ -152,6 +152,8 @@ def main(
         choices.append(choice)
         answer = testset[i]['answer']
         answers.append(answer)
+        subject = testset[i]['subject']
+        subjects.append(subject)
 
     for start in range(0, n_samples, batch):
         end = min(start + batch, n_samples)
@@ -178,7 +180,7 @@ def main(
 
             if pred_idx == answer[i]:
                 cnt += 1
-                print(str(cnt) + ' out of ' + str(end))
+                print(str(cnt) + ' out of ' + str(end*i))
 
             
             all_outputs.append(results[i])
@@ -190,7 +192,7 @@ def main(
 
     save_results_json['output'] = all_outputs
     save_results_json['answer'] = all_ans
-    save_results_json['subject'] = all_sbjs
+    save_results_json['subject'] = subjects
     save_results_json['acc'] = acc          
 
     with open('result.json', 'w') as fp:

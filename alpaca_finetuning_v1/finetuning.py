@@ -301,7 +301,8 @@ def main(args):
         log_stats = {**{f'train_{k}': v for k, v in train_stats.items()},
                         'epoch': epoch, 
                         **{f'val_{k}': v for k, v in val_stats.items()}}
-        wandb.log({'train_loss':v for k,v in train_stats.items(), 'val_loss':v for k,v in val_stats.items()})
+        
+        wandb.log(log_stats)
 
 
         if args.output_dir and misc.is_main_process():

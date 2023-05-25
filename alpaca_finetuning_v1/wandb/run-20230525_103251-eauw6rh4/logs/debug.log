@@ -1,0 +1,27 @@
+2023-05-25 10:32:51,125 INFO    MainThread:7765 [wandb_setup.py:_flush():76] Current SDK version is 0.15.3
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_setup.py:_flush():76] Configure stats pid to 7765
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_setup.py:_flush():76] Loading settings from /home/sooh/.config/wandb/settings
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_setup.py:_flush():76] Loading settings from /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/settings
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'api_key': '***REDACTED***'}
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'alpaca_finetuning_v1/finetuning.py', 'program': 'finetuning.py'}
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_init.py:_log_setup():507] Logging user logs to /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_103251-eauw6rh4/logs/debug.log
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_init.py:_log_setup():508] Logging internal logs to /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_103251-eauw6rh4/logs/debug-internal.log
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_init.py:init():547] calling init triggers
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {'learning_rate': None, 'architecture': 'adapter', 'dataset': 'ScienceQA', 'epochs': 30}
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_init.py:init():596] starting backend
+2023-05-25 10:32:51,126 INFO    MainThread:7765 [wandb_init.py:init():600] setting up manager
+2023-05-25 10:32:51,129 INFO    MainThread:7765 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-05-25 10:32:51,130 INFO    MainThread:7765 [wandb_init.py:init():606] backend started and connected
+2023-05-25 10:32:51,134 INFO    MainThread:7765 [wandb_init.py:init():700] updated telemetry
+2023-05-25 10:32:51,156 INFO    MainThread:7765 [wandb_init.py:init():737] communicating run to backend with 60.0 second timeout
+2023-05-25 10:32:51,497 INFO    MainThread:7765 [wandb_run.py:_on_init():2177] communicating current version
+2023-05-25 10:32:51,558 INFO    MainThread:7765 [wandb_run.py:_on_init():2186] got version response 
+2023-05-25 10:32:51,558 INFO    MainThread:7765 [wandb_init.py:init():787] starting run threads in backend
+2023-05-25 10:32:51,634 INFO    MainThread:7765 [wandb_run.py:_console_start():2158] atexit reg
+2023-05-25 10:32:51,635 INFO    MainThread:7765 [wandb_run.py:_redirect():2013] redirect: SettingsConsole.WRAP_RAW
+2023-05-25 10:32:51,635 INFO    MainThread:7765 [wandb_run.py:_redirect():2078] Wrapping output streams.
+2023-05-25 10:32:51,635 INFO    MainThread:7765 [wandb_run.py:_redirect():2103] Redirects installed.
+2023-05-25 10:32:51,636 INFO    MainThread:7765 [wandb_init.py:init():829] run started, returning control to user process
+2023-05-25 10:33:01,799 INFO    MainThread:7765 [wandb_watch.py:watch():51] Watching
