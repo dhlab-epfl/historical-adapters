@@ -1,0 +1,1166 @@
+2023-05-25 16:03:42,532 INFO    StreamThr :25769 [internal.py:wandb_internal():86] W&B internal server running at pid: 25769, started at: 2023-05-25 16:03:42.532005
+2023-05-25 16:03:42,533 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status
+2023-05-25 16:03:42,535 INFO    WriterThread:25769 [datastore.py:open_for_write():85] open: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/run-le96onwj.wandb
+2023-05-25 16:03:42,536 DEBUG   SenderThread:25769 [sender.py:send():375] send: header
+2023-05-25 16:03:42,554 DEBUG   SenderThread:25769 [sender.py:send():375] send: run
+2023-05-25 16:03:42,925 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: check_version
+2023-05-25 16:03:42,926 INFO    SenderThread:25769 [dir_watcher.py:__init__():219] watching files in: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files
+2023-05-25 16:03:42,926 INFO    SenderThread:25769 [sender.py:_start_run_threads():1124] run started: le96onwj with start time 1685030622.531529
+2023-05-25 16:03:42,926 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: summary_record
+2023-05-25 16:03:42,926 INFO    SenderThread:25769 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-05-25 16:03:42,927 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: check_version
+2023-05-25 16:03:42,992 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: run_start
+2023-05-25 16:03:43,003 DEBUG   HandlerThread:25769 [system_info.py:__init__():31] System info init
+2023-05-25 16:03:43,003 DEBUG   HandlerThread:25769 [system_info.py:__init__():46] System info init done
+2023-05-25 16:03:43,003 INFO    HandlerThread:25769 [system_monitor.py:start():181] Starting system monitor
+2023-05-25 16:03:43,003 INFO    SystemMonitor:25769 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-05-25 16:03:43,004 INFO    HandlerThread:25769 [system_monitor.py:probe():201] Collecting system info
+2023-05-25 16:03:43,005 INFO    SystemMonitor:25769 [interfaces.py:start():190] Started cpu monitoring
+2023-05-25 16:03:43,005 INFO    SystemMonitor:25769 [interfaces.py:start():190] Started disk monitoring
+2023-05-25 16:03:43,006 INFO    SystemMonitor:25769 [interfaces.py:start():190] Started gpu monitoring
+2023-05-25 16:03:43,008 INFO    SystemMonitor:25769 [interfaces.py:start():190] Started memory monitoring
+2023-05-25 16:03:43,009 INFO    SystemMonitor:25769 [interfaces.py:start():190] Started network monitoring
+2023-05-25 16:03:43,107 DEBUG   HandlerThread:25769 [system_info.py:probe():195] Probing system
+2023-05-25 16:03:43,114 DEBUG   HandlerThread:25769 [system_info.py:_probe_git():180] Probing git
+2023-05-25 16:03:43,127 DEBUG   HandlerThread:25769 [system_info.py:_probe_git():188] Probing git done
+2023-05-25 16:03:43,127 DEBUG   HandlerThread:25769 [system_info.py:probe():240] Probing system done
+2023-05-25 16:03:43,128 DEBUG   HandlerThread:25769 [system_monitor.py:probe():210] {'os': 'Linux-5.4.0-132-generic-x86_64-with-glibc2.17', 'python': '3.8.16', 'heartbeatAt': '2023-05-25T16:03:43.107912', 'startedAt': '2023-05-25T16:03:42.525901', 'docker': None, 'cuda': None, 'args': ('--model', 'Llama7B_adapter', '--llama_model_path', '/data1/data/sooh-data/llama/', '--adapter_layer', '30', '--adapter_len', '10', '--max_seq_len', '512', '--batch_size', '4', '--epochs', '30', '--warmup_epochs', '2', '--blr', '9e-3', '--weight_decay', '0.02', '--output_dir', '/data1/data/sooh-data/llama/checkpoint3/'), 'state': 'running', 'program': 'finetuning.py', 'codePath': 'alpaca_finetuning_v1/finetuning.py', 'git': {'remote': 'https://github.com/dhlab-epfl/historical-adapters.git', 'commit': '2f6e489e5eaf6c9a306af973b3f0bfd8159248e8'}, 'email': 'sori424@gmail.com', 'root': '/home/sooh/historical-adapters', 'host': 'sooh-fine-0-0', 'username': 'sooh', 'executable': '/home/sooh/.conda/envs/myenv/bin/python', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 3128.172062499999, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 3288.271, 'min': 0.0, 'max': 0.0}, {'current': 3293.027, 'min': 0.0, 'max': 0.0}, {'current': 3289.924, 'min': 0.0, 'max': 0.0}, {'current': 3289.916, 'min': 0.0, 'max': 0.0}, {'current': 3284.513, 'min': 0.0, 'max': 0.0}, {'current': 3291.969, 'min': 0.0, 'max': 0.0}, {'current': 3294.064, 'min': 0.0, 'max': 0.0}, {'current': 2303.627, 'min': 0.0, 'max': 0.0}, {'current': 2278.59, 'min': 0.0, 'max': 0.0}, {'current': 3191.093, 'min': 0.0, 'max': 0.0}, {'current': 3293.807, 'min': 0.0, 'max': 0.0}, {'current': 3240.965, 'min': 0.0, 'max': 0.0}, {'current': 2462.467, 'min': 0.0, 'max': 0.0}, {'current': 3286.939, 'min': 0.0, 'max': 0.0}, {'current': 3230.948, 'min': 0.0, 'max': 0.0}, {'current': 3293.529, 'min': 0.0, 'max': 0.0}, {'current': 3292.903, 'min': 0.0, 'max': 0.0}, {'current': 3030.162, 'min': 0.0, 'max': 0.0}, {'current': 3002.315, 'min': 0.0, 'max': 0.0}, {'current': 3287.424, 'min': 0.0, 'max': 0.0}, {'current': 3293.717, 'min': 0.0, 'max': 0.0}, {'current': 2226.952, 'min': 0.0, 'max': 0.0}, {'current': 3289.56, 'min': 0.0, 'max': 0.0}, {'current': 3015.227, 'min': 0.0, 'max': 0.0}, {'current': 3266.803, 'min': 0.0, 'max': 0.0}, {'current': 2960.041, 'min': 0.0, 'max': 0.0}, {'current': 3065.343, 'min': 0.0, 'max': 0.0}, {'current': 3200.005, 'min': 0.0, 'max': 0.0}, {'current': 3280.344, 'min': 0.0, 'max': 0.0}, {'current': 3293.738, 'min': 0.0, 'max': 0.0}, {'current': 3287.172, 'min': 0.0, 'max': 0.0}, {'current': 3267.246, 'min': 0.0, 'max': 0.0}, {'current': 3287.801, 'min': 0.0, 'max': 0.0}, {'current': 3290.883, 'min': 0.0, 'max': 0.0}, {'current': 3288.054, 'min': 0.0, 'max': 0.0}, {'current': 3287.266, 'min': 0.0, 'max': 0.0}, {'current': 3271.696, 'min': 0.0, 'max': 0.0}, {'current': 3285.975, 'min': 0.0, 'max': 0.0}, {'current': 3291.992, 'min': 0.0, 'max': 0.0}, {'current': 3286.971, 'min': 0.0, 'max': 0.0}, {'current': 3292.831, 'min': 0.0, 'max': 0.0}, {'current': 3215.787, 'min': 0.0, 'max': 0.0}, {'current': 3292.582, 'min': 0.0, 'max': 0.0}, {'current': 3082.688, 'min': 0.0, 'max': 0.0}, {'current': 2400.802, 'min': 0.0, 'max': 0.0}, {'current': 3287.064, 'min': 0.0, 'max': 0.0}, {'current': 3155.106, 'min': 0.0, 'max': 0.0}, {'current': 3293.914, 'min': 0.0, 'max': 0.0}, {'current': 3293.672, 'min': 0.0, 'max': 0.0}, {'current': 3292.387, 'min': 0.0, 'max': 0.0}, {'current': 2989.664, 'min': 0.0, 'max': 0.0}, {'current': 3283.435, 'min': 0.0, 'max': 0.0}, {'current': 3294.069, 'min': 0.0, 'max': 0.0}, {'current': 3288.142, 'min': 0.0, 'max': 0.0}, {'current': 3294.11, 'min': 0.0, 'max': 0.0}, {'current': 2159.856, 'min': 0.0, 'max': 0.0}, {'current': 3286.564, 'min': 0.0, 'max': 0.0}, {'current': 2333.423, 'min': 0.0, 'max': 0.0}, {'current': 3161.664, 'min': 0.0, 'max': 0.0}, {'current': 2378.606, 'min': 0.0, 'max': 0.0}, {'current': 3290.261, 'min': 0.0, 'max': 0.0}, {'current': 3290.221, 'min': 0.0, 'max': 0.0}, {'current': 3293.772, 'min': 0.0, 'max': 0.0}, {'current': 3289.153, 'min': 0.0, 'max': 0.0}], 'disk': {'total': 438.30672454833984, 'used': 286.19814682006836}, 'gpu': 'NVIDIA A100-SXM4-40GB', 'gpu_count': 4, 'gpu_devices': [{'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}], 'memory': {'total': 503.6348876953125}}
+2023-05-25 16:03:43,128 INFO    HandlerThread:25769 [system_monitor.py:probe():211] Finished collecting system info
+2023-05-25 16:03:43,128 INFO    HandlerThread:25769 [system_monitor.py:probe():214] Publishing system info
+2023-05-25 16:03:43,128 DEBUG   HandlerThread:25769 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-05-25 16:03:43,128 DEBUG   HandlerThread:25769 [system_info.py:_save_pip():67] Saving pip packages done
+2023-05-25 16:03:43,128 DEBUG   HandlerThread:25769 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-05-25 16:03:43,133 ERROR   HandlerThread:25769 [system_info.py:_save_conda():85] Error saving conda packages: [Errno 2] No such file or directory: 'conda'
+Traceback (most recent call last):
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/wandb/sdk/internal/system/system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/subprocess.py", line 340, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/subprocess.py", line 858, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/subprocess.py", line 1704, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2023-05-25 16:03:43,134 DEBUG   HandlerThread:25769 [system_info.py:_save_conda():86] Saving conda packages done
+2023-05-25 16:03:43,135 INFO    HandlerThread:25769 [system_monitor.py:probe():216] Finished publishing system info
+2023-05-25 16:03:43,140 DEBUG   SenderThread:25769 [sender.py:send():375] send: files
+2023-05-25 16:03:43,140 INFO    SenderThread:25769 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2023-05-25 16:03:43,144 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:03:43,145 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:03:43,312 DEBUG   SenderThread:25769 [sender.py:send():375] send: telemetry
+2023-05-25 16:03:43,623 INFO    wandb-upload_0:25769 [upload_job.py:push():137] Uploaded file /tmp/tmp_wmyn9j3wandb/oo151l1q-wandb-metadata.json
+2023-05-25 16:03:43,927 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/wandb-metadata.json
+2023-05-25 16:03:43,927 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/wandb-summary.json
+2023-05-25 16:03:43,927 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/conda-environment.yaml
+2023-05-25 16:03:43,928 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:03:43,928 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/requirements.txt
+2023-05-25 16:03:45,926 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:03:47,595 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:03:47,927 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:03:49,928 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:03:53,549 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:03:55,646 DEBUG   SenderThread:25769 [sender.py:send():375] send: telemetry
+2023-05-25 16:03:55,930 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:03:57,931 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:03:58,143 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:03:58,144 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:03:59,022 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:03:59,932 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:04,712 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:04:05,934 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:09,935 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:10,390 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:04:13,144 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:04:13,144 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:04:13,937 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:16,297 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:04:16,938 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/config.yaml
+2023-05-25 16:04:19,939 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:21,757 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:04:23,940 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:27,118 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:04:27,942 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:28,143 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:04:28,144 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:04:32,802 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:04:33,944 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:37,946 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:38,484 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:04:41,947 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:43,009 DEBUG   SystemMonitor:25769 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-05-25 16:04:43,011 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:04:43,143 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:04:43,144 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:04:44,292 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:04:47,949 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:49,850 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:04:51,951 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:55,226 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:04:55,952 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:04:58,144 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:04:58,144 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:05:00,921 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:05:01,955 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:05,956 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:06,613 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:05:09,958 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:12,299 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:05:13,012 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:05:13,144 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:05:13,144 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:05:15,960 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:17,987 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:05:19,962 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:23,361 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:05:23,963 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:28,144 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:05:28,145 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:05:29,285 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:05:29,966 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:33,968 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:34,735 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:05:37,970 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:40,419 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:05:43,013 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:05:43,144 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:05:43,145 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:05:43,972 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:46,295 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:05:47,974 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:51,481 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:05:51,976 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:57,179 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:05:57,978 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:05:58,144 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:05:58,145 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:06:01,980 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:02,869 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:06:05,981 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:08,562 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:06:11,984 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:13,015 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:06:13,144 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:06:13,145 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:06:14,281 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:06:15,985 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:19,636 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:06:19,987 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:25,329 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:06:25,990 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:28,144 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:06:28,145 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:06:29,991 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:31,018 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:06:33,993 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:36,706 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:06:39,996 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:42,399 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:06:43,015 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:06:43,145 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:06:43,145 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:06:43,997 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:47,783 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:06:50,000 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:53,478 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:06:54,002 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:58,004 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:06:58,145 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:06:58,145 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:06:59,310 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:07:04,006 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:04,863 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:07:08,008 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:10,551 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:07:12,010 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:13,017 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:07:13,145 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:07:13,145 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:07:15,927 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:07:18,012 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:21,615 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:07:22,014 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:26,016 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:27,304 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:07:28,145 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:07:28,146 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:07:32,018 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:32,999 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:07:36,020 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:38,687 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:07:40,022 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:43,018 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:07:43,145 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:07:43,146 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:07:44,069 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:07:46,024 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:49,759 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:07:50,026 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:54,028 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:07:55,448 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:07:58,145 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:07:58,145 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:08:00,030 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:01,298 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:08:04,032 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:06,839 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:08:08,033 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:12,211 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:08:13,019 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:08:13,148 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:08:13,149 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:08:14,036 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:17,910 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:08:18,037 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:22,039 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:23,601 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:08:28,041 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:28,164 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:08:28,164 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:08:29,318 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:08:32,043 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:34,982 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:08:36,045 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:40,362 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:08:42,047 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:43,020 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:08:43,175 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:08:43,175 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:08:46,049 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:46,098 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:08:50,050 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:51,746 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:08:56,053 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:08:57,434 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:08:58,187 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:08:58,187 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:09:00,055 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:03,129 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:09:04,056 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:08,516 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:09:10,059 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:13,021 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:09:13,206 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:09:13,207 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:09:14,060 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:14,364 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:09:18,062 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:19,903 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:09:24,064 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:25,595 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:09:28,066 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:28,227 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:09:28,228 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:09:31,366 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:09:34,069 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:36,669 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:09:38,070 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:42,072 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:42,361 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:09:43,023 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:09:43,238 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:09:43,239 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:09:48,056 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:09:48,074 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:52,076 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:53,748 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:09:56,078 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:09:58,255 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:09:58,255 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:09:59,394 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:02,080 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:04,823 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:06,082 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:10,083 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:10,515 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:12,084 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:13,024 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:10:13,255 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:10:13,255 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:10:14,085 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:16,082 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:16,086 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:18,087 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:20,088 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:21,307 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:22,088 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:24,089 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:26,090 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:26,455 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:28,091 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:28,254 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:10:28,255 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:10:30,092 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:31,680 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:32,093 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:34,094 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:36,094 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:36,832 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:38,095 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:40,096 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:42,058 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:42,097 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:43,025 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:10:43,255 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:10:43,255 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:10:44,098 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:46,098 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:47,208 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:48,099 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:50,100 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:52,101 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:52,438 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:54,102 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:57,104 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:10:57,589 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:10:58,254 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:10:58,255 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:10:59,104 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:11:01,105 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:11:02,824 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:11:03,106 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:11:05,106 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:11:07,107 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:11:07,898 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:11:09,108 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:11:12,899 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:11:13,027 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:11:13,676 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:11:13,676 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:11:17,914 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:11:22,915 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:11:27,916 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:11:32,916 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:11:35,801 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:11:35,801 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:11:40,401 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:11:42,325 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: keepalive
+2023-05-25 16:11:42,327 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:11:42,328 DEBUG   SenderThread:25769 [sender.py:send():375] send: history
+2023-05-25 16:11:42,328 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: summary_record
+2023-05-25 16:11:42,328 INFO    SenderThread:25769 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-05-25 16:11:43,027 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:11:43,120 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/wandb-summary.json
+2023-05-25 16:11:45,121 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:11:46,180 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:11:49,122 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:11:50,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:11:50,713 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:11:51,854 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:11:55,125 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:11:57,226 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:11:59,126 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:02,912 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:12:03,127 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:05,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:12:05,713 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:12:08,601 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:12:09,130 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:13,029 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:12:13,131 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:14,030 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:12:19,133 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:19,169 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:12:20,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:12:20,713 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:12:23,135 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:24,865 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:12:27,136 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:30,242 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:12:33,138 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:35,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:12:35,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:12:35,713 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:12:37,140 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:41,141 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:41,628 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:12:43,030 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:12:47,144 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:47,323 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:12:50,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:12:50,713 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:12:51,145 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:52,864 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:12:55,147 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:12:58,400 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:13:01,149 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:04,094 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:13:05,151 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:05,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:13:05,713 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:13:09,152 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:09,826 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:13:13,031 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:13:15,032 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:13:15,154 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:18,801 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,810 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,819 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,828 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,837 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,846 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,855 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,864 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,874 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,883 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,892 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,901 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,910 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,919 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,928 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,937 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,946 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,955 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,964 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,973 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,982 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:18,991 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:19,000 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:19,009 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:19,019 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:19,028 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:19,037 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:19,046 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:19,055 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:19,064 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:19,065 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:13:19,156 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:20,178 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:13:20,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:13:20,713 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:13:23,157 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:25,886 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:13:29,160 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:31,265 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:13:33,162 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:35,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:13:35,714 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:13:36,955 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:13:37,164 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:42,646 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:13:43,032 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:13:43,166 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:47,168 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:48,336 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:13:50,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:13:50,714 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:13:51,169 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:53,851 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:13:57,172 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:13:59,398 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:14:01,173 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:05,088 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:14:05,175 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:05,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:14:05,714 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:14:10,776 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:14:11,178 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:13,033 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:14:15,179 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:16,467 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:14:19,181 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:20,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:14:20,714 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:14:21,851 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:14:25,184 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:26,852 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:14:29,186 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:32,232 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:14:33,187 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:35,718 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:14:35,718 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:14:37,962 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:14:39,190 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:43,034 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:14:43,036 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:14:43,191 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:47,193 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:48,301 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:14:50,717 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:14:50,718 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:14:53,196 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:53,990 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:14:57,197 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:14:59,683 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:15:03,200 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:05,073 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:15:05,717 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:15:05,718 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:15:07,202 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:10,765 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:15:11,203 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:13,035 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:15:16,459 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:15:17,206 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:20,717 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:15:20,718 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:15:21,208 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:21,867 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:15:25,209 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:27,846 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:15:31,212 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:33,230 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:15:35,214 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:35,718 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:15:35,718 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:15:38,962 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:15:39,215 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:43,036 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:15:44,037 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:15:45,217 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:49,219 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:49,306 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:15:50,717 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:15:50,718 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:15:53,221 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:15:55,000 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:15:59,223 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:00,693 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:16:03,225 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:05,718 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:16:05,718 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:16:05,719 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:16:07,226 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:10,768 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:16:13,037 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:16:13,229 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:16,465 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:16:17,230 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:20,718 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:16:20,718 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:16:21,232 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:21,866 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:16:26,890 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:16:27,234 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:31,236 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:32,550 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:16:35,238 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:35,718 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:16:35,718 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:16:37,862 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:16:41,240 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:42,936 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:16:43,037 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:16:45,242 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:48,330 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:16:49,243 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:50,718 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:16:50,718 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:16:54,029 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:16:55,246 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:59,248 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:16:59,722 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:17:03,249 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:05,417 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:17:05,718 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:17:05,718 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:17:09,252 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:11,150 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:17:13,039 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:17:13,253 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:16,495 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:17:17,255 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:20,718 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:17:20,719 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:17:22,189 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:17:23,257 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:27,259 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:27,881 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:17:33,261 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:33,581 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:17:35,742 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:17:35,742 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:17:37,263 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:38,889 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:17:41,265 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:43,040 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:17:44,041 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:17:47,267 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:49,360 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:17:50,765 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:17:50,766 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:17:51,269 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:55,051 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:17:55,271 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:17:57,272 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:00,623 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:01,273 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:03,274 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:05,275 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:05,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:18:05,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:05,766 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:18:07,276 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:09,276 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:10,998 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:11,277 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:13,041 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:18:13,278 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:15,279 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:16,227 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:17,280 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:19,280 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:20,765 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:18:20,766 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:18:21,281 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:21,457 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:23,282 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:25,283 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:26,613 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:27,283 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:29,284 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:31,285 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:31,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:33,286 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:35,286 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:35,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:18:35,766 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:18:37,014 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:37,287 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:39,288 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:41,289 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:42,169 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:43,042 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:18:43,289 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:45,290 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:47,291 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:47,403 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:49,292 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:50,765 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:18:50,766 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:18:51,293 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:51,469 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:18:51,477 DEBUG   SenderThread:25769 [sender.py:send():375] send: history
+2023-05-25 16:18:51,480 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: summary_record
+2023-05-25 16:18:51,484 INFO    SenderThread:25769 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-05-25 16:18:52,293 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/wandb-summary.json
+2023-05-25 16:18:53,290 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:53,293 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:18:58,988 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:18:59,295 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:03,297 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:04,686 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:19:05,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:19:05,767 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:19:07,299 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:10,422 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:19:13,043 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:19:13,301 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:15,773 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:19:17,303 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:20,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:19:20,766 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:19:20,912 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:19:21,304 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:26,163 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:19:27,306 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:31,308 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:31,855 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:19:35,309 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:35,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:19:35,766 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:19:36,912 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:19:41,312 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:42,254 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:19:43,044 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:19:45,314 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:47,950 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:19:49,315 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:50,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:19:50,767 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:19:53,335 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:19:55,318 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:19:59,029 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:19:59,319 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:03,321 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:04,721 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:20:05,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:20:05,767 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:20:09,324 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:10,413 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:20:13,046 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:20:13,325 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:16,047 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:20:19,328 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:20,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:20:20,767 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:20:21,487 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:20:23,330 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:27,177 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:20:27,332 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:32,869 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:20:33,334 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:35,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:20:35,767 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:20:37,336 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:37,917 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:20:41,338 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:43,046 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:20:43,048 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:20:47,340 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:48,946 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:20:50,767 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:20:50,767 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:20:51,342 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:20:54,333 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:20:55,343 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:00,026 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:21:01,346 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:05,348 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:05,720 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:21:05,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:21:05,767 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:21:09,350 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:11,413 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:21:13,047 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:21:15,352 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:17,108 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:21:19,354 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:20,767 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:21:20,768 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:21:22,498 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:21:23,356 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:28,191 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:21:29,358 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:33,360 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:33,883 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:21:35,767 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:21:35,767 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:21:37,361 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:39,577 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:21:43,048 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:21:43,364 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:45,049 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:21:47,366 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:50,662 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:21:50,767 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:21:50,767 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:21:51,368 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:21:56,357 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:21:57,370 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:01,372 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:02,053 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:22:04,025 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,034 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,043 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,052 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,061 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,070 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,079 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,088 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,097 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,107 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,116 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,125 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,134 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,143 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,152 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,161 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,170 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,179 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,188 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,197 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,206 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,215 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,224 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,233 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,242 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,251 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,260 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,269 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,278 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,287 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:04,329 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:22:05,374 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:05,767 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:22:05,767 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:22:07,918 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:22:11,376 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:13,049 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:22:13,051 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:22:15,378 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:18,154 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:22:19,380 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:20,767 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:22:20,768 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:22:23,542 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:22:25,383 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:29,238 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:22:29,384 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:34,933 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:22:35,386 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:35,768 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:22:35,768 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:22:39,388 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:40,626 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:22:43,050 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:22:43,389 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:46,052 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:22:49,392 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:50,776 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:22:50,776 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:22:51,717 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:22:53,393 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:57,395 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:22:57,411 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:03,104 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:03,397 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:05,796 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:23:05,797 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:23:07,399 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:08,970 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:11,401 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:13,052 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:23:14,053 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:17,403 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:19,186 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:20,817 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:23:20,817 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:23:21,405 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:24,573 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:25,406 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:30,270 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:31,409 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:35,410 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:35,840 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:23:35,840 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:35,840 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:23:39,412 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:41,659 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:43,052 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:23:45,414 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:47,353 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:49,416 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:50,867 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:23:50,867 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:23:52,747 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:53,418 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:23:58,442 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:23:59,420 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:03,421 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:04,137 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:24:05,892 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:24:05,893 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:24:07,423 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:09,874 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:24:13,053 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:24:13,425 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:15,055 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:24:17,427 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:20,219 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:24:20,909 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:24:20,910 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:24:23,430 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:25,609 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:24:27,431 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:31,301 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:24:31,433 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:35,435 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:35,930 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:24:35,931 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:24:39,048 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:24:41,437 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:43,054 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:24:44,055 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:24:45,439 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:49,068 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:24:49,441 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:50,941 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:24:50,942 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:24:54,766 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:24:55,443 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:24:59,445 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:00,457 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:05,447 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:05,640 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:05,941 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:25:05,942 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:25:07,448 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:09,449 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:10,788 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:11,449 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:13,056 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:25:13,450 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:15,451 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:15,939 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:17,452 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:19,453 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:20,941 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:25:20,942 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:25:21,077 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:21,453 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:23,454 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:25,455 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:26,329 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:27,456 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:29,456 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:31,457 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:31,561 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:33,458 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:35,459 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:35,941 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:25:35,942 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:25:36,795 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:37,460 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:39,461 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:41,461 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:41,951 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:43,056 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:25:43,462 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:45,463 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:47,106 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:49,465 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:50,942 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:25:50,942 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:25:51,465 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:52,342 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:53,466 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:55,467 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:57,468 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:25:57,507 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:25:59,468 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:00,578 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:26:00,585 DEBUG   SenderThread:25769 [sender.py:send():375] send: history
+2023-05-25 16:26:00,589 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: summary_record
+2023-05-25 16:26:00,592 INFO    SenderThread:25769 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-05-25 16:26:01,469 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:01,469 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/wandb-summary.json
+2023-05-25 16:26:03,370 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:26:03,470 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:05,942 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:26:05,943 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:26:07,472 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:09,090 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:26:11,473 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:13,058 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:26:15,059 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:26:17,476 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:20,170 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:26:20,942 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:26:20,942 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:26:21,477 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:25,479 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:25,867 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:26:31,481 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:31,563 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:26:35,483 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:35,942 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:26:35,942 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:26:37,091 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:26:39,484 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:42,956 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:26:43,058 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:26:45,487 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:48,345 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:26:49,488 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:50,942 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:26:50,943 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:26:53,489 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:54,039 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:26:59,492 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:26:59,741 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:27:03,493 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:05,444 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:27:05,942 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:27:05,943 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:27:07,495 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:11,141 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:27:13,060 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:27:13,497 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:16,538 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:27:17,498 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:20,942 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:27:20,943 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:27:21,500 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:22,234 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:27:27,502 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:27,932 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:27:31,504 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:33,626 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:27:35,942 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:27:35,943 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:27:37,506 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:39,081 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:27:41,507 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:43,061 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:27:44,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:27:45,509 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:50,409 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:27:50,942 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:27:50,943 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:27:51,511 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:55,512 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:27:56,102 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:27:59,514 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:01,798 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:28:05,516 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:05,943 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:28:05,943 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:28:07,078 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:28:09,517 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:12,199 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:28:13,062 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:28:13,519 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:17,588 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:28:19,521 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:20,943 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:28:20,943 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:28:23,283 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:28:23,523 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:27,524 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:28,976 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:28:33,526 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:34,669 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:28:35,943 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:28:35,943 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:28:37,528 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:40,361 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:28:41,530 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:43,062 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:28:45,749 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:28:47,532 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:50,943 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:28:50,944 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:28:51,092 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:28:51,533 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:55,535 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:28:56,138 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:01,537 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:01,835 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:05,538 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:05,943 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:29:05,944 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:29:07,094 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:09,540 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:12,227 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:13,063 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:29:15,542 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:17,918 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:19,544 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:20,951 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:29:20,952 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:29:23,103 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:23,545 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:28,994 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:30,548 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:34,549 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:34,689 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:35,974 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:29:35,974 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:29:38,551 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:40,384 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:43,065 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:29:44,553 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:46,065 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:48,555 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:50,991 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:29:50,991 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:29:51,127 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:54,557 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:29:56,154 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:29:58,558 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:01,848 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:30:02,560 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:06,010 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:30:06,011 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:30:08,562 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:11,011 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: keepalive
+2023-05-25 16:30:11,033 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:30:12,564 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:13,066 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:30:16,565 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:16,932 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:30:21,029 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: keepalive
+2023-05-25 16:30:21,030 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:30:21,030 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:30:22,190 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:30:22,568 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:26,569 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:27,318 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:30:30,571 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:33,012 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:30:36,052 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: keepalive
+2023-05-25 16:30:36,053 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:30:36,053 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:30:36,573 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:38,197 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:30:40,574 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:43,067 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:30:44,101 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:30:44,576 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:49,430 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,439 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,449 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,458 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,467 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,476 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,485 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,494 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,503 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,512 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,521 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,530 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,539 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,548 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,557 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,566 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,575 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,584 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,625 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,625 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,625 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,625 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,669 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,669 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,669 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,669 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,669 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,713 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: partial_history
+2023-05-25 16:30:49,799 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:30:50,578 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:51,116 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: keepalive
+2023-05-25 16:30:51,116 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:30:51,116 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:30:54,580 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:30:55,525 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:30:58,581 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:01,217 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:31:04,583 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:06,152 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: keepalive
+2023-05-25 16:31:06,152 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:31:06,152 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:31:06,298 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:31:08,585 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:11,320 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:31:12,587 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:13,068 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:31:17,012 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:31:18,589 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:21,171 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: keepalive
+2023-05-25 16:31:21,171 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:31:21,171 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:31:22,361 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:31:22,591 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:26,593 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:27,397 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:31:32,595 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:33,091 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:31:36,190 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: keepalive
+2023-05-25 16:31:36,191 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:31:36,191 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:31:36,596 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:38,344 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:31:40,598 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:43,069 DEBUG   SenderThread:25769 [sender.py:send():375] send: stats
+2023-05-25 16:31:44,070 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:31:46,600 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:49,861 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:31:50,601 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:51,204 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: stop_status
+2023-05-25 16:31:51,204 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: keepalive
+2023-05-25 16:31:51,205 DEBUG   SenderThread:25769 [sender.py:send_request():402] send_request: stop_status
+2023-05-25 16:31:54,603 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log
+2023-05-25 16:31:55,554 DEBUG   HandlerThread:25769 [handler.py:handle_request():144] handle_request: status_report
+2023-05-25 16:32:00,605 INFO    Thread-12 :25769 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230525_160342-le96onwj/files/output.log

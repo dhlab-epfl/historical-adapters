@@ -153,7 +153,7 @@ def main(
         answer = testset[i]['answer']
         answers.append(answer)
         subject = testset[i]['subject']
-        subjects.append(subject)
+        all_sbjs.append(subject)
 
     for start in range(0, n_samples, batch):
         end = min(start + batch, n_samples)
@@ -180,7 +180,7 @@ def main(
 
             if pred_idx == answer[i]:
                 cnt += 1
-                print(str(cnt) + ' out of ' + str(end*i))
+                print(str(cnt) + ' out of ' + str(start+batch))
 
             
             all_outputs.append(results[i])
@@ -192,10 +192,10 @@ def main(
 
     save_results_json['output'] = all_outputs
     save_results_json['answer'] = all_ans
-    save_results_json['subject'] = subjects
+    save_results_json['subject'] = all_sbjs
     save_results_json['acc'] = acc          
 
-    with open('result.json', 'w') as fp:
+    with open('org-finetuned-30epoch-result.json', 'w') as fp:     
         json.dump(save_results_json, fp, indent=4)
 
 

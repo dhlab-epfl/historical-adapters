@@ -11,4 +11,4 @@ torchrun --nproc_per_node 4 finetuning.py \
     --warmup_epochs 2 \
     --blr 9e-3 \
     --weight_decay 0.02 \
-    --output_dir /data1/data/sooh-data/llama/checkpoint2/
+    --output_dir /data1/data/sooh-data/llama/checkpoint3/

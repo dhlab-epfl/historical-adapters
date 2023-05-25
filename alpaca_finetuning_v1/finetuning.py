@@ -43,19 +43,21 @@ PROMPT_DICT = {
     ),
 }
 
-dataset = load_dataset("derek-thomas/ScienceQA")
-train_set, test_set = dataset['train'], dataset['validation']
-print(f"train has {len(train_set):,} samples")
-print(f"val has {len(test_set):,} samples")
+#dataset = load_dataset("derek-thomas/ScienceQA")
+#train_set, test_set = dataset['train'], dataset['validation']
+#print(f"train has {len(train_set):,} samples")
+#print(f"val has {len(test_set):,} samples")
 
 
 class InstructionDataset(Dataset):
     def __init__(self, model_path, max_words=30, partition='train'):
+       
+        dataset = load_dataset("derek-thomas/ScienceQA")
         
         if partition == 'train':
-            self.ann = train_set
+            self.ann = dataset['train']
         else:
-            self.ann = test_set
+            self.ann = dataset['validation']
 
         self.max_words = max_words
         tokenizer = Tokenizer(model_path= model_path + './tokenizer.model')
@@ -171,7 +173,7 @@ def get_args_parser():
 def main(args):
     wandb.init(
     # set the wandb project where this run will be logged
-    project="adapter-orig-first",
+    project="adapter-orig-2",
     
     # track hyperparameters and run metadata
     config={
@@ -197,7 +199,8 @@ def main(args):
 
     dataset_train = InstructionDataset(model_path = args.llama_model_path, max_words=args.max_seq_len, partition='train')
     dataset_val = InstructionDataset(model_path = args.llama_model_path, max_words=args.max_seq_len, partition='val')
-
+    
+    print("=================DATA VALIDATION=================")
     print(dataset_train)
     print(dataset_val)
 
