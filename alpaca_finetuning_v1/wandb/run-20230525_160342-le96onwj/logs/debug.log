@@ -25,3 +25,4 @@ config: {'learning_rate': None, 'architecture': 'adapter', 'dataset': 'ScienceQA
 2023-05-25 16:03:43,143 INFO    MainThread:25606 [wandb_run.py:_redirect():2103] Redirects installed.
 2023-05-25 16:03:43,144 INFO    MainThread:25606 [wandb_init.py:init():829] run started, returning control to user process
 2023-05-25 16:03:55,645 INFO    MainThread:25606 [wandb_watch.py:watch():51] Watching
+2023-05-25 19:41:36,586 WARNING MsgRouterThr:25606 [router.py:message_loop():77] message_loop has been closed
