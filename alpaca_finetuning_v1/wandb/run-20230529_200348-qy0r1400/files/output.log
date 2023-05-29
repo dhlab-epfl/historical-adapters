@@ -1,0 +1,12 @@
+
+| distributed init (rank 7): env://, gpu 7
+Traceback (most recent call last):
+  File "finetuning.py", line 336, in <module>
+    main(args)
+  File "finetuning.py", line 194, in main
+    misc.init_distributed_mode(args)
+  File "/home/sooh/historical-adapters/alpaca_finetuning_v1/util/misc.py", line 247, in init_distributed_mode
+    torch.distributed.barrier()
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/distributed/distributed_c10d.py", line 3328, in barrier
+    work = default_pg.barrier(opts=opts)
+KeyboardInterrupt

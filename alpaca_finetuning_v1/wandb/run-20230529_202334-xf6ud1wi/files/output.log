@@ -1,0 +1,21 @@
+
+| distributed init (rank 1): env://, gpu 1
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f239e8654c0>
+Traceback (most recent call last):
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1423, in _shutdown_workers
+    self._worker_result_queue.put((None, None))
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/multiprocessing/queues.py", line 88, in put
+    self._start_thread()
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/multiprocessing/queues.py", line 173, in _start_thread
+    self._thread.start()
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/threading.py", line 857, in start
+    self._started.wait()
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/threading.py", line 558, in wait
+    signaled = self._cond.wait(timeout)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/threading.py", line 293, in wait
+    if not self._is_owned():
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/threading.py", line 264, in _is_owned
+    if self._lock.acquire(0):
+KeyboardInterrupt:

@@ -1,0 +1,230 @@
+
+| distributed init (rank 0): env://, gpu 0
+[20:56:57.577392] job dir: /home/sooh/historical-adapters/alpaca_finetuning_v1
+[20:56:57.578575] Namespace(accum_iter=1,
+adapter_layer=30,
+adapter_len=10,
+batch_size=4,
+blr=0.009,
+data_path='/instruction_dataset/',
+device='cuda',
+dist_backend='nccl',
+dist_on_itp=False,
+dist_url='env://',
+distributed=True,
+epochs=30,
+gpu=0,
+llama_model_path='/data1/data/sooh-data/llama/',
+local_rank=-1,
+log_dir='./output_dir',
+lr=None,
+max_seq_len=512,
+min_lr=0.0,
+model='Llama7B_adapter',
+num_workers=10,
+output_dir='/data1/data/sooh-data/llama/archiv/checkpoint/',
+pin_mem=True,
+rank=0,
+resume='',
+seed=0,
+start_epoch=0,
+warmup_epochs=2,
+weight_decay=0.02,
+world_size=8)
+[20:57:46.473595] =================DATA VALIDATION=================
+[20:57:46.474101] <__main__.InstructionDataset object at 0x7f2c9ed26970>
+[20:57:46.474233] <__main__.InstructionDataset object at 0x7f2bf369fdc0>
+[20:57:46.474454] Sampler_train = <torch.utils.data.distributed.DistributedSampler object at 0x7f2bf33eefd0>
+[20:57:51.660538] /data1/data/sooh-data/llama/7B/consolidated.00.pth
+[20:57:53.556081] Model = Transformer(
+  (tok_embeddings): Embedding(32000, 4096)
+  (adapter_query): Embedding(300, 4096)
+  (criterion): CrossEntropyLoss()
+  (layers): ModuleList(
+    (0-31): 32 x TransformerBlock(
+      (attention): Attention(
+        (wq): Linear(in_features=4096, out_features=4096, bias=False)
+        (wk): Linear(in_features=4096, out_features=4096, bias=False)
+        (wv): Linear(in_features=4096, out_features=4096, bias=False)
+        (wo): Linear(in_features=4096, out_features=4096, bias=False)
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=4096, out_features=11008, bias=False)
+        (w2): Linear(in_features=11008, out_features=4096, bias=False)
+        (w3): Linear(in_features=4096, out_features=11008, bias=False)
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+  )
+  (norm): RMSNorm()
+  (output): Linear(in_features=4096, out_features=32000, bias=False)
+)
+[20:57:53.556386] base lr: 9.00e-03
+[20:57:53.556502] actual lr: 1.12e-03
+[20:57:53.556593] accumulate grad iterations: 1
+[20:57:53.556681] effective batch size: 32
+[20:57:56.198421] AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001125
+    maximize: False
+    weight_decay: 0.0
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001125
+    maximize: False
+    weight_decay: 0.02
+)
+[20:57:56.198871] Start training for 30 epochs
+[20:57:56.200474] log_dir: ./output_dir
+[20:57:58.410875] Epoch: [0]  [    0/13311]  eta: 8:10:08  lr: 0.000000  closs: 2.8477 (2.8477)  time: 2.2093  data: 0.9203  max mem: 36513
+[20:58:03.099615] Epoch: [0]  [   10/13311]  eta: 2:18:59  lr: 0.000000  closs: 3.2422 (3.4341)  time: 0.6270  data: 0.0838  max mem: 36548
+[20:58:07.783606] Epoch: [0]  [   20/13311]  eta: 2:02:08  lr: 0.000001  closs: 3.6055 (3.5303)  time: 0.4685  data: 0.0001  max mem: 36548
+[20:58:12.462197] Epoch: [0]  [   30/13311]  eta: 1:56:04  lr: 0.000001  closs: 3.7305 (3.7589)  time: 0.4680  data: 0.0001  max mem: 36548
+[20:58:17.152814] Epoch: [0]  [   40/13311]  eta: 1:53:00  lr: 0.000002  closs: 3.6191 (3.6587)  time: 0.4683  data: 0.0001  max mem: 36548
+[20:58:21.842490] Epoch: [0]  [   50/13311]  eta: 1:51:05  lr: 0.000002  closs: 3.3418 (3.6252)  time: 0.4689  data: 0.0001  max mem: 36548
+[20:58:26.517624] Epoch: [0]  [   60/13311]  eta: 1:49:44  lr: 0.000003  closs: 3.3496 (3.5816)  time: 0.4681  data: 0.0001  max mem: 36548
+[20:58:31.195266] Epoch: [0]  [   70/13311]  eta: 1:48:44  lr: 0.000003  closs: 3.5156 (3.6342)  time: 0.4675  data: 0.0001  max mem: 36548
+[20:58:35.876902] Epoch: [0]  [   80/13311]  eta: 1:47:59  lr: 0.000003  closs: 3.9258 (3.6877)  time: 0.4679  data: 0.0001  max mem: 36548
+[20:58:40.555724] Epoch: [0]  [   90/13311]  eta: 1:47:22  lr: 0.000004  closs: 3.9961 (3.7393)  time: 0.4679  data: 0.0001  max mem: 36548
+[20:58:45.235286] Epoch: [0]  [  100/13311]  eta: 1:46:52  lr: 0.000004  closs: 3.4277 (3.6775)  time: 0.4678  data: 0.0001  max mem: 36548
+[20:58:49.914525] Epoch: [0]  [  110/13311]  eta: 1:46:26  lr: 0.000005  closs: 3.3066 (3.6896)  time: 0.4678  data: 0.0001  max mem: 36548
+[20:58:54.596406] Epoch: [0]  [  120/13311]  eta: 1:46:04  lr: 0.000005  closs: 3.7012 (3.6912)  time: 0.4680  data: 0.0001  max mem: 36548
+[20:58:59.282348] Epoch: [0]  [  130/13311]  eta: 1:45:45  lr: 0.000005  closs: 3.8418 (3.7054)  time: 0.4683  data: 0.0001  max mem: 36548
+[20:59:03.969372] Epoch: [0]  [  140/13311]  eta: 1:45:28  lr: 0.000006  closs: 4.0117 (3.7417)  time: 0.4686  data: 0.0001  max mem: 36548
+[20:59:08.656298] Epoch: [0]  [  150/13311]  eta: 1:45:13  lr: 0.000006  closs: 3.5918 (3.7316)  time: 0.4686  data: 0.0001  max mem: 36548
+[20:59:13.342516] Epoch: [0]  [  160/13311]  eta: 1:44:59  lr: 0.000007  closs: 3.1680 (3.7015)  time: 0.4686  data: 0.0001  max mem: 36548
+[20:59:18.028415] Epoch: [0]  [  170/13311]  eta: 1:44:46  lr: 0.000007  closs: 3.1680 (3.6892)  time: 0.4685  data: 0.0001  max mem: 36548
+[20:59:22.727103] Epoch: [0]  [  180/13311]  eta: 1:44:35  lr: 0.000008  closs: 3.2051 (3.6723)  time: 0.4691  data: 0.0001  max mem: 36548
+[20:59:27.410989] Epoch: [0]  [  190/13311]  eta: 1:44:24  lr: 0.000008  closs: 3.4629 (3.6797)  time: 0.4690  data: 0.0001  max mem: 36548
+[20:59:32.096490] Epoch: [0]  [  200/13311]  eta: 1:44:13  lr: 0.000008  closs: 3.4629 (3.6658)  time: 0.4684  data: 0.0001  max mem: 36548
+[20:59:36.778984] Epoch: [0]  [  210/13311]  eta: 1:44:03  lr: 0.000009  closs: 3.5215 (3.6718)  time: 0.4683  data: 0.0001  max mem: 36548
+[20:59:41.464438] Epoch: [0]  [  220/13311]  eta: 1:43:53  lr: 0.000009  closs: 3.6816 (3.6763)  time: 0.4683  data: 0.0001  max mem: 36548
+[20:59:46.143817] Epoch: [0]  [  230/13311]  eta: 1:43:44  lr: 0.000010  closs: 3.8320 (3.6708)  time: 0.4681  data: 0.0001  max mem: 36548
+[20:59:50.827116] Epoch: [0]  [  240/13311]  eta: 1:43:35  lr: 0.000010  closs: 3.4863 (3.6691)  time: 0.4680  data: 0.0001  max mem: 36548
+[20:59:55.510332] Epoch: [0]  [  250/13311]  eta: 1:43:27  lr: 0.000011  closs: 3.5293 (3.6608)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:00:00.194421] Epoch: [0]  [  260/13311]  eta: 1:43:18  lr: 0.000011  closs: 3.3203 (3.6568)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:00:04.876540] Epoch: [0]  [  270/13311]  eta: 1:43:10  lr: 0.000011  closs: 3.5410 (3.6663)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:00:09.558377] Epoch: [0]  [  280/13311]  eta: 1:43:02  lr: 0.000012  closs: 3.3809 (3.6532)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:00:14.240012] Epoch: [0]  [  290/13311]  eta: 1:42:55  lr: 0.000012  closs: 3.3535 (3.6624)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:00:18.920816] Epoch: [0]  [  300/13311]  eta: 1:42:47  lr: 0.000013  closs: 3.8867 (3.6535)  time: 0.4680  data: 0.0001  max mem: 36548
+[21:00:23.613521] Epoch: [0]  [  310/13311]  eta: 1:42:41  lr: 0.000013  closs: 3.2734 (3.6425)  time: 0.4686  data: 0.0001  max mem: 36548
+[21:00:28.299648] Epoch: [0]  [  320/13311]  eta: 1:42:34  lr: 0.000014  closs: 3.0859 (3.6380)  time: 0.4689  data: 0.0001  max mem: 36548
+[21:00:32.985245] Epoch: [0]  [  330/13311]  eta: 1:42:27  lr: 0.000014  closs: 3.4629 (3.6404)  time: 0.4685  data: 0.0001  max mem: 36548
+[21:00:37.666101] Epoch: [0]  [  340/13311]  eta: 1:42:20  lr: 0.000014  closs: 3.8262 (3.6510)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:00:42.348360] Epoch: [0]  [  350/13311]  eta: 1:42:13  lr: 0.000015  closs: 3.8613 (3.6526)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:00:47.032149] Epoch: [0]  [  360/13311]  eta: 1:42:07  lr: 0.000015  closs: 3.2949 (3.6423)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:00:51.714723] Epoch: [0]  [  370/13311]  eta: 1:42:00  lr: 0.000016  closs: 3.2949 (3.6410)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:00:56.396698] Epoch: [0]  [  380/13311]  eta: 1:41:54  lr: 0.000016  closs: 3.6250 (3.6620)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:01:01.077384] Epoch: [0]  [  390/13311]  eta: 1:41:48  lr: 0.000016  closs: 3.3809 (3.6552)  time: 0.4680  data: 0.0001  max mem: 36548
+[21:01:05.759911] Epoch: [0]  [  400/13311]  eta: 1:41:41  lr: 0.000017  closs: 3.0566 (3.6573)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:01:10.440043] Epoch: [0]  [  410/13311]  eta: 1:41:35  lr: 0.000017  closs: 3.2168 (3.6512)  time: 0.4680  data: 0.0001  max mem: 36548
+[21:01:15.123472] Epoch: [0]  [  420/13311]  eta: 1:41:29  lr: 0.000018  closs: 3.0117 (3.6372)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:01:19.807554] Epoch: [0]  [  430/13311]  eta: 1:41:23  lr: 0.000018  closs: 3.0820 (3.6338)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:01:24.492060] Epoch: [0]  [  440/13311]  eta: 1:41:17  lr: 0.000019  closs: 2.9473 (3.6172)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:01:29.190498] Epoch: [0]  [  450/13311]  eta: 1:41:12  lr: 0.000019  closs: 2.9473 (3.6098)  time: 0.4691  data: 0.0001  max mem: 36548
+[21:01:33.872912] Epoch: [0]  [  460/13311]  eta: 1:41:06  lr: 0.000019  closs: 3.0645 (3.5943)  time: 0.4690  data: 0.0001  max mem: 36548
+[21:01:38.554222] Epoch: [0]  [  470/13311]  eta: 1:41:00  lr: 0.000020  closs: 3.0645 (3.5942)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:01:43.236621] Epoch: [0]  [  480/13311]  eta: 1:40:55  lr: 0.000020  closs: 3.1426 (3.5886)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:01:47.920650] Epoch: [0]  [  490/13311]  eta: 1:40:49  lr: 0.000021  closs: 3.1426 (3.5918)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:01:52.603029] Epoch: [0]  [  500/13311]  eta: 1:40:43  lr: 0.000021  closs: 3.4551 (3.5881)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:01:57.284496] Epoch: [0]  [  510/13311]  eta: 1:40:38  lr: 0.000022  closs: 3.2676 (3.5762)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:02:01.965031] Epoch: [0]  [  520/13311]  eta: 1:40:32  lr: 0.000022  closs: 2.7656 (3.5608)  time: 0.4680  data: 0.0001  max mem: 36548
+[21:02:06.649431] Epoch: [0]  [  530/13311]  eta: 1:40:26  lr: 0.000022  closs: 3.0137 (3.5606)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:02:11.331270] Epoch: [0]  [  540/13311]  eta: 1:40:21  lr: 0.000023  closs: 3.3516 (3.5558)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:02:16.014406] Epoch: [0]  [  550/13311]  eta: 1:40:15  lr: 0.000023  closs: 3.0977 (3.5489)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:02:20.697629] Epoch: [0]  [  560/13311]  eta: 1:40:10  lr: 0.000024  closs: 3.2090 (3.5436)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:02:25.379976] Epoch: [0]  [  570/13311]  eta: 1:40:05  lr: 0.000024  closs: 3.2090 (3.5406)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:02:30.095432] Epoch: [0]  [  580/13311]  eta: 1:40:00  lr: 0.000025  closs: 2.8105 (3.5316)  time: 0.4698  data: 0.0001  max mem: 36548
+[21:02:34.783828] Epoch: [0]  [  590/13311]  eta: 1:39:55  lr: 0.000025  closs: 2.7637 (3.5206)  time: 0.4701  data: 0.0001  max mem: 36548
+[21:02:39.471970] Epoch: [0]  [  600/13311]  eta: 1:39:49  lr: 0.000025  closs: 2.6797 (3.5074)  time: 0.4687  data: 0.0001  max mem: 36548
+[21:02:44.156657] Epoch: [0]  [  610/13311]  eta: 1:39:44  lr: 0.000026  closs: 3.0781 (3.5062)  time: 0.4685  data: 0.0001  max mem: 36548
+[21:02:48.839524] Epoch: [0]  [  620/13311]  eta: 1:39:39  lr: 0.000026  closs: 3.3477 (3.5035)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:02:53.523770] Epoch: [0]  [  630/13311]  eta: 1:39:33  lr: 0.000027  closs: 2.9453 (3.4939)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:02:58.206194] Epoch: [0]  [  640/13311]  eta: 1:39:28  lr: 0.000027  closs: 2.7598 (3.4853)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:03:02.890684] Epoch: [0]  [  650/13311]  eta: 1:39:23  lr: 0.000027  closs: 2.7832 (3.4801)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:03:07.573949] Epoch: [0]  [  660/13311]  eta: 1:39:18  lr: 0.000028  closs: 2.5664 (3.4619)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:03:12.257559] Epoch: [0]  [  670/13311]  eta: 1:39:12  lr: 0.000028  closs: 2.5488 (3.4542)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:03:16.940661] Epoch: [0]  [  680/13311]  eta: 1:39:07  lr: 0.000029  closs: 2.8125 (3.4414)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:03:21.624348] Epoch: [0]  [  690/13311]  eta: 1:39:02  lr: 0.000029  closs: 2.6426 (3.4327)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:03:26.307722] Epoch: [0]  [  700/13311]  eta: 1:38:57  lr: 0.000030  closs: 2.6426 (3.4226)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:03:30.992105] Epoch: [0]  [  710/13311]  eta: 1:38:52  lr: 0.000030  closs: 2.5938 (3.4148)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:03:35.696934] Epoch: [0]  [  720/13311]  eta: 1:38:47  lr: 0.000030  closs: 2.8750 (3.4111)  time: 0.4694  data: 0.0001  max mem: 36548
+[21:03:40.379172] Epoch: [0]  [  730/13311]  eta: 1:38:42  lr: 0.000031  closs: 3.1660 (3.4104)  time: 0.4693  data: 0.0001  max mem: 36548
+[21:03:45.061276] Epoch: [0]  [  740/13311]  eta: 1:38:37  lr: 0.000031  closs: 2.7500 (3.4008)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:03:49.744057] Epoch: [0]  [  750/13311]  eta: 1:38:32  lr: 0.000032  closs: 2.3125 (3.3873)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:03:54.424390] Epoch: [0]  [  760/13311]  eta: 1:38:26  lr: 0.000032  closs: 2.2891 (3.3789)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:03:59.106354] Epoch: [0]  [  770/13311]  eta: 1:38:21  lr: 0.000033  closs: 2.4434 (3.3721)  time: 0.4680  data: 0.0001  max mem: 36548
+[21:04:03.787680] Epoch: [0]  [  780/13311]  eta: 1:38:16  lr: 0.000033  closs: 2.4941 (3.3622)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:04:08.470438] Epoch: [0]  [  790/13311]  eta: 1:38:11  lr: 0.000033  closs: 2.4707 (3.3541)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:04:13.150111] Epoch: [0]  [  800/13311]  eta: 1:38:06  lr: 0.000034  closs: 2.5879 (3.3450)  time: 0.4680  data: 0.0001  max mem: 36548
+[21:04:17.833218] Epoch: [0]  [  810/13311]  eta: 1:38:01  lr: 0.000034  closs: 2.2617 (3.3304)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:04:22.514727] Epoch: [0]  [  820/13311]  eta: 1:37:56  lr: 0.000035  closs: 2.2617 (3.3214)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:04:27.199111] Epoch: [0]  [  830/13311]  eta: 1:37:51  lr: 0.000035  closs: 2.3086 (3.3095)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:04:31.880568] Epoch: [0]  [  840/13311]  eta: 1:37:46  lr: 0.000035  closs: 2.1855 (3.2948)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:04:36.581053] Epoch: [0]  [  850/13311]  eta: 1:37:41  lr: 0.000036  closs: 2.1309 (3.2838)  time: 0.4690  data: 0.0001  max mem: 36548
+[21:04:41.274428] Epoch: [0]  [  860/13311]  eta: 1:37:36  lr: 0.000036  closs: 1.9824 (3.2690)  time: 0.4696  data: 0.0001  max mem: 36548
+[21:04:45.957071] Epoch: [0]  [  870/13311]  eta: 1:37:31  lr: 0.000037  closs: 2.0508 (3.2600)  time: 0.4687  data: 0.0001  max mem: 36548
+[21:04:50.638280] Epoch: [0]  [  880/13311]  eta: 1:37:26  lr: 0.000037  closs: 1.9746 (3.2428)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:04:55.320240] Epoch: [0]  [  890/13311]  eta: 1:37:21  lr: 0.000038  closs: 1.9746 (3.2318)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:05:00.002231] Epoch: [0]  [  900/13311]  eta: 1:37:16  lr: 0.000038  closs: 2.3691 (3.2214)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:05:04.682877] Epoch: [0]  [  910/13311]  eta: 1:37:11  lr: 0.000038  closs: 1.9531 (3.2079)  time: 0.4680  data: 0.0001  max mem: 36548
+[21:05:09.365184] Epoch: [0]  [  920/13311]  eta: 1:37:06  lr: 0.000039  closs: 1.8262 (3.1926)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:05:14.046223] Epoch: [0]  [  930/13311]  eta: 1:37:01  lr: 0.000039  closs: 1.7734 (3.1804)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:05:18.729425] Epoch: [0]  [  940/13311]  eta: 1:36:56  lr: 0.000040  closs: 1.6758 (3.1646)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:05:23.411992] Epoch: [0]  [  950/13311]  eta: 1:36:51  lr: 0.000040  closs: 1.7998 (3.1500)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:05:28.097375] Epoch: [0]  [  960/13311]  eta: 1:36:46  lr: 0.000041  closs: 1.8926 (3.1369)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:05:32.780612] Epoch: [0]  [  970/13311]  eta: 1:36:41  lr: 0.000041  closs: 2.1387 (3.1272)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:05:37.463151] Epoch: [0]  [  980/13311]  eta: 1:36:36  lr: 0.000041  closs: 1.9072 (3.1120)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:05:42.160878] Epoch: [0]  [  990/13311]  eta: 1:36:32  lr: 0.000042  closs: 1.6826 (3.0989)  time: 0.4689  data: 0.0001  max mem: 36548
+[21:05:46.873312] Epoch: [0]  [ 1000/13311]  eta: 1:36:27  lr: 0.000042  closs: 1.9473 (3.0878)  time: 0.4704  data: 0.0001  max mem: 36548
+[21:05:51.560433] Epoch: [0]  [ 1010/13311]  eta: 1:36:22  lr: 0.000043  closs: 1.9521 (3.0750)  time: 0.4699  data: 0.0001  max mem: 36548
+[21:05:56.243979] Epoch: [0]  [ 1020/13311]  eta: 1:36:17  lr: 0.000043  closs: 1.7871 (3.0628)  time: 0.4684  data: 0.0001  max mem: 36548
+[21:06:00.928412] Epoch: [0]  [ 1030/13311]  eta: 1:36:12  lr: 0.000044  closs: 1.8193 (3.0525)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:06:05.610094] Epoch: [0]  [ 1040/13311]  eta: 1:36:07  lr: 0.000044  closs: 1.8857 (3.0407)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:06:10.292292] Epoch: [0]  [ 1050/13311]  eta: 1:36:02  lr: 0.000044  closs: 1.8857 (3.0307)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:06:14.973514] Epoch: [0]  [ 1060/13311]  eta: 1:35:57  lr: 0.000045  closs: 1.3848 (3.0155)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:06:19.654341] Epoch: [0]  [ 1070/13311]  eta: 1:35:53  lr: 0.000045  closs: 1.2998 (3.0019)  time: 0.4680  data: 0.0001  max mem: 36548
+[21:06:24.337546] Epoch: [0]  [ 1080/13311]  eta: 1:35:48  lr: 0.000046  closs: 1.5527 (2.9899)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:06:29.022910] Epoch: [0]  [ 1090/13311]  eta: 1:35:43  lr: 0.000046  closs: 1.4219 (2.9761)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:06:33.703949] Epoch: [0]  [ 1100/13311]  eta: 1:35:38  lr: 0.000046  closs: 1.4072 (2.9640)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:06:38.388400] Epoch: [0]  [ 1110/13311]  eta: 1:35:33  lr: 0.000047  closs: 1.5654 (2.9504)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:06:43.079305] Epoch: [0]  [ 1120/13311]  eta: 1:35:28  lr: 0.000047  closs: 1.6865 (2.9409)  time: 0.4687  data: 0.0001  max mem: 36548
+[21:06:47.768769] Epoch: [0]  [ 1130/13311]  eta: 1:35:23  lr: 0.000048  closs: 1.5928 (2.9280)  time: 0.4689  data: 0.0001  max mem: 36548
+[21:06:52.451506] Epoch: [0]  [ 1140/13311]  eta: 1:35:19  lr: 0.000048  closs: 1.4717 (2.9174)  time: 0.4685  data: 0.0001  max mem: 36548
+[21:06:57.136753] Epoch: [0]  [ 1150/13311]  eta: 1:35:14  lr: 0.000049  closs: 1.4033 (2.9036)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:07:01.818377] Epoch: [0]  [ 1160/13311]  eta: 1:35:09  lr: 0.000049  closs: 1.4033 (2.8933)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:07:06.502833] Epoch: [0]  [ 1170/13311]  eta: 1:35:04  lr: 0.000049  closs: 1.5303 (2.8823)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:07:11.187832] Epoch: [0]  [ 1180/13311]  eta: 1:34:59  lr: 0.000050  closs: 1.5498 (2.8715)  time: 0.4684  data: 0.0001  max mem: 36548
+[21:07:15.873437] Epoch: [0]  [ 1190/13311]  eta: 1:34:54  lr: 0.000050  closs: 1.3545 (2.8576)  time: 0.4684  data: 0.0001  max mem: 36548
+[21:07:20.559253] Epoch: [0]  [ 1200/13311]  eta: 1:34:49  lr: 0.000051  closs: 1.2568 (2.8469)  time: 0.4685  data: 0.0001  max mem: 36548
+[21:07:25.241265] Epoch: [0]  [ 1210/13311]  eta: 1:34:45  lr: 0.000051  closs: 1.4473 (2.8344)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:07:29.923927] Epoch: [0]  [ 1220/13311]  eta: 1:34:40  lr: 0.000052  closs: 1.4824 (2.8271)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:07:34.608039] Epoch: [0]  [ 1230/13311]  eta: 1:34:35  lr: 0.000052  closs: 1.4639 (2.8167)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:07:39.292406] Epoch: [0]  [ 1240/13311]  eta: 1:34:30  lr: 0.000052  closs: 1.4219 (2.8068)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:07:43.974729] Epoch: [0]  [ 1250/13311]  eta: 1:34:25  lr: 0.000053  closs: 1.5029 (2.7995)  time: 0.4682  data: 0.0001  max mem: 36548
+[21:07:48.674866] Epoch: [0]  [ 1260/13311]  eta: 1:34:20  lr: 0.000053  closs: 1.4980 (2.7876)  time: 0.4690  data: 0.0001  max mem: 36548
+[21:07:53.358250] Epoch: [0]  [ 1270/13311]  eta: 1:34:16  lr: 0.000054  closs: 1.3848 (2.7773)  time: 0.4691  data: 0.0001  max mem: 36548
+[21:07:58.044548] Epoch: [0]  [ 1280/13311]  eta: 1:34:11  lr: 0.000054  closs: 1.4873 (2.7672)  time: 0.4684  data: 0.0001  max mem: 36548
+[21:08:02.729735] Epoch: [0]  [ 1290/13311]  eta: 1:34:06  lr: 0.000055  closs: 1.4873 (2.7585)  time: 0.4685  data: 0.0001  max mem: 36548
+[21:08:07.413538] Epoch: [0]  [ 1300/13311]  eta: 1:34:01  lr: 0.000055  closs: 1.5645 (2.7500)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:08:12.096890] Epoch: [0]  [ 1310/13311]  eta: 1:33:56  lr: 0.000055  closs: 1.5635 (2.7404)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:08:16.784229] Epoch: [0]  [ 1320/13311]  eta: 1:33:52  lr: 0.000056  closs: 1.6377 (2.7319)  time: 0.4684  data: 0.0001  max mem: 36548
+[21:08:21.467623] Epoch: [0]  [ 1330/13311]  eta: 1:33:47  lr: 0.000056  closs: 1.3447 (2.7211)  time: 0.4684  data: 0.0001  max mem: 36548
+[21:08:26.151305] Epoch: [0]  [ 1340/13311]  eta: 1:33:42  lr: 0.000057  closs: 1.1309 (2.7108)  time: 0.4683  data: 0.0001  max mem: 36548
+[21:08:30.832258] Epoch: [0]  [ 1350/13311]  eta: 1:33:37  lr: 0.000057  closs: 1.4053 (2.7024)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:08:35.514808] Epoch: [0]  [ 1360/13311]  eta: 1:33:32  lr: 0.000057  closs: 1.4268 (2.6927)  time: 0.4681  data: 0.0001  max mem: 36548
+[21:08:40.198162] Epoch: [0]  [ 1370/13311]  eta: 1:33:27  lr: 0.000058  closs: 1.5361 (2.6865)  time: 0.4682  data: 0.0001  max mem: 36548

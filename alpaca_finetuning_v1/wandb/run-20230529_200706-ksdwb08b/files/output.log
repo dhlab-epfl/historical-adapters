@@ -1,0 +1,52 @@
+
+| distributed init (rank 0): env://, gpu 0
+[20:07:14.134180] job dir: /home/sooh/historical-adapters/alpaca_finetuning_v1
+[20:07:14.135432] Namespace(accum_iter=1,
+adapter_layer=30,
+adapter_len=10,
+batch_size=4,
+blr=0.009,
+data_path='/instruction_dataset/',
+device='cuda',
+dist_backend='nccl',
+dist_on_itp=False,
+dist_url='env://',
+distributed=True,
+epochs=30,
+gpu=0,
+llama_model_path='/data1/data/sooh-data/llama/',
+local_rank=-1,
+log_dir='./output_dir',
+lr=None,
+max_seq_len=512,
+min_lr=0.0,
+model='Llama7B_adapter',
+num_workers=10,
+output_dir='/data1/data/sooh-data/llama/archiv/checkpoint/',
+pin_mem=True,
+rank=0,
+resume='',
+seed=0,
+start_epoch=0,
+warmup_epochs=2,
+weight_decay=0.02,
+world_size=8)
+[20:07:14.140388] [20:07:14.140561] [20:07:14.140683] [20:07:14.140774] [20:07:14.140864] [20:07:14.140952] [20:07:14.141041] [20:07:14.141153] [20:07:14.141244] [20:07:14.141347]
+Traceback (most recent call last):
+  File "finetuning.py", line 337, in <module>
+    main(args)
+  File "finetuning.py", line 209, in main
+    dataset_train = InstructionDataset(model_path = args.llama_model_path, max_words=args.max_seq_len, partition='train')
+  File "finetuning.py", line 59, in __init__
+    train_dataset = pd.read_csv('data/ArchivalQA/data/ArchivalQA_train.csv')
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 912, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 577, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1407, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/pandas/io/parsers/readers.py", line 1661, in _make_engine
+    self.handles = get_handle(
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/pandas/io/common.py", line 859, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: 'data/ArchivalQA/data/ArchivalQA_train.csv'

@@ -1,0 +1,113 @@
+
+| distributed init (rank 0): env://, gpu 0
+[21:23:10.271553] job dir: /home/sooh/historical-adapters/alpaca_finetuning_v1
+[21:23:10.272426] Namespace(accum_iter=1,
+adapter_layer=30,
+adapter_len=10,
+batch_size=4,
+blr=0.009,
+data_path='/instruction_dataset/',
+device='cuda',
+dist_backend='nccl',
+dist_on_itp=False,
+dist_url='env://',
+distributed=True,
+epochs=30,
+gpu=0,
+llama_model_path='/data1/data/sooh-data/llama/',
+local_rank=-1,
+log_dir='./output_dir',
+lr=None,
+max_seq_len=512,
+min_lr=0.0,
+model='Llama7B_adapter',
+num_workers=10,
+output_dir='/data1/data/sooh-data/llama/archiv/checkpoint/',
+pin_mem=True,
+rank=0,
+resume='',
+seed=0,
+start_epoch=0,
+warmup_epochs=2,
+weight_decay=0.02,
+world_size=4)
+[21:23:59.273381] =================DATA VALIDATION=================
+[21:23:59.273902] <__main__.InstructionDataset object at 0x7f78aab8a9a0>
+[21:23:59.274215] <__main__.InstructionDataset object at 0x7f77ff502370>
+[21:23:59.274409] Sampler_train = <torch.utils.data.distributed.DistributedSampler object at 0x7f77ff254f70>
+[21:24:04.341096] /data1/data/sooh-data/llama/7B/consolidated.00.pth
+[21:24:06.366113] Model = Transformer(
+  (tok_embeddings): Embedding(32000, 4096)
+  (adapter_query): Embedding(300, 4096)
+  (criterion): CrossEntropyLoss()
+  (layers): ModuleList(
+    (0-31): 32 x TransformerBlock(
+      (attention): Attention(
+        (wq): Linear(in_features=4096, out_features=4096, bias=False)
+        (wk): Linear(in_features=4096, out_features=4096, bias=False)
+        (wv): Linear(in_features=4096, out_features=4096, bias=False)
+        (wo): Linear(in_features=4096, out_features=4096, bias=False)
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=4096, out_features=11008, bias=False)
+        (w2): Linear(in_features=11008, out_features=4096, bias=False)
+        (w3): Linear(in_features=4096, out_features=11008, bias=False)
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+  )
+  (norm): RMSNorm()
+  (output): Linear(in_features=4096, out_features=32000, bias=False)
+)
+[21:24:06.366441] base lr: 9.00e-03
+[21:24:06.366572] actual lr: 5.62e-04
+[21:24:06.366676] accumulate grad iterations: 1
+[21:24:06.366783] effective batch size: 16
+[21:24:06.987921] AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0005625
+    maximize: False
+    weight_decay: 0.0
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0005625
+    maximize: False
+    weight_decay: 0.02
+)
+[21:24:06.988545] Start training for 30 epochs
+[21:24:06.990254] log_dir: ./output_dir
+[21:24:08.644002] Epoch: [0]  [    0/26622]  eta: 12:13:17  lr: 0.000000  closs: 3.2012 (3.2012)  time: 1.6527  data: 0.6517  max mem: 36518
+[21:24:13.317100] Epoch: [0]  [   10/26622]  eta: 4:15:00  lr: 0.000000  closs: 3.5039 (3.4831)  time: 0.5750  data: 0.0594  max mem: 36548
+[21:24:17.985013] Epoch: [0]  [   20/26622]  eta: 3:52:03  lr: 0.000000  closs: 3.5039 (3.5571)  time: 0.4669  data: 0.0002  max mem: 36548
+[21:24:22.663379] Epoch: [0]  [   30/26622]  eta: 3:44:00  lr: 0.000000  closs: 3.9277 (3.7254)  time: 0.4672  data: 0.0002  max mem: 36548
+[21:24:27.408028] [21:24:27.408529] [21:24:27.408649] [21:24:27.408746] [21:24:27.408831] [21:24:27.408931] [21:24:27.409015] [21:24:27.409098] [21:24:27.409196]
+Traceback (most recent call last):
+  File "finetuning.py", line 351, in <module>
+    main(args)
+  File "finetuning.py", line 308, in main
+    train_stats = train_one_epoch(
+  File "/home/sooh/historical-adapters/alpaca_finetuning_v1/engine_finetuning.py", line 46, in train_one_epoch
+    loss_scaler(loss, optimizer, parameters=model.parameters(),
+  File "/home/sooh/historical-adapters/alpaca_finetuning_v1/util/misc.py", line 267, in __call__
+    self._scaler.step(optimizer)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/cuda/amp/grad_scaler.py", line 374, in step
+    retval = self._maybe_opt_step(optimizer, optimizer_state, *args, **kwargs)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/cuda/amp/grad_scaler.py", line 289, in _maybe_opt_step
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/cuda/amp/grad_scaler.py", line 289, in <genexpr>
+    if not sum(v.item() for v in optimizer_state["found_inf_per_device"].values()):
+KeyboardInterrupt

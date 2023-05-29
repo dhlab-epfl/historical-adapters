@@ -1,0 +1,55 @@
+
+| distributed init (rank 0): env://, gpu 0
+[20:18:32.994395] job dir: /home/sooh/historical-adapters/alpaca_finetuning_v1
+[20:18:32.995349] Namespace(accum_iter=1,
+adapter_layer=30,
+adapter_len=10,
+batch_size=4,
+blr=0.009,
+data_path='/instruction_dataset/',
+device='cuda',
+dist_backend='nccl',
+dist_on_itp=False,
+dist_url='env://',
+distributed=True,
+epochs=30,
+gpu=0,
+llama_model_path='/data1/data/sooh-data/llama/',
+local_rank=-1,
+log_dir='./output_dir',
+lr=None,
+max_seq_len=512,
+min_lr=0.0,
+model='Llama7B_adapter',
+num_workers=10,
+output_dir='/data1/data/sooh-data/llama/archiv/checkpoint/',
+pin_mem=True,
+rank=0,
+resume='',
+seed=0,
+start_epoch=0,
+warmup_epochs=2,
+weight_decay=0.02,
+world_size=8)
+Traceback (most recent call last):
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3652, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 147, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 176, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7080, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 0
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "finetuning.py", line 351, in <module>
+    main(args)
+  File "finetuning.py", line 223, in main
+    dataset_train = InstructionDataset(model_path = args.llama_model_path, max_words=args.max_seq_len, partition='train')
+  File "finetuning.py", line 72, in __init__
+    temp['question'] = train_dataset[i]['question']
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/pandas/core/frame.py", line 3761, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/pandas/core/indexes/base.py", line 3654, in get_loc
+    raise KeyError(key) from err
+KeyError: 0
+[20:18:34.002596] [20:18:34.002986] [20:18:34.003104] [20:18:34.003198] [20:18:34.003287] [20:18:34.003373] [20:18:34.003469] [20:18:34.003562] [20:18:34.003651] [20:18:34.003747] [20:18:34.003838] [20:18:34.003925] [20:18:34.004012] [20:18:34.004095] [20:18:34.004180]

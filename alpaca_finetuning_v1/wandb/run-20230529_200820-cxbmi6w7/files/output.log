@@ -1,0 +1,47 @@
+
+| distributed init (rank 0): env://, gpu 0
+[20:08:29.147368] job dir: /home/sooh/historical-adapters/alpaca_finetuning_v1
+[20:08:29.148035] Namespace(accum_iter=1,
+adapter_layer=30,
+adapter_len=10,
+batch_size=4,
+blr=0.009,
+data_path='/instruction_dataset/',
+device='cuda',
+dist_backend='nccl',
+dist_on_itp=False,
+dist_url='env://',
+distributed=True,
+epochs=30,
+gpu=0,
+llama_model_path='/data1/data/sooh-data/llama/',
+local_rank=-1,
+log_dir='./output_dir',
+lr=None,
+max_seq_len=512,
+min_lr=0.0,
+model='Llama7B_adapter',
+num_workers=10,
+output_dir='/data1/data/sooh-data/llama/archiv/checkpoint/',
+pin_mem=True,
+rank=0,
+resume='',
+seed=0,
+start_epoch=0,
+warmup_epochs=2,
+weight_decay=0.02,
+world_size=8)
+[20:08:31.280223] =================DATA VALIDATION=================
+[20:08:31.280668] <__main__.InstructionDataset object at 0x7f8a332f4850>
+[20:08:31.280804] <__main__.InstructionDataset object at 0x7f89604f4520>
+[20:08:31.281520] [20:08:31.281668] [20:08:31.281769] [20:08:31.281865] [20:08:31.281963] [20:08:31.282066]
+Traceback (most recent call last):
+  File "finetuning.py", line 337, in <module>
+    main(args)
+  File "finetuning.py", line 223, in main
+    sampler_val = torch.utils.data.DistributedSampler(
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/utils/data/distributed.py", line 92, in __init__
+    self.num_samples = math.ceil(len(self.dataset) / self.num_replicas)  # type: ignore[arg-type]
+  File "finetuning.py", line 76, in __len__
+    return len(self.ann)
+AttributeError: 'InstructionDataset' object has no attribute 'ann'

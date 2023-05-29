@@ -6,6 +6,7 @@ import time
 import copy
 import random
 import numpy as np
+import pandas as pd
 from pathlib import Path
 from PIL import Image
 
@@ -41,23 +42,45 @@ PROMPT_DICT = {
         "Write a response that appropriately completes the request.\n\n"
         "### Instruction:\n{instruction}\n\n### Response:"
     ),
-}
+    "ArchivalQA": (
+        "###Question:\n{question}\n\n### Answer:"
 
-#dataset = load_dataset("derek-thomas/ScienceQA")
-#train_set, test_set = dataset['train'], dataset['validation']
-#print(f"train has {len(train_set):,} samples")
-#print(f"val has {len(test_set):,} samples")
+        )
+}
 
 
 class InstructionDataset(Dataset):
     def __init__(self, model_path, max_words=30, partition='train'):
        
-        dataset = load_dataset("derek-thomas/ScienceQA")
+    # ScienceQA dataset loading    
+        # dataset = load_dataset("derek-thomas/ScienceQA")
+
+    # ArchivalQA dataset loading    
+        train_dataset = pd.read_csv('../data/ArchivalQA/data/ArchivalQA_train.csv')
+        val_dataset = pd.read_csv('../data/ArchivalQA/data/ArchivalQA_val.csv')
         
+        # if partition == 'train':
+        #    self.ann = dataset['train']
+        # else:
+        #    self.ann = dataset['validation']
+        
+        # ArchivalQA
         if partition == 'train':
-            self.ann = dataset['train']
+            total = []
+            for i in range(len(train_dataset)):
+                temp = {}
+                temp['question'] = train_dataset.iloc[i]['question']
+                temp['answer'] = train_dataset.iloc[i]['answer']
+                total.append(temp)
+            self.ann = total
         else:
-            self.ann = dataset['validation']
+            total = []
+            for i in range(len(val_dataset)):
+                temp = {}
+                temp['question'] = val_dataset.iloc[i]['question']
+                temp['answer'] = val_dataset.iloc[i]['answer']
+                total.append(temp)
+            self.ann = total
 
         self.max_words = max_words
         tokenizer = Tokenizer(model_path= model_path + './tokenizer.model')
@@ -69,14 +92,14 @@ class InstructionDataset(Dataset):
     def __getitem__(self, index):
 
         ann = self.ann[index]
+    
+    # ScienceQA
+        # prompt = build_prompt(ann, test=True)
+        # example = build_prompt(ann, test=False)
+        
+        prompt = PROMPT_DICT['ArchivalQA'].format_map(ann)
+        example = prompt + ann['answer']
 
-        prompt = build_prompt(ann, test=True)
-        example = build_prompt(ann, test=False)
-        # if ann.get("input", "") == "":
-        #     prompt = PROMPT_DICT['prompt_no_input'].format_map(ann)
-        # else:
-        #     prompt = PROMPT_DICT['prompt_input'].format_map(ann)
-        # example = prompt + ann['output']
         prompt = torch.tensor(self.tokenizer1.encode(prompt, bos=True, eos=False), dtype=torch.int64)
         example = torch.tensor(self.tokenizer1.encode(example, bos=True, eos=True), dtype=torch.int64)
         padding = self.max_words - example.shape[0]
@@ -160,7 +183,7 @@ def get_args_parser():
     # distributed training parameters
     parser.add_argument('--world_size', default=1, type=int,
                         help='number of distributed processes')
-    parser.add_argument('--local_rank', default=-1, type=int)
+    parser.add_argument('--local_rank', default=8, type=int)
     parser.add_argument('--dist_on_itp', action='store_true')
     parser.add_argument('--dist_url', default='env://',
                         help='url used to set up distributed training')
@@ -173,13 +196,13 @@ def get_args_parser():
 def main(args):
     wandb.init(
     # set the wandb project where this run will be logged
-    project="adapter-orig-2",
+    project="adapter-archiv",
     
     # track hyperparameters and run metadata
     config={
     "learning_rate": args.lr,
     "architecture": "adapter",
-    "dataset": "ScienceQA",
+    "dataset": "ArchivalQA",
     "epochs": args.epochs,
     }
 )

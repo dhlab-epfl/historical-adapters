@@ -1,0 +1,49 @@
+wandb_version: 1
+
+learning_rate:
+  desc: null
+  value: null
+architecture:
+  desc: null
+  value: adapter
+dataset:
+  desc: null
+  value: ArchivalQA
+epochs:
+  desc: null
+  value: 30
+_wandb:
+  desc: null
+  value:
+    python_version: 3.8.16
+    cli_version: 0.15.3
+    framework: huggingface
+    huggingface_version: 4.29.2
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1685390695.506081
+    t:
+      1:
+      - 1
+      - 11
+      - 41
+      - 49
+      - 51
+      - 55
+      - 63
+      2:
+      - 1
+      - 11
+      - 41
+      - 49
+      - 51
+      - 55
+      - 63
+      3:
+      - 16
+      - 23
+      4: 3.8.16
+      5: 0.15.3
+      6: 4.29.2
+      8:
+      - 5
