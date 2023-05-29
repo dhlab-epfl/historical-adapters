@@ -85,7 +85,8 @@ def main(
     max_seq_len: int = 540,
     max_batch_size: int = 64,
 ):
-
+    dataset = load_dataset("derek-thomas/ScienceQA")
+    testset = dataset['test']
 
     local_rank, world_size = setup_model_parallel()
     if local_rank > 0:
