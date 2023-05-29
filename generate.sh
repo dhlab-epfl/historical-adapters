@@ -1,4 +1,4 @@
 torchrun --nproc_per_node 1 example-multiple3.py \
 --ckpt_dir /data1/data/sooh-data/llama/7B/ \
 --tokenizer_path /data1/data/sooh-data/llama/tokenizer.model \
---adapter_path /data1/data/sooh-data/llama/checkpoint3/adapter_adapter_len10_layer30_epoch8.pth
+--adapter_path /data1/data/sooh-data/llama/checkpoint3/adapter_adapter_len10_layer30_epoch29.pth
