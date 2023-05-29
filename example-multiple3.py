@@ -9,6 +9,7 @@ import fire
 import time
 import json
 import numpy as np
+import pandas as pd
 
 from pathlib import Path
 
@@ -22,27 +23,7 @@ from scripts.prompt_generate import *
 import re
 import random
 from datasets import load_dataset
-
-dataset = load_dataset("derek-thomas/ScienceQA")
-testset = dataset['test']
-print(f"test has {len(testset):,} samples")
-
-PROMPT_DICT = {
-    "prompt_input": (
-        "Below is an instruction that describes a task, paired with an input that provides further context. "
-        "Write a response that appropriately completes the request.\n\n"
-        "### Question:\n{instruction}\n\n### Input:\n{input}\n\n### Response:"
-    ),
-    "prompt_no_input": (
-        "Below is an instruction that describes a task. "
-        "Write a response that appropriately completes the request.\n\n"
-        "### Instruction:\n{instruction}\n\n### Response:"
-    ),
-
-    "prompt_QA": (
-        "### Question: {q}\n### Context: {context}\n### Choices: {choice}\n### Answer:"
-    )
-}
+from eval_acc import *
 
 def setup_model_parallel() -> Tuple[int, int]:
     local_rank = int(os.environ.get("LOCAL_RANK", -1))
@@ -104,6 +85,8 @@ def main(
     max_seq_len: int = 540,
     max_batch_size: int = 64,
 ):
+
+
     local_rank, world_size = setup_model_parallel()
     if local_rank > 0:
         sys.stdout = open(os.devnull, "w")
@@ -111,38 +94,19 @@ def main(
     generator = load(
         ckpt_dir, tokenizer_path, adapter_path, local_rank, world_size, max_seq_len, max_batch_size
     )
-    # instructs = [
-    #     "Tell me about alpacas.",
-    #     "Tell me about the president of Mexico in 2019.",
-    #     "Tell me about the king of France in 2019.",
-    #     "List all Canadian provinces in alphabetical order.",
-    #     "Write a Python program that prints the first 10 Fibonacci numbers.",
-    #     "Write a program that prints the numbers from 1 to 100. But for multiples of three print 'Fizz' instead of the number and for the multiples of five print 'Buzz'. For numbers which are multiples of both three and five print 'FizzBuzz'.",
-    #     "Tell me five words that rhyme with 'shock'.",
-    #     "Translate the sentence 'I have no mouth but I must scream' into Spanish.",
-    #     "Count up from 1 to 500."]
-    # prompts = [PROMPT_DICT['prompt_no_input'].format_map({'instruction':x, 'input': ''}) for x in instructs]
-    # with open('./ScienceQA_test_text/test.json', encoding='utf-8') as f:
-        # data = json.load(f)             
-    # https://github.com/ZrrSkywalker/LLaMA-Adapter/issues/16
-        # multiple gpu for inference is not possible at this moment with this code!
-    # prompts = [PROMPT_DICT['prompt_QA'].format_map({'q':x['question'], 'context': x['hint'], 'choice': x['choices']}) for i, x in data.items()]
-    # print(prompts[10])
     
     pattern = re.compile(r'The answer is ([A-Z]).')
     options=['A', 'B', 'C', 'D', 'E']
     cnt = 0
     save_results_json = {}
+    results = {}
     all_outputs = []
-    all_sbjs = []
-    all_ans = []
+    all_preds = []
     prompts = []
     choices = []
     answers = []
     batch = 64
     n_samples = len(testset)
-    # indices = np.arange(n_samples)
-    # np.random.shuffle(indices)
 
   
     for i in range(len(testset)):
@@ -152,8 +116,6 @@ def main(
         choices.append(choice)
         answer = testset[i]['answer']
         answers.append(answer)
-        subject = testset[i]['subject']
-        all_sbjs.append(subject)
 
     for start in range(0, n_samples, batch):
         end = min(start + batch, n_samples)
@@ -167,7 +129,7 @@ def main(
         results = generator.generate(
                 prompt, max_gen_len=540, temperature=temperature, top_p=top_p
             )
-
+        
         for i in range(len(results)):
             res = pattern.findall(results[i])
 
@@ -184,20 +146,20 @@ def main(
 
             
             all_outputs.append(results[i])
-            all_ans.append(answer[i])
+            all_preds.append(pred_idx)
 
     acc = (cnt / len(testset)) * 100
 
     print(acc)
 
+    save_results_json['acc'] = acc       
     save_results_json['output'] = all_outputs
-    save_results_json['answer'] = all_ans
-    save_results_json['subject'] = all_sbjs
-    save_results_json['acc'] = acc          
+    save_results_json['prediction'] = all_preds   
 
-    with open('org-finetuned-30epoch-result.json', 'w') as fp:     
+    with open('./results/org-finetuned-result-latest.json', 'w') as fp:     
         json.dump(save_results_json, fp, indent=4)
 
 
 if __name__ == "__main__":
     fire.Fire(main)
+
