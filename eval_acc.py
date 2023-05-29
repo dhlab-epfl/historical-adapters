@@ -3,6 +3,7 @@ import json
 import argparse
 import warnings
 import pandas as pd
+from datasets import load_dataset
 
 warnings.filterwarnings('ignore')
 
@@ -21,28 +22,19 @@ def get_acc_with_contion(res_pd, key, values):
 
 def get_scores(result_file, data_file):
     # read result file
-    results = json.load(open(result_file))["results"]
+    results = json.load(open(result_file))["prediction"]
     num = len(results)
     assert num == 4241
     #print("number of questions:", num)
 
-    # read data file
-    sqa_data = json.load(open(data_file))
-
     # construct pandas data
-    sqa_pd = pd.DataFrame(sqa_data).T
-    res_pd = sqa_pd[sqa_pd['split'] == 'test']  # test set
+    res_pd = pd.DataFrame(data_file)
 
     # update data
     for index, row in res_pd.iterrows():
 
-        res_pd.loc[index, 'no_context'] = True if (not row['hint'] and not row['image']) else False
-        res_pd.loc[index, 'has_text'] = True if row['hint'] else False
-        res_pd.loc[index, 'has_image'] = True if row['image'] else False
-        res_pd.loc[index, 'has_text_image'] = True if (row['hint'] and row['image']) else False
-
         label = row['answer']
-        pred = int(results[index])
+        pred = results[index]
         res_pd.loc[index, 'pred'] = pred
         res_pd.loc[index, 'true_false'] = (label == pred)
 
@@ -57,12 +49,6 @@ def get_scores(result_file, data_file):
         get_acc_with_contion(res_pd, 'subject', 'social science'),
         'acc_language':
         get_acc_with_contion(res_pd, 'subject', 'language science'),
-        'acc_has_text':
-        get_acc_with_contion(res_pd, 'has_text', True),
-        'acc_has_image':
-        get_acc_with_contion(res_pd, 'has_image', True),
-        'acc_no_context':
-        get_acc_with_contion(res_pd, 'no_context', True),
         'acc_grade_1_6':
         get_acc_with_contion(res_pd, 'grade', ['grade1', 'grade2', 'grade3', 'grade4', 'grade5', 'grade6']),
         'acc_grade_7_12':
@@ -79,6 +65,7 @@ def get_scores(result_file, data_file):
 
 def print_scores(scores):
     latex_output = ""
+    print(scores)
     for key, score in scores.items():
         print(f"{key[4:]}: \t{score}")
         latex_output += f"& {score} "
@@ -88,13 +75,13 @@ def print_scores(scores):
 
 if __name__ == '__main__':
 
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--data_file', type=str, default="../data/scienceqa/problems.json")
-    parser.add_argument('--result_file', type=str, default="../results/gpt3/paper_test_QCM-ALE_2_seed_3.json")
-    args = parser.parse_args()
+    dataset = load_dataset("derek-thomas/ScienceQA")
+    testset = dataset['test']
 
-    print("Data file: ", args.data_file)
-    print("Result file: ", args.result_file)
+    scores = get_scores('./results/org-finetuned-result-latest.json', testset)
 
-    scores = get_scores(args.result_file, args.data_file)
     print_scores(scores)
+    
+
+
+
