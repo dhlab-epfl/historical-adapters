@@ -32,6 +32,12 @@ def get_scores(result_file, data_file):
 
     # update data
     for index, row in res_pd.iterrows():
+        
+        res_pd.loc[index, 'no_context'] = True if (not row['hint'] and not row['image']) else False
+        res_pd.loc[index, 'has_text'] = True if row['hint'] else False
+        res_pd.loc[index, 'has_image'] = True if row['image'] else False
+        res_pd.loc[index, 'has_text_image'] = True if (row['hint'] and row['image']) else False
+
 
         label = row['answer']
         pred = results[index]
@@ -49,6 +55,12 @@ def get_scores(result_file, data_file):
         get_acc_with_contion(res_pd, 'subject', 'social science'),
         'acc_language':
         get_acc_with_contion(res_pd, 'subject', 'language science'),
+        'acc_has_text':
+        get_acc_with_contion(res_pd, 'has_text', True),
+        'acc_has_image':
+        get_acc_with_contion(res_pd, 'has_image', True),
+        'acc_no_context':
+        get_acc_with_contion(res_pd, 'no_context', True),
         'acc_grade_1_6':
         get_acc_with_contion(res_pd, 'grade', ['grade1', 'grade2', 'grade3', 'grade4', 'grade5', 'grade6']),
         'acc_grade_7_12':

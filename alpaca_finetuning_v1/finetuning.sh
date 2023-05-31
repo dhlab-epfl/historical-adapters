@@ -1,6 +1,6 @@
 TARGET_FOLDER='/data1/data/sooh-data/llama'
 
-torchrun --nproc_per_node 8 finetuning.py \
+torchrun --nproc_per_node 4 finetuning.py \
     --model Llama7B_adapter \
     --llama_model_path $TARGET_FOLDER/ \
     --adapter_layer 30 \

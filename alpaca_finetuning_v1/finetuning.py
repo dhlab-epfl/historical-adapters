@@ -98,7 +98,7 @@ class InstructionDataset(Dataset):
         # example = build_prompt(ann, test=False)
         
         prompt = PROMPT_DICT['ArchivalQA'].format_map(ann)
-        example = prompt + ann['answer']
+        example = prompt + str(ann['answer'])
 
         prompt = torch.tensor(self.tokenizer1.encode(prompt, bos=True, eos=False), dtype=torch.int64)
         example = torch.tensor(self.tokenizer1.encode(example, bos=True, eos=True), dtype=torch.int64)
