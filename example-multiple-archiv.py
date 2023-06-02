@@ -10,6 +10,7 @@ import time
 import json
 import numpy as np
 import pandas as pd
+from eval_em_f1 import *
 
 from pathlib import Path
 
@@ -105,7 +106,8 @@ def main(
         ckpt_dir, tokenizer_path, adapter_path, local_rank, world_size, max_seq_len, max_batch_size
     )
     
-    cnt = 0
+    em_score = []
+    f1_score = []
     save_results_json = {}
     results = {}
     all_outputs = []
@@ -139,20 +141,29 @@ def main(
         for i in range(len(results)):
             
             pred = results[i].split('Answer:')[1]
-            if answer[i] in pred:
-                cnt += 1
-                print(str(cnt) + 'out of' + str(end))
-                # print('Answer: f{answer[i]}, Prediction: f{pred}')
-
             
+            em_score.append(compute_em(answer[i], pred))
+            f1_score.append(compute_f1(answer[i], pred))
+    
             all_outputs.append(results[i])
             all_preds.append(pred)
 
-    acc = (cnt / len(test_dataset)) * 100
+            print('====Scores====')
+            print(100*sum(em_score)/len(em_score))
+            print(100*sum(f1_score)/len(f1_score))
+            print('========')
+    
+    assert len(em_score) == len(test_dataset)
+    assert len(f1_score) == len(test_dataset)
 
-    print(acc)
+    em = 100.0 * sum(em_score) / len(test_dataset)
+    f1 = 100.0 * sum(f1_score) / len(test_dataset)
+   
+    print(em)
+    print(f1)
 
-    save_results_json['acc'] = acc       
+    save_results_json['EM'] = em    
+    save_results_json['F1'] = f1   
     save_results_json['output'] = all_outputs
     save_results_json['prediction'] = all_preds   
 
@@ -162,4 +173,5 @@ def main(
 
 if __name__ == "__main__":
     fire.Fire(main)
+
 
