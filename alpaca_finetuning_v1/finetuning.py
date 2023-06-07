@@ -92,7 +92,7 @@ class InstructionDataset(Dataset):
     def __getitem__(self, index):
 
         ann = self.ann[index]
-    
+        #print(ann)
     # ScienceQA
         # prompt = build_prompt(ann, test=True)
         # example = build_prompt(ann, test=False)
@@ -196,7 +196,7 @@ def get_args_parser():
 def main(args):
     wandb.init(
     # set the wandb project where this run will be logged
-    project="adapter-archiv",
+    project="adapter-archiv-llatest",
     
     # track hyperparameters and run metadata
     config={

@@ -1,0 +1,110 @@
+
+| distributed init (rank 0): env://, gpu 0
+[07:31:23.608686] job dir: /home/sooh/historical-adapters/alpaca_finetuning_v1
+[07:31:23.609523] Namespace(accum_iter=1,
+adapter_layer=30,
+adapter_len=10,
+batch_size=4,
+blr=0.009,
+data_path='/instruction_dataset/',
+device='cuda',
+dist_backend='nccl',
+dist_on_itp=False,
+dist_url='env://',
+distributed=True,
+epochs=30,
+gpu=0,
+llama_model_path='/data1/data/sooh-data/llama/',
+local_rank=8,
+log_dir='./output_dir',
+lr=None,
+max_seq_len=512,
+min_lr=0.0,
+model='Llama7B_adapter',
+num_workers=10,
+output_dir='/data1/data/sooh-data/llama/archiv/checkpoint3/',
+pin_mem=True,
+rank=0,
+resume='',
+seed=0,
+start_epoch=0,
+warmup_epochs=2,
+weight_decay=0.02,
+world_size=8)
+[07:32:12.212934] =================DATA VALIDATION=================
+[07:32:12.213459] <__main__.InstructionDataset object at 0x7fb5748e6970>
+[07:32:12.213626] <__main__.InstructionDataset object at 0x7fb4c92632b0>
+[07:32:12.213834] Sampler_train = <torch.utils.data.distributed.DistributedSampler object at 0x7fb574b94880>
+[07:33:18.359654] /data1/data/sooh-data/llama/7B/consolidated.00.pth
+[07:33:24.475029] Model = Transformer(
+  (tok_embeddings): Embedding(32000, 4096)
+  (adapter_query): Embedding(300, 4096)
+  (criterion): CrossEntropyLoss()
+  (layers): ModuleList(
+    (0-31): 32 x TransformerBlock(
+      (attention): Attention(
+        (wq): Linear(in_features=4096, out_features=4096, bias=False)
+        (wk): Linear(in_features=4096, out_features=4096, bias=False)
+        (wv): Linear(in_features=4096, out_features=4096, bias=False)
+        (wo): Linear(in_features=4096, out_features=4096, bias=False)
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=4096, out_features=11008, bias=False)
+        (w2): Linear(in_features=11008, out_features=4096, bias=False)
+        (w3): Linear(in_features=4096, out_features=11008, bias=False)
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+  )
+  (norm): RMSNorm()
+  (output): Linear(in_features=4096, out_features=32000, bias=False)
+)
+[07:33:24.475356] base lr: 9.00e-03
+[07:33:24.477641] actual lr: 1.12e-03
+[07:33:24.477783] accumulate grad iterations: 1
+[07:33:24.477906] effective batch size: 32
+[07:33:25.145315] AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001125
+    maximize: False
+    weight_decay: 0.0
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001125
+    maximize: False
+    weight_decay: 0.02
+)
+[07:33:25.145817] Start training for 30 epochs
+[07:33:25.147499] log_dir: ./output_dir
+[07:33:27.614235] Epoch: [0]  [    0/13311]  eta: 9:05:10  lr: 0.000000  closs: 2.8477 (2.8477)  time: 2.4574  data: 0.8233  max mem: 36511
+[07:33:38.497025] Epoch: [0]  [   10/13311]  eta: 4:28:43  lr: 0.000000  closs: 3.2422 (3.4341)  time: 1.2122  data: 0.0755  max mem: 36551
+[07:33:49.084006] Epoch: [0]  [   20/13311]  eta: 4:12:19  lr: 0.000001  closs: 3.6055 (3.5303)  time: 1.0731  data: 0.0006  max mem: 36551
+[07:33:58.798320] [07:33:58.804453] [07:33:58.807836] [07:33:58.810663] [07:33:58.813546] [07:33:58.816418] [07:33:58.819226] [07:33:58.822301]
+Traceback (most recent call last):
+  File "finetuning.py", line 351, in <module>
+    main(args)
+  File "finetuning.py", line 308, in main
+    train_stats = train_one_epoch(
+  File "/home/sooh/historical-adapters/alpaca_finetuning_v1/engine_finetuning.py", line 46, in train_one_epoch
+    loss_scaler(loss, optimizer, parameters=model.parameters(),
+  File "/home/sooh/historical-adapters/alpaca_finetuning_v1/util/misc.py", line 258, in __call__
+    self._scaler.scale(loss).backward(create_graph=create_graph)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
