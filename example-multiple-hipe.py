@@ -151,7 +151,7 @@ def main(
         
         for i in range(len(results)):
             
-            pred = results[i].split('Answer')[1]
+            pred = results[i].split('Answer:')[1]
             print(pred)
             if pred == answer[i]:
                 cnt += 1
@@ -160,7 +160,7 @@ def main(
             all_preds.append(pred)
         print(str(cnt) + 'out of' + str(end))
     
-    acc = (cnt/len(test_dataset)) * 100
+    acc = (cnt/len(hypothesis)) * 100
 
    
     print(acc)

@@ -26,3 +26,4 @@ config: {'learning_rate': None, 'architecture': 'adapter', 'dataset': 'HIPE', 'e
 2023-06-09 16:02:15,354 INFO    MainThread:29927 [wandb_run.py:_redirect():2103] Redirects installed.
 2023-06-09 16:02:15,355 INFO    MainThread:29927 [wandb_init.py:init():829] run started, returning control to user process
 2023-06-09 16:02:31,521 INFO    MainThread:29927 [wandb_watch.py:watch():51] Watching
+2023-06-09 17:27:00,286 WARNING MsgRouterThr:29927 [router.py:message_loop():77] message_loop has been closed
