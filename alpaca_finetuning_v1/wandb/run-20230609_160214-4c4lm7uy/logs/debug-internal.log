@@ -1,0 +1,136 @@
+2023-06-09 16:02:14,457 INFO    StreamThr :30243 [internal.py:wandb_internal():86] W&B internal server running at pid: 30243, started at: 2023-06-09 16:02:14.457300
+2023-06-09 16:02:14,459 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status
+2023-06-09 16:02:14,460 INFO    WriterThread:30243 [datastore.py:open_for_write():85] open: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230609_160214-4c4lm7uy/run-4c4lm7uy.wandb
+2023-06-09 16:02:14,461 DEBUG   SenderThread:30243 [sender.py:send():375] send: header
+2023-06-09 16:02:14,477 DEBUG   SenderThread:30243 [sender.py:send():375] send: run
+2023-06-09 16:02:14,853 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: check_version
+2023-06-09 16:02:14,854 INFO    SenderThread:30243 [dir_watcher.py:__init__():219] watching files in: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230609_160214-4c4lm7uy/files
+2023-06-09 16:02:14,854 INFO    SenderThread:30243 [sender.py:_start_run_threads():1124] run started: 4c4lm7uy with start time 1686326534.457417
+2023-06-09 16:02:14,854 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: summary_record
+2023-06-09 16:02:14,855 INFO    SenderThread:30243 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-06-09 16:02:14,855 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: check_version
+2023-06-09 16:02:14,925 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: run_start
+2023-06-09 16:02:15,008 DEBUG   HandlerThread:30243 [system_info.py:__init__():31] System info init
+2023-06-09 16:02:15,008 DEBUG   HandlerThread:30243 [system_info.py:__init__():46] System info init done
+2023-06-09 16:02:15,008 INFO    HandlerThread:30243 [system_monitor.py:start():181] Starting system monitor
+2023-06-09 16:02:15,008 INFO    SystemMonitor:30243 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-06-09 16:02:15,009 INFO    HandlerThread:30243 [system_monitor.py:probe():201] Collecting system info
+2023-06-09 16:02:15,010 INFO    SystemMonitor:30243 [interfaces.py:start():190] Started cpu monitoring
+2023-06-09 16:02:15,010 INFO    SystemMonitor:30243 [interfaces.py:start():190] Started disk monitoring
+2023-06-09 16:02:15,011 INFO    SystemMonitor:30243 [interfaces.py:start():190] Started gpu monitoring
+2023-06-09 16:02:15,011 INFO    SystemMonitor:30243 [interfaces.py:start():190] Started memory monitoring
+2023-06-09 16:02:15,012 INFO    SystemMonitor:30243 [interfaces.py:start():190] Started network monitoring
+2023-06-09 16:02:15,319 DEBUG   HandlerThread:30243 [system_info.py:probe():195] Probing system
+2023-06-09 16:02:15,327 DEBUG   HandlerThread:30243 [system_info.py:_probe_git():180] Probing git
+2023-06-09 16:02:15,339 DEBUG   HandlerThread:30243 [system_info.py:_probe_git():188] Probing git done
+2023-06-09 16:02:15,339 DEBUG   HandlerThread:30243 [system_info.py:probe():240] Probing system done
+2023-06-09 16:02:15,339 DEBUG   HandlerThread:30243 [system_monitor.py:probe():210] {'os': 'Linux-5.4.0-132-generic-x86_64-with-glibc2.17', 'python': '3.8.16', 'heartbeatAt': '2023-06-09T16:02:15.319703', 'startedAt': '2023-06-09T16:02:14.439240', 'docker': None, 'cuda': None, 'args': ('--model', 'Llama7B_adapter', '--llama_model_path', '/data1/data/sooh-data/llama/', '--adapter_layer', '30', '--adapter_len', '10', '--max_seq_len', '512', '--batch_size', '4', '--epochs', '10', '--warmup_epochs', '2', '--blr', '9e-3', '--weight_decay', '0.02', '--output_dir', '/data1/data/sooh-data/llama/hipe/checkpoint/'), 'state': 'running', 'program': 'finetuning_hipe.py', 'codePath': 'alpaca_finetuning_v1/finetuning_hipe.py', 'git': {'remote': 'https://github.com/dhlab-epfl/historical-adapters.git', 'commit': 'b594c77ddeaf48c0e74148df093bd39becd74b16'}, 'email': 'sori424@gmail.com', 'root': '/home/sooh/historical-adapters', 'host': 'sooh-hipe-0-0', 'username': 'sooh', 'executable': '/home/sooh/.conda/envs/myenv/bin/python', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 3145.8667812500003, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 3249.013, 'min': 0.0, 'max': 0.0}, {'current': 3293.425, 'min': 0.0, 'max': 0.0}, {'current': 3035.933, 'min': 0.0, 'max': 0.0}, {'current': 3151.598, 'min': 0.0, 'max': 0.0}, {'current': 3276.269, 'min': 0.0, 'max': 0.0}, {'current': 3290.691, 'min': 0.0, 'max': 0.0}, {'current': 2884.777, 'min': 0.0, 'max': 0.0}, {'current': 3287.041, 'min': 0.0, 'max': 0.0}, {'current': 2816.194, 'min': 0.0, 'max': 0.0}, {'current': 3253.08, 'min': 0.0, 'max': 0.0}, {'current': 3210.085, 'min': 0.0, 'max': 0.0}, {'current': 3242.98, 'min': 0.0, 'max': 0.0}, {'current': 2743.568, 'min': 0.0, 'max': 0.0}, {'current': 3260.137, 'min': 0.0, 'max': 0.0}, {'current': 3228.242, 'min': 0.0, 'max': 0.0}, {'current': 3288.933, 'min': 0.0, 'max': 0.0}, {'current': 2552.743, 'min': 0.0, 'max': 0.0}, {'current': 3170.987, 'min': 0.0, 'max': 0.0}, {'current': 3134.607, 'min': 0.0, 'max': 0.0}, {'current': 2728.601, 'min': 0.0, 'max': 0.0}, {'current': 3247.904, 'min': 0.0, 'max': 0.0}, {'current': 3286.753, 'min': 0.0, 'max': 0.0}, {'current': 3293.698, 'min': 0.0, 'max': 0.0}, {'current': 3272.877, 'min': 0.0, 'max': 0.0}, {'current': 3285.497, 'min': 0.0, 'max': 0.0}, {'current': 3279.119, 'min': 0.0, 'max': 0.0}, {'current': 3288.069, 'min': 0.0, 'max': 0.0}, {'current': 3290.927, 'min': 0.0, 'max': 0.0}, {'current': 3287.333, 'min': 0.0, 'max': 0.0}, {'current': 3293.237, 'min': 0.0, 'max': 0.0}, {'current': 3225.946, 'min': 0.0, 'max': 0.0}, {'current': 3199.677, 'min': 0.0, 'max': 0.0}, {'current': 3289.8, 'min': 0.0, 'max': 0.0}, {'current': 3293.107, 'min': 0.0, 'max': 0.0}, {'current': 3293.074, 'min': 0.0, 'max': 0.0}, {'current': 3279.921, 'min': 0.0, 'max': 0.0}, {'current': 3293.967, 'min': 0.0, 'max': 0.0}, {'current': 2191.849, 'min': 0.0, 'max': 0.0}, {'current': 2243.63, 'min': 0.0, 'max': 0.0}, {'current': 3281.553, 'min': 0.0, 'max': 0.0}, {'current': 2726.262, 'min': 0.0, 'max': 0.0}, {'current': 3051.99, 'min': 0.0, 'max': 0.0}, {'current': 3110.096, 'min': 0.0, 'max': 0.0}, {'current': 3286.76, 'min': 0.0, 'max': 0.0}, {'current': 3235.94, 'min': 0.0, 'max': 0.0}, {'current': 2878.275, 'min': 0.0, 'max': 0.0}, {'current': 3255.309, 'min': 0.0, 'max': 0.0}, {'current': 3252.695, 'min': 0.0, 'max': 0.0}, {'current': 2767.775, 'min': 0.0, 'max': 0.0}, {'current': 3279.98, 'min': 0.0, 'max': 0.0}, {'current': 3025.199, 'min': 0.0, 'max': 0.0}, {'current': 2627.902, 'min': 0.0, 'max': 0.0}, {'current': 3288.984, 'min': 0.0, 'max': 0.0}, {'current': 3290.404, 'min': 0.0, 'max': 0.0}, {'current': 3208.313, 'min': 0.0, 'max': 0.0}, {'current': 3293.817, 'min': 0.0, 'max': 0.0}, {'current': 3293.337, 'min': 0.0, 'max': 0.0}, {'current': 3278.157, 'min': 0.0, 'max': 0.0}, {'current': 3289.101, 'min': 0.0, 'max': 0.0}, {'current': 3290.354, 'min': 0.0, 'max': 0.0}, {'current': 3284.278, 'min': 0.0, 'max': 0.0}, {'current': 3281.43, 'min': 0.0, 'max': 0.0}, {'current': 3235.479, 'min': 0.0, 'max': 0.0}, {'current': 3286.795, 'min': 0.0, 'max': 0.0}], 'disk': {'total': 438.30672454833984, 'used': 173.33446502685547}, 'gpu': 'NVIDIA A100-SXM4-40GB', 'gpu_count': 8, 'gpu_devices': [{'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}], 'memory': {'total': 503.63489532470703}}
+2023-06-09 16:02:15,340 INFO    HandlerThread:30243 [system_monitor.py:probe():211] Finished collecting system info
+2023-06-09 16:02:15,340 INFO    HandlerThread:30243 [system_monitor.py:probe():214] Publishing system info
+2023-06-09 16:02:15,340 DEBUG   HandlerThread:30243 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-06-09 16:02:15,340 DEBUG   HandlerThread:30243 [system_info.py:_save_pip():67] Saving pip packages done
+2023-06-09 16:02:15,340 DEBUG   HandlerThread:30243 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-06-09 16:02:15,344 ERROR   HandlerThread:30243 [system_info.py:_save_conda():85] Error saving conda packages: [Errno 2] No such file or directory: 'conda'
+Traceback (most recent call last):
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/wandb/sdk/internal/system/system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/subprocess.py", line 340, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/subprocess.py", line 858, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/subprocess.py", line 1704, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2023-06-09 16:02:15,345 DEBUG   HandlerThread:30243 [system_info.py:_save_conda():86] Saving conda packages done
+2023-06-09 16:02:15,346 INFO    HandlerThread:30243 [system_monitor.py:probe():216] Finished publishing system info
+2023-06-09 16:02:15,350 DEBUG   SenderThread:30243 [sender.py:send():375] send: files
+2023-06-09 16:02:15,351 INFO    SenderThread:30243 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2023-06-09 16:02:15,355 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:02:15,356 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:02:15,521 DEBUG   SenderThread:30243 [sender.py:send():375] send: telemetry
+2023-06-09 16:02:15,836 INFO    wandb-upload_0:30243 [upload_job.py:push():137] Uploaded file /tmp/tmpa6h74e9_wandb/yhu3w7cs-wandb-metadata.json
+2023-06-09 16:02:15,856 INFO    Thread-12 :30243 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230609_160214-4c4lm7uy/files/requirements.txt
+2023-06-09 16:02:15,856 INFO    Thread-12 :30243 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230609_160214-4c4lm7uy/files/conda-environment.yaml
+2023-06-09 16:02:15,856 INFO    Thread-12 :30243 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230609_160214-4c4lm7uy/files/wandb-metadata.json
+2023-06-09 16:02:15,856 INFO    Thread-12 :30243 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230609_160214-4c4lm7uy/files/wandb-summary.json
+2023-06-09 16:02:17,855 INFO    Thread-12 :30243 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230609_160214-4c4lm7uy/files/output.log
+2023-06-09 16:02:19,856 INFO    Thread-12 :30243 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230609_160214-4c4lm7uy/files/output.log
+2023-06-09 16:02:20,409 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:02:25,410 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:02:30,354 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:02:30,355 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:02:30,501 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:02:31,521 DEBUG   SenderThread:30243 [sender.py:send():375] send: telemetry
+2023-06-09 16:02:35,522 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:02:40,523 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:02:45,355 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:02:45,356 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:02:46,507 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:02:46,866 INFO    Thread-12 :30243 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230609_160214-4c4lm7uy/files/config.yaml
+2023-06-09 16:02:51,693 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:02:56,694 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:00,355 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:03:00,356 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:03:02,505 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:07,507 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:12,508 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:15,012 DEBUG   SystemMonitor:30243 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-06-09 16:03:15,015 DEBUG   SenderThread:30243 [sender.py:send():375] send: stats
+2023-06-09 16:03:15,355 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:03:15,356 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:03:18,498 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:23,499 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:28,500 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:30,379 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:03:30,380 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:03:33,529 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:38,529 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:43,530 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:45,016 DEBUG   SenderThread:30243 [sender.py:send():375] send: stats
+2023-06-09 16:03:45,400 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:03:45,401 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:03:48,547 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:53,548 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:03:58,548 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:00,414 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:04:00,415 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:04:03,560 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:08,561 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:13,562 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:15,018 DEBUG   SenderThread:30243 [sender.py:send():375] send: stats
+2023-06-09 16:04:15,466 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:04:15,466 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:04:18,605 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:23,606 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:28,606 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:30,478 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:04:30,479 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:04:33,620 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:38,622 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:43,622 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:45,019 DEBUG   SenderThread:30243 [sender.py:send():375] send: stats
+2023-06-09 16:04:45,495 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:04:45,495 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:04:48,642 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:53,642 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:04:58,643 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:05:00,513 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:05:00,514 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:05:03,653 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:05:08,653 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:05:13,654 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:05:15,021 DEBUG   SenderThread:30243 [sender.py:send():375] send: stats
+2023-06-09 16:05:15,550 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:05:15,551 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:05:18,700 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:05:23,701 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:05:28,702 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:05:30,563 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:05:30,564 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:05:33,720 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:05:38,721 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:05:43,721 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report
+2023-06-09 16:05:45,022 DEBUG   SenderThread:30243 [sender.py:send():375] send: stats
+2023-06-09 16:05:45,577 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: stop_status
+2023-06-09 16:05:45,578 DEBUG   SenderThread:30243 [sender.py:send_request():402] send_request: stop_status
+2023-06-09 16:05:48,722 DEBUG   HandlerThread:30243 [handler.py:handle_request():144] handle_request: status_report

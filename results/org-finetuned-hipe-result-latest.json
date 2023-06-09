@@ -1,0 +1,15 @@
+{
+    "ACC": 0.0,
+    "output": [
+        "1931 is a time entity.\n\n// Full monitor (no login required)",
+        "soci\u00e9t\u00e9 Leila Film SA is an organization entity.\n\nono",
+        "Chr . Rouge is a person entity.\n\nNono",
+        "Reich is a location entity.\n\n\nono \""
+    ],
+    "prediction": [
+        "// Full monitor (no login required)",
+        "ono",
+        "Nono",
+        "\nono \""
+    ]
+}

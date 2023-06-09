@@ -48,7 +48,8 @@ PROMPT_DICT = {
         ),
 
     "HIPE": (
-        "{hypothesis}\n\n{answer}"
+    
+        "###Question:\n{hypothesis}\n\n### Answer:"
     )
     
 }
