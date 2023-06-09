@@ -66,8 +66,8 @@ class InstructionDataset(Dataset):
         #    self.ann = dataset['validation']
 
     # HIPE dataset loading    
-        train_dataset = json.load('../data/HIPE/HIPE_converted_train_fr.json')
-        val_dataset = json.load('../data/HIPE/HIPE_converted_dev_fr.json')
+        train_dataset = json.load(open('../data/HIPE/HIPE_converted_train_fr.json'))
+        val_dataset = json.load(open('../data/HIPE/HIPE_converted_dev_fr.json'))
         
         # HIPE
         if partition == 'train':
@@ -231,13 +231,13 @@ def get_args_parser():
 def main(args):
     wandb.init(
     # set the wandb project where this run will be logged
-    project="adapter-archiv-llatest",
+    project="adapter-hipe",
     
     # track hyperparameters and run metadata
     config={
     "learning_rate": args.lr,
     "architecture": "adapter",
-    "dataset": "ArchivalQA",
+    "dataset": "HIPE",
     "epochs": args.epochs,
     }
 )

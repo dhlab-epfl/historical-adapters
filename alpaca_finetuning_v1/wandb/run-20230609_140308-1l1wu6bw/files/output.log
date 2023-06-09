@@ -1,0 +1,96 @@
+
+| distributed init (rank 0): env://, gpu 0
+[14:03:16.745043] job dir: /home/sooh/historical-adapters/alpaca_finetuning_v1
+[14:03:16.745971] Namespace(accum_iter=1,
+adapter_layer=30,
+adapter_len=10,
+batch_size=4,
+blr=0.009,
+data_path='/instruction_dataset/',
+device='cuda',
+dist_backend='nccl',
+dist_on_itp=False,
+dist_url='env://',
+distributed=True,
+epochs=10,
+gpu=0,
+llama_model_path='/data1/data/sooh-data/llama/',
+local_rank=8,
+log_dir='./output_dir',
+lr=None,
+max_seq_len=512,
+min_lr=0.0,
+model='Llama7B_adapter',
+num_workers=10,
+output_dir='/data1/data/sooh-data/llama/hipe/checkpoint/',
+pin_mem=True,
+rank=0,
+resume='',
+seed=0,
+start_epoch=0,
+warmup_epochs=2,
+weight_decay=0.02,
+world_size=8)
+[14:03:16.925958] =================DATA VALIDATION=================
+[14:03:16.926264] <__main__.InstructionDataset object at 0x7f8e7312e940>
+[14:03:16.926377] <__main__.InstructionDataset object at 0x7f8dc6ffbc40>
+[14:03:16.926535] Sampler_train = <torch.utils.data.distributed.DistributedSampler object at 0x7f8da030ff40>
+[14:03:22.290282] /data1/data/sooh-data/llama/7B/consolidated.00.pth
+[14:03:24.797512] Model = Transformer(
+  (tok_embeddings): Embedding(32000, 4096)
+  (adapter_query): Embedding(300, 4096)
+  (criterion): CrossEntropyLoss()
+  (layers): ModuleList(
+    (0-31): 32 x TransformerBlock(
+      (attention): Attention(
+        (wq): Linear(in_features=4096, out_features=4096, bias=False)
+        (wk): Linear(in_features=4096, out_features=4096, bias=False)
+        (wv): Linear(in_features=4096, out_features=4096, bias=False)
+        (wo): Linear(in_features=4096, out_features=4096, bias=False)
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=4096, out_features=11008, bias=False)
+        (w2): Linear(in_features=11008, out_features=4096, bias=False)
+        (w3): Linear(in_features=4096, out_features=11008, bias=False)
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+  )
+  (norm): RMSNorm()
+  (output): Linear(in_features=4096, out_features=32000, bias=False)
+)
+[14:03:24.797780] base lr: 9.00e-03
+[14:03:24.797915] actual lr: 1.12e-03
+[14:03:24.798024] accumulate grad iterations: 1
+[14:03:24.798132] effective batch size: 32
+[14:03:25.127783] AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001125
+    maximize: False
+    weight_decay: 0.0
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.001125
+    maximize: False
+    weight_decay: 0.02
+)
+[14:03:25.128112] Start training for 10 epochs
+[14:03:25.129680] log_dir: ./output_dir
+[14:03:27.470116] Epoch: [0]  [  0/921]  eta: 0:35:54  lr: 0.000000  closs: 7.4805 (7.4805)  time: 2.3389  data: 0.8855  max mem: 36519
+[14:03:32.159612] Epoch: [0]  [ 10/921]  eta: 0:09:41  lr: 0.000006  closs: 7.2578 (7.2695)  time: 0.6388  data: 0.0807  max mem: 36553
+[14:03:36.839512] Epoch: [0]  [ 20/921]  eta: 0:08:22  lr: 0.000012  closs: 7.2422 (7.3237)  time: 0.4683  data: 0.0001  max mem: 36553
+[14:03:41.525313] Epoch: [0]  [ 30/921]  eta: 0:07:51  lr: 0.000018  closs: 7.3281 (7.3162)  time: 0.4682  data: 0.0002  max mem: 36553
