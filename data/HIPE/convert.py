@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import json
+import random
 
 def random_choice_except(a: int, excluding: int, size=None, replace=True):
     # generate random values in the range [0, a-1)
@@ -107,7 +108,7 @@ def start_of_chunk(prev_tag, tag, prev_type, type_):
 
 if __name__ == "__main__":
 
-    df = pd.read_csv('../fr/HIPE-2022-v2.1-hipe2020-train-fr.tsv', sep='\t+')
+    df = pd.read_csv('../fr/HIPE-2022-v2.1-hipe2020-test-fr.tsv', sep='\t+')
     df['org_index'] = df.index.tolist()
     drop_df = df[df['NE-COARSE-LIT'].notna()]
     drop_df = drop_df[drop_df['TOKEN'].notna()]
@@ -126,8 +127,9 @@ if __name__ == "__main__":
     total = {}
     pos = [] # ground truth
     false_pos = [] # another type of tag 
-    # non = [] # another token with ground truth tag
+    non = [] # null token with ground truth tag
     null = [] # not entity
+    null_token = []
     token_outputs = list(token_outputs)
 
     for i in range(len(token_outputs)):
@@ -135,15 +137,22 @@ if __name__ == "__main__":
         token = token_outputs[i][0]
         if tag == 'O':
             null.append(str(token) + template_list[entity_dict[tag]])
+            null_token.append(str(token))
         else:
             pos.append(str(token) + template_list[entity_dict[tag]])
+        
+        # non samples
+            rands = random.choice(null_token)
+            non.append(rands + template_list[entity_dict[tag]])
+        # false positive samples    
             rand_idx = random_choice_except(6, entity_dict[tag])
             rand_tag = inv_entity_dict[rand_idx]
             false_pos.append(str(token) + template_list[entity_dict[rand_tag]])
         
     total['positive'] = pos
-    total['flase_pos'] = false_pos
+    total['non'] = non
+    total['false_pos'] = false_pos
     total['null'] = null
 
-    with open('HIPE_converted_train_fr.json', 'w', encoding='utf8') as fp:     
+    with open('HIPE_converted_test_fr.json', 'w', encoding='utf8') as fp:     
         json.dump(total, fp, indent=4, ensure_ascii=False)
