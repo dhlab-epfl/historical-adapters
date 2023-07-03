@@ -27,10 +27,10 @@ def template_entity(words, input_TXT, start):
     window_size = 5
 
     # word 마다 각 template 찍어낼 리스트 준비
-    input_TXT = [input_TXT] * (window_size * words_length)
-
-    input_ids = tokenizer(input_TXT, return_tensors='pt')[
-        'input_ids']  # tokenized input
+    # input_TXT = [input_TXT] * (window_size * words_length)
+    #
+    # input_ids = tokenizer(input_TXT, return_tensors='pt')[
+    #     'input_ids']  # tokenized input
     model.to(device)
 
     template_list = [
@@ -48,19 +48,18 @@ def template_entity(words, input_TXT, start):
     temp_list = []
     for i in range(words_length):
         for j in range(len(template_list)):
-            temp_list.append(words[i] + template_list[j])  # 각 word 마다 template 찍어냄
+            temp_list.append(input_TXT + ' ' + words[i] + template_list[j])
+            # 각 word 마다 template 찍어냄
+            # added input_TXT to the template
+
 #     temp_list = ['SOCCER is a location entity .', 'SOCCER is a person entity .', 'SOCCER is an organization entity .',
 #     'SOCCER is an other entity .', 'SOCCER is not a named entity .', 'SOCCER - is a location entity .',
 #     'SOCCER - is a person entity .', 'SOCCER - is an organization entity .', 'SOCCER - is an other entity .',
 #     'SOCCER - is not a named entity .', 'SOCCER - JAPAN is a location entity .', 'SOCCER - JAPAN is a person entity.',
 #     'SOCCER - JAPAN is an organization entity .', ...
 
-    output_ids = tokenizer(
-        temp_list,
-        return_tensors='pt',
-        padding=True,
-        truncation=True)['input_ids']
-    output_ids[:, 0] = 2
+    output_ids = tokenizer(temp_list, return_tensors='pt', padding=True, truncation=True)['input_ids']
+    # output_ids[:, 0] = 32000 #2  2 is </s> for BART and 0 is <s> --> for LLama it's 32000 [PAD]
     output_length_list = [0] * window_size * words_length
 
     for i in range(len(temp_list) // window_size):
@@ -74,13 +73,24 @@ def template_entity(words, input_TXT, start):
 
     score = [1] * window_size * words_length
     with torch.no_grad():
+
         # output = model(input_ids=input_ids.to(device), decoder_input_ids=output_ids[:, :output_ids.shape[1] - 2].to(device))[0]
-        output = model(input_ids.to(device))[0]
-        for i in range(output_ids.shape[1] - 3):
+
+        output = model(output_ids.to(device))[0]
+        for i in range(output_ids.shape[1] - 3): # I dont know why its - 3 here
             # print(input_ids.shape)
             # print(i)
-            # import pdb;pdb.set_trace()
-            logits = output[:, i, :]
+            #
+            # tokenizer.batch_decode(generate_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+            # "Hey, are you conscious? Can you talk to me?\nI'm not conscious, but I can talk to you."
+            try:
+                if i < output.shape[1]:
+                    logits = output[:, i, :]
+                else:
+                    logits = output[:, output.shape[1]-1, :]
+            except:
+                import pdb;
+                pdb.set_trace()
             logits = logits.softmax(dim=1)
             # values, predictions = logits.topk(1,dim = 1)
             logits = logits.to('cpu').numpy()
