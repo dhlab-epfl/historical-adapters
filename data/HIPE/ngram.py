@@ -6,7 +6,7 @@ class InputExample():
         self.labels = labels
         self.nat_labels = nat_labels # Ground truth
 
-with open(f'parag-label-HIPE-dev.pickle', 'rb') as file2:
+with open(f'parag-label-HIPE-test.pickle', 'rb') as file2:
     examples = pickle.load(file2)
 
 
@@ -44,6 +44,7 @@ for i in range(len(examples)):
 
 total = []
 
+
 for i in range(len(whole_entity_lst)):
     gt_lst = examples[i].nat_labels
     each = []
@@ -54,11 +55,15 @@ for i in range(len(whole_entity_lst)):
             if whole_entity_lst[i][j][k] in gt_lst:
                 temp = (whole_entity_lst[i][j][k], 'yes')
             else:
-                temp = (whole_entity_lst[i][j][k], 'no')
+                if 'not a named entity' in whole_entity_lst[i][j][k]:
+                    temp = (whole_entity_lst[i][j][k], 'yes')
+                else:
+                    temp = (whole_entity_lst[i][j][k], 'no')
 
             each.append(temp) 
     
     total.append(each)
+
 
 class InputExample():
     def __init__(self, words, labels, nat_labels, all_entity):
@@ -71,5 +76,5 @@ whole = []
 for i in range(len(examples)):
     whole.append(InputExample(words=examples[i].words, labels=examples[i].labels, nat_labels=examples[i].nat_labels, all_entity=total[i]))
 
-with open(f'parag-label-ngram-HIPE-dev.pickle', 'wb') as file:
+with open(f'parag-label-re-ngram-HIPE-test.pickle', 'wb') as file:
     pickle.dump(whole, file) 
