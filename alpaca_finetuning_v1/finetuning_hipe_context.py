@@ -75,9 +75,9 @@ class InstructionDataset(Dataset):
         #    self.ann = dataset['validation']
 
     # HIPE dataset loading    
-        with open(f'parag-label-ngram-HIPE-train.pickle', 'rb') as file1:
+        with open(f'../data/HIPE/parag-label-sample3-ngram-HIPE-train.pickle', 'rb') as file1:
             train_dataset = pickle.load(file1)
-        with open(f'parag-label-ngram-HIPE-dev.pickle', 'rb') as file2:
+        with open(f'../data/HIPE/parag-label-sample3-ngram-HIPE-dev.pickle', 'rb') as file2:
             val_dataset = pickle.load(file2)
         
         # HIPE
@@ -373,4 +373,3 @@ if __name__ == '__main__':
     if args.output_dir:
         Path(args.output_dir).mkdir(parents=True, exist_ok=True)
     main(args)
-
