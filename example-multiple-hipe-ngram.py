@@ -28,6 +28,12 @@ import random
 from datasets import load_dataset
 from eval_acc import *
 
+class InputExample():
+    def __init__(self, words, labels, nat_labels, all_entity):
+        self.words = words
+        self.labels = labels
+        self.nat_labels = nat_labels # Ground truth
+        self.all_entity = all_entity
 
 
 PROMPT_DICT = {
@@ -103,12 +109,6 @@ def main(
 ):
     # test_dataset = json.load(open('./data/HIPE/HIPE_converted_test_fr.json'))
     
-    class InputExample():
-        def __init__(self, words, labels, nat_labels, all_entity):
-            self.words = words
-            self.labels = labels
-            self.nat_labels = nat_labels # Ground truth
-            self.all_entity = all_entity
 
     with open(f'./data/HIPE/parag-label-re-ngram-HIPE-test.pickle', 'rb') as file:
         examples = pickle.load(file)
@@ -133,8 +133,10 @@ def main(
 
     total = []
     for i in range(len(examples)):
-        hypothesis.append(examples[i].all_entity[0])
-        answers.append(examples[i].all_entity[1])
+        data = examples[i].all_entity
+        for j in range(len(data)):
+            hypothesis.append(data[j][0])
+            answers.append(data[j][1])
 
     for start in range(0, len(hypothesis), batch):
         end = min(start + batch, len(hypothesis))
@@ -144,7 +146,7 @@ def main(
 
         # prompt = prompts[batch_idx]
         prompt = [PROMPT_DICT["HIPE"].format_map({"hypothesis": x}) for x in prompt]
-        # print(prompt[0])
+        print(prompt[0])
         results = generator.generate(
                 prompt, max_gen_len=32, temperature=temperature, top_p=top_p
             )
@@ -152,7 +154,6 @@ def main(
         for i in range(len(results)):
             
             pred = results[i].split('Answer:')[1]
-            print(pred)
             if pred == answer[i]:
                 cnt += 1
 
