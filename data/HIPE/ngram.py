@@ -6,7 +6,7 @@ class InputExample():
         self.labels = labels
         self.nat_labels = nat_labels # Ground truth
 
-with open(f'parag-label-HIPE-test.pickle', 'rb') as file2:
+with open(f'parag-label-HIPE-dev.pickle', 'rb') as file2:
     examples = pickle.load(file2)
 
 
@@ -71,5 +71,5 @@ whole = []
 for i in range(len(examples)):
     whole.append(InputExample(words=examples[i].words, labels=examples[i].labels, nat_labels=examples[i].nat_labels, all_entity=total[i]))
 
-with open(f'parag-label-ngram-HIPE-test.pickle', 'wb') as file:
+with open(f'parag-label-ngram-HIPE-dev.pickle', 'wb') as file:
     pickle.dump(whole, file) 
