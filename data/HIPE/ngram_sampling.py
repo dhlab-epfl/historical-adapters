@@ -6,7 +6,7 @@ class InputExample():
         self.labels = labels
         self.nat_labels = nat_labels # Ground truth
 
-with open(f'parag-label-HIPE-test.pickle', 'rb') as file2:
+with open(f'parag-label-HIPE-train.pickle', 'rb') as file2:
     examples = pickle.load(file2)
 
 
@@ -34,7 +34,7 @@ def template_entity(words, input_TXT, start):
     temp_list = []
     for i in range(words_length):
         for j in range(len(template_list)):
-            temp_list.append(words[i]+template_list[j])
+            temp_list.append('<e>'+ words[i]+ '</e>' + template_list[j])
 
     return temp_list
 
@@ -60,9 +60,9 @@ for i in range(len(whole_entity_lst)):
             else:
                 if 'not a named entity' in whole_entity_lst[i][j][k]:
                     temp = (whole_entity_lst[i][j][k], 'yes')
-                    each.appensd(temp) 
+                    each.append(temp) 
                 else:
-                    all_no.append((whole_entity_lst[i][j][k], 'no'))
+                    all_no.append(( whole_entity_lst[i][j][k], 'no'))
                     # temp = (whole_entity_lst[i][j][k], 'no')   
 
             # each.append(temp) 
@@ -83,5 +83,5 @@ whole = []
 for i in range(len(examples)):
     whole.append(InputExample(words=examples[i].words, labels=examples[i].labels, nat_labels=examples[i].nat_labels, all_entity=total[i]))
 
-with open(f'parag-label-sample3-ngram-HIPE-test.pickle', 'wb') as file:
+with open(f'parag-label-sample3-ngram-HIPE-train.pickle', 'wb') as file:
     pickle.dump(whole, file) 
