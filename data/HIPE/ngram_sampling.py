@@ -48,26 +48,28 @@ total = []
 for i in range(len(whole_entity_lst)):
     gt_lst = examples[i].nat_labels
     each = []
-    all_no = []
     
     for j in range(len(whole_entity_lst[i])): # 각 sentence 의 모든 entity list
-
-        for k in range(len(whole_entity_lst[i][j])):
-        
-            if whole_entity_lst[i][j][k] in gt_lst:
-                temp = (whole_entity_lst[i][j][k], 'yes')
-                each.append(temp) 
-            else:
-                if 'not a named entity' in whole_entity_lst[i][j][k]:
-                    temp = (whole_entity_lst[i][j][k], 'yes')
-                    each.append(temp) 
+         
+        for k in range(0, len(whole_entity_lst[i][j]), 6): # entity list 에서 각 element
+            temp = whole_entity_lst[i][j][k:min(k+6, 48)]
+            all_no = []
+            for h in temp:
+                if h in gt_lst:
+                    ele = (h, 'yes')
+                    each.append(ele)
                 else:
-                    all_no.append(( whole_entity_lst[i][j][k], 'no'))
-                    # temp = (whole_entity_lst[i][j][k], 'no')   
+                    if 'not a named entity' in h:
+                        ele = (h, 'yes')
+                        each.append(ele)
+
+                    else:
+                        all_no.append((h, 'no'))
+                        
 
             # each.append(temp) 
-        sample_3 = random.sample(all_no, 3) 
-        each.extend(sample_3)
+            sample_3 = random.sample(all_no, 3) 
+            each.extend(sample_3)
     
     total.append(each)
 
