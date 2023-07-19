@@ -67,55 +67,35 @@ class InstructionDataset(Dataset):
         #    self.ann = dataset['validation']
 
     # HIPE dataset loading    
-        train_dataset = json.load(open('../data/HIPE/HIPE_converted_train_fr.json'))
-        val_dataset = json.load(open('../data/HIPE/HIPE_converted_dev_fr.json'))
+        with open(f'../data/HIPE/parag-label-sample3-ngram-HIPE-train.pickle', 'rb') as file1:
+            train_dataset = pickle.load(file1)
+        with open(f'../data/HIPE/parag-label-ngram-HIPE-dev.pickle', 'rb') as file2:
+            val_dataset = pickle.load(file2)
         
         # HIPE
         if partition == 'train':
             total = []
-            for i in range(len(train_dataset['positive'])):
-                temp = {}
-                temp['hypothesis'] = train_dataset['positive'][i]
-                temp['answer'] = 'yes'
-                total.append(temp)
-            for i in range(len(train_dataset['false_pos'])):
-                temp = {}
-                temp['hypothesis'] = train_dataset['false_pos'][i]
-                temp['answer'] = 'no'
-                total.append(temp)
-            for i in range(len(train_dataset['null'])):
-                temp = {}
-                temp['hypothesis'] = train_dataset['null'][i]
-                temp['answer'] = 'yes'
-                total.append(temp)
-            for i in range(len(train_dataset['non'])):
-                temp = {}
-                temp['hypothesis'] = train_dataset['non'][i]
-                temp['answer'] = 'no'
-                total.append(temp)
+            for i in range(len(train_dataset)):
+                data = train_dataset[i]
+                for j in range(len(data.all_entity)):
+                    temp = {}
+                    temp['context'] = ' '.join(data.words)
+                    temp['hypothesis'] = data.all_entity[j][0]
+                    temp['answer'] = data.all_entity[j][1]
+                    total.append(temp)
+                    total.append(temp)
             self.ann = total
         else:
             total = []
-            for i in range(len(val_dataset['positive'])):
-                temp = {}
-                temp['hypothesis'] = val_dataset['positive'][i]
-                temp['answer'] = 'yes'
-                total.append(temp)
-            for i in range(len(val_dataset['false_pos'])):
-                temp = {}
-                temp['hypothesis'] = val_dataset['false_pos'][i]
-                temp['answer'] = 'no'
-                total.append(temp)
-            for i in range(len(val_dataset['null'])):
-                temp = {}
-                temp['hypothesis'] = val_dataset['null'][i]
-                temp['answer'] = 'yes'
-                total.append(temp)
-            for i in range(len(val_dataset['non'])):
-                temp = {}
-                temp['hypothesis'] = train_dataset['non'][i]
-                temp['answer'] = 'no'
-                total.append(temp)
+            for i in range(len(val_dataset)):
+                data = val_dataset[i]
+                for j in range(len(data.all_entity)):
+                    temp = {}
+                    temp['context'] = ' '.join(data.words)
+                    temp['hypothesis'] = data.all_entity[j][0]
+                    temp['answer'] = data.all_entity[j][1]
+                    total.append(temp)
+                    total.append(temp)
             self.ann = total
 
         self.max_words = max_words
