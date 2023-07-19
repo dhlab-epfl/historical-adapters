@@ -77,7 +77,7 @@ class InstructionDataset(Dataset):
     # HIPE dataset loading    
         with open(f'../data/HIPE/parag-label-sample3-ngram-HIPE-train.pickle', 'rb') as file1:
             train_dataset = pickle.load(file1)
-        with open(f'../data/HIPE/parag-label-sample3-ngram-HIPE-dev.pickle', 'rb') as file2:
+        with open(f'../data/HIPE/parag-label-ngram-HIPE-dev.pickle', 'rb') as file2:
             val_dataset = pickle.load(file2)
         
         # HIPE
