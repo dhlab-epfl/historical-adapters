@@ -63,7 +63,7 @@ class InputExample():
 
 template_list = [" is a time entity.", " is a location entity.", " is a person entity.", " is an organization entity.",
                 " is an product entity.", " is not a named entity."]
-entity_dict = {'TIME':0, 'LOCATION':1, 'PERSON':2, 'ORGANIZATION':3, 'PRODUDCT':4, 'O':5}
+entity_dict = {'TIME':0, 'LOCATION':1, 'PERSON':2, 'ORGANIZATION':3, 'PRODUCT':4, 'O':5}
 inv_entity = {v: k for k, v in entity_dict.items()}
 
 class InstructionDataset(Dataset):
