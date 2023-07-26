@@ -104,9 +104,9 @@ class InstructionDataset(Dataset):
                 data = train_dataset[i]
                 input = data.words
 
-                for j in data.labels:
-                    label = j.upper()
-                    total_ans.append(label)
+                for j in range(len(data.labels)):
+                    label = data.labels[j].upper()
+                    total_ans.append((input[j], label))
 
                 temp['input'] = input
                 temp['answer'] = total_ans
@@ -120,9 +120,9 @@ class InstructionDataset(Dataset):
                 data = val_dataset[i]
                 input = data.words
 
-                for j in data.labels:
-                    label = j.upper()
-                    total_ans.append(label)
+                for j in range(len(data.labels)):
+                    label = data.labels[j].upper()
+                    total_ans.append((input[j], label))
 
                 temp['input'] = input
                 temp['answer'] = total_ans
