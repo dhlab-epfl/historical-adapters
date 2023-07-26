@@ -96,9 +96,12 @@ class InstructionDataset(Dataset):
                     temp_dict = {}
                     token = j.split(' is')[0]
                     label = ' is' + j.split(' is')[1]
-                    temp_dict['entity'] = inv_entity[template_list.index(label)]
-                    temp_dict['text'] = token
-                    total_ans.append(temp_dict)
+                    entity = inv_entity[template_list.index(label)]
+                    if entity != 'O':
+                        temp_dict['entity'] = entity
+                        temp_dict['text'] = token
+           
+                        total_ans.append(temp_dict)
 
                 temp['context'] = context
                 temp['answer'] = total_ans
@@ -115,9 +118,12 @@ class InstructionDataset(Dataset):
                     temp_dict = {}
                     token = j.split(' is')[0]
                     label = ' is' + j.split(' is')[1]
-                    temp_dict['entity'] = inv_entity[template_list.index(label)]
-                    temp_dict['text'] = token
-                    total_ans.append(temp_dict)
+                    entity = inv_entity[template_list.index(label)]
+                    if entity != 'O':
+                        temp_dict['entity'] = entity
+                        temp_dict['text'] = token
+           
+                        total_ans.append(temp_dict)
 
                 temp['context'] = context
                 temp['answer'] = total_ans
