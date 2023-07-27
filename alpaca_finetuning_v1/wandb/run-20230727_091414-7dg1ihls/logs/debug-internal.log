@@ -1,0 +1,189 @@
+2023-07-27 09:14:14,404 INFO    StreamThr :282 [internal.py:wandb_internal():86] W&B internal server running at pid: 282, started at: 2023-07-27 09:14:14.403798
+2023-07-27 09:14:14,405 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: status
+2023-07-27 09:14:14,408 INFO    WriterThread:282 [datastore.py:open_for_write():85] open: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/run-7dg1ihls.wandb
+2023-07-27 09:14:14,408 DEBUG   SenderThread:282 [sender.py:send():375] send: header
+2023-07-27 09:14:14,425 DEBUG   SenderThread:282 [sender.py:send():375] send: run
+2023-07-27 09:14:14,854 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: check_version
+2023-07-27 09:14:14,855 INFO    SenderThread:282 [dir_watcher.py:__init__():219] watching files in: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files
+2023-07-27 09:14:14,855 INFO    SenderThread:282 [sender.py:_start_run_threads():1124] run started: 7dg1ihls with start time 1690449254.40256
+2023-07-27 09:14:14,855 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: summary_record
+2023-07-27 09:14:14,855 INFO    SenderThread:282 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-07-27 09:14:14,856 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: check_version
+2023-07-27 09:14:14,924 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: run_start
+2023-07-27 09:14:14,943 DEBUG   HandlerThread:282 [system_info.py:__init__():31] System info init
+2023-07-27 09:14:14,943 DEBUG   HandlerThread:282 [system_info.py:__init__():46] System info init done
+2023-07-27 09:14:14,943 INFO    HandlerThread:282 [system_monitor.py:start():181] Starting system monitor
+2023-07-27 09:14:14,943 INFO    SystemMonitor:282 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-07-27 09:14:14,944 INFO    HandlerThread:282 [system_monitor.py:probe():201] Collecting system info
+2023-07-27 09:14:14,944 INFO    SystemMonitor:282 [interfaces.py:start():190] Started cpu monitoring
+2023-07-27 09:14:14,945 INFO    SystemMonitor:282 [interfaces.py:start():190] Started disk monitoring
+2023-07-27 09:14:14,945 INFO    SystemMonitor:282 [interfaces.py:start():190] Started gpu monitoring
+2023-07-27 09:14:14,946 INFO    SystemMonitor:282 [interfaces.py:start():190] Started memory monitoring
+2023-07-27 09:14:14,947 INFO    SystemMonitor:282 [interfaces.py:start():190] Started network monitoring
+2023-07-27 09:14:15,047 DEBUG   HandlerThread:282 [system_info.py:probe():195] Probing system
+2023-07-27 09:14:15,053 DEBUG   HandlerThread:282 [system_info.py:_probe_git():180] Probing git
+2023-07-27 09:14:15,062 DEBUG   HandlerThread:282 [system_info.py:_probe_git():188] Probing git done
+2023-07-27 09:14:15,062 DEBUG   HandlerThread:282 [system_info.py:probe():240] Probing system done
+2023-07-27 09:14:15,062 DEBUG   HandlerThread:282 [system_monitor.py:probe():210] {'os': 'Linux-5.4.0-132-generic-x86_64-with-glibc2.17', 'python': '3.8.16', 'heartbeatAt': '2023-07-27T09:14:15.047538', 'startedAt': '2023-07-27T09:14:14.396713', 'docker': None, 'cuda': None, 'args': ('--model', 'Llama7B_adapter', '--llama_model_path', '/data1/data/sooh-data/llama/', '--adapter_layer', '30', '--adapter_len', '10', '--max_seq_len', '512', '--batch_size', '4', '--epochs', '10', '--warmup_epochs', '2', '--blr', '9e-3', '--weight_decay', '0.02', '--output_dir', '/data1/data/sooh-data/llama/hipe/checkpoint-prompt1/'), 'state': 'running', 'program': 'finetuning_hipe_prompt1.py', 'codePath': 'alpaca_finetuning_v1/finetuning_hipe_prompt1.py', 'git': {'remote': 'https://github.com/dhlab-epfl/historical-adapters.git', 'commit': 'e28bc08671b8d1a073dc2794827b4b20035656d4'}, 'email': None, 'root': '/home/sooh/historical-adapters', 'host': 'sooh-p1-0-0', 'username': 'sooh', 'executable': '/home/sooh/.conda/envs/myenv/bin/python', 'cpu_count': 32, 'cpu_count_logical': 64, 'cpu_freq': {'current': 3247.1237968749997, 'min': 0.0, 'max': 0.0}, 'cpu_freq_per_core': [{'current': 3260.617, 'min': 0.0, 'max': 0.0}, {'current': 3293.962, 'min': 0.0, 'max': 0.0}, {'current': 3293.599, 'min': 0.0, 'max': 0.0}, {'current': 3293.972, 'min': 0.0, 'max': 0.0}, {'current': 3296.228, 'min': 0.0, 'max': 0.0}, {'current': 3318.883, 'min': 0.0, 'max': 0.0}, {'current': 3289.933, 'min': 0.0, 'max': 0.0}, {'current': 3292.8, 'min': 0.0, 'max': 0.0}, {'current': 3288.255, 'min': 0.0, 'max': 0.0}, {'current': 3293.413, 'min': 0.0, 'max': 0.0}, {'current': 3292.916, 'min': 0.0, 'max': 0.0}, {'current': 3289.795, 'min': 0.0, 'max': 0.0}, {'current': 3276.214, 'min': 0.0, 'max': 0.0}, {'current': 3293.902, 'min': 0.0, 'max': 0.0}, {'current': 3293.573, 'min': 0.0, 'max': 0.0}, {'current': 3274.835, 'min': 0.0, 'max': 0.0}, {'current': 3292.355, 'min': 0.0, 'max': 0.0}, {'current': 3293.402, 'min': 0.0, 'max': 0.0}, {'current': 3292.577, 'min': 0.0, 'max': 0.0}, {'current': 3291.319, 'min': 0.0, 'max': 0.0}, {'current': 3299.134, 'min': 0.0, 'max': 0.0}, {'current': 3308.494, 'min': 0.0, 'max': 0.0}, {'current': 3308.712, 'min': 0.0, 'max': 0.0}, {'current': 3305.234, 'min': 0.0, 'max': 0.0}, {'current': 3231.691, 'min': 0.0, 'max': 0.0}, {'current': 3292.281, 'min': 0.0, 'max': 0.0}, {'current': 2784.832, 'min': 0.0, 'max': 0.0}, {'current': 3292.484, 'min': 0.0, 'max': 0.0}, {'current': 3301.046, 'min': 0.0, 'max': 0.0}, {'current': 2488.19, 'min': 0.0, 'max': 0.0}, {'current': 3281.124, 'min': 0.0, 'max': 0.0}, {'current': 3290.9, 'min': 0.0, 'max': 0.0}, {'current': 3285.497, 'min': 0.0, 'max': 0.0}, {'current': 3293.346, 'min': 0.0, 'max': 0.0}, {'current': 3293.429, 'min': 0.0, 'max': 0.0}, {'current': 3293.361, 'min': 0.0, 'max': 0.0}, {'current': 3119.868, 'min': 0.0, 'max': 0.0}, {'current': 3294.032, 'min': 0.0, 'max': 0.0}, {'current': 3284.186, 'min': 0.0, 'max': 0.0}, {'current': 3293.364, 'min': 0.0, 'max': 0.0}, {'current': 3293.533, 'min': 0.0, 'max': 0.0}, {'current': 3268.598, 'min': 0.0, 'max': 0.0}, {'current': 3292.623, 'min': 0.0, 'max': 0.0}, {'current': 3296.252, 'min': 0.0, 'max': 0.0}, {'current': 3293.537, 'min': 0.0, 'max': 0.0}, {'current': 3293.762, 'min': 0.0, 'max': 0.0}, {'current': 3293.245, 'min': 0.0, 'max': 0.0}, {'current': 3284.994, 'min': 0.0, 'max': 0.0}, {'current': 3293.704, 'min': 0.0, 'max': 0.0}, {'current': 3293.672, 'min': 0.0, 'max': 0.0}, {'current': 3293.191, 'min': 0.0, 'max': 0.0}, {'current': 3292.331, 'min': 0.0, 'max': 0.0}, {'current': 3293.704, 'min': 0.0, 'max': 0.0}, {'current': 3294.197, 'min': 0.0, 'max': 0.0}, {'current': 3294.162, 'min': 0.0, 'max': 0.0}, {'current': 3303.993, 'min': 0.0, 'max': 0.0}, {'current': 3240.0, 'min': 0.0, 'max': 0.0}, {'current': 3277.846, 'min': 0.0, 'max': 0.0}, {'current': 3287.971, 'min': 0.0, 'max': 0.0}, {'current': 2906.932, 'min': 0.0, 'max': 0.0}, {'current': 3299.257, 'min': 0.0, 'max': 0.0}, {'current': 2396.449, 'min': 0.0, 'max': 0.0}, {'current': 3292.536, 'min': 0.0, 'max': 0.0}, {'current': 3285.679, 'min': 0.0, 'max': 0.0}], 'disk': {'total': 438.30672454833984, 'used': 139.36561584472656}, 'gpu': 'NVIDIA A100-SXM4-40GB', 'gpu_count': 4, 'gpu_devices': [{'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}, {'name': 'NVIDIA A100-SXM4-40GB', 'memory_total': 42949672960}], 'memory': {'total': 503.6348991394043}}
+2023-07-27 09:14:15,063 INFO    HandlerThread:282 [system_monitor.py:probe():211] Finished collecting system info
+2023-07-27 09:14:15,063 INFO    HandlerThread:282 [system_monitor.py:probe():214] Publishing system info
+2023-07-27 09:14:15,063 DEBUG   HandlerThread:282 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-07-27 09:14:15,063 DEBUG   HandlerThread:282 [system_info.py:_save_pip():67] Saving pip packages done
+2023-07-27 09:14:15,063 DEBUG   HandlerThread:282 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-07-27 09:14:15,066 ERROR   HandlerThread:282 [system_info.py:_save_conda():85] Error saving conda packages: [Errno 2] No such file or directory: 'conda'
+Traceback (most recent call last):
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/wandb/sdk/internal/system/system_info.py", line 81, in _save_conda
+    subprocess.call(
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/subprocess.py", line 340, in call
+    with Popen(*popenargs, **kwargs) as p:
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/subprocess.py", line 858, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/subprocess.py", line 1704, in _execute_child
+    raise child_exception_type(errno_num, err_msg, err_filename)
+FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2023-07-27 09:14:15,066 DEBUG   HandlerThread:282 [system_info.py:_save_conda():86] Saving conda packages done
+2023-07-27 09:14:15,067 INFO    HandlerThread:282 [system_monitor.py:probe():216] Finished publishing system info
+2023-07-27 09:14:15,072 DEBUG   SenderThread:282 [sender.py:send():375] send: files
+2023-07-27 09:14:15,072 INFO    SenderThread:282 [sender.py:_save_file():1378] saving file wandb-metadata.json with policy now
+2023-07-27 09:14:15,077 DEBUG   SenderThread:282 [sender.py:send():375] send: telemetry
+2023-07-27 09:14:15,077 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: stop_status
+2023-07-27 09:14:15,078 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: stop_status
+2023-07-27 09:14:15,594 INFO    wandb-upload_0:282 [upload_job.py:push():137] Uploaded file /tmp/tmptl6cdczawandb/ramnmqkq-wandb-metadata.json
+2023-07-27 09:14:15,856 INFO    Thread-12 :282 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/conda-environment.yaml
+2023-07-27 09:14:15,857 INFO    Thread-12 :282 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/wandb-summary.json
+2023-07-27 09:14:15,857 INFO    Thread-12 :282 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/wandb-metadata.json
+2023-07-27 09:14:15,857 INFO    Thread-12 :282 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/requirements.txt
+2023-07-27 09:14:15,857 INFO    Thread-12 :282 [dir_watcher.py:_on_file_created():278] file/dir created: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/output.log
+2023-07-27 09:14:17,856 INFO    Thread-12 :282 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/output.log
+2023-07-27 09:14:18,551 DEBUG   SenderThread:282 [sender.py:send():375] send: exit
+2023-07-27 09:14:18,551 INFO    SenderThread:282 [sender.py:send_exit():598] handling exit code: 1
+2023-07-27 09:14:18,551 INFO    SenderThread:282 [sender.py:send_exit():600] handling runtime: 3
+2023-07-27 09:14:18,552 INFO    SenderThread:282 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-07-27 09:14:18,552 INFO    SenderThread:282 [sender.py:send_exit():606] send defer
+2023-07-27 09:14:18,552 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:18,552 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 0
+2023-07-27 09:14:18,553 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:18,553 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 0
+2023-07-27 09:14:18,553 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 1
+2023-07-27 09:14:18,553 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:18,553 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 1
+2023-07-27 09:14:18,553 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:18,553 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 1
+2023-07-27 09:14:18,553 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 2
+2023-07-27 09:14:18,553 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:18,553 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 2
+2023-07-27 09:14:18,553 INFO    HandlerThread:282 [system_monitor.py:finish():190] Stopping system monitor
+2023-07-27 09:14:18,554 DEBUG   SystemMonitor:282 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-07-27 09:14:18,554 INFO    HandlerThread:282 [interfaces.py:finish():202] Joined cpu monitor
+2023-07-27 09:14:18,554 DEBUG   SystemMonitor:282 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-07-27 09:14:18,555 INFO    HandlerThread:282 [interfaces.py:finish():202] Joined disk monitor
+2023-07-27 09:14:18,555 DEBUG   SystemMonitor:282 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-07-27 09:14:18,597 INFO    HandlerThread:282 [interfaces.py:finish():202] Joined gpu monitor
+2023-07-27 09:14:18,598 INFO    HandlerThread:282 [interfaces.py:finish():202] Joined memory monitor
+2023-07-27 09:14:18,598 INFO    HandlerThread:282 [interfaces.py:finish():202] Joined network monitor
+2023-07-27 09:14:18,598 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:18,598 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 2
+2023-07-27 09:14:18,598 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 3
+2023-07-27 09:14:18,598 DEBUG   SenderThread:282 [sender.py:send():375] send: stats
+2023-07-27 09:14:18,599 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:18,599 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 3
+2023-07-27 09:14:18,599 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:18,599 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 3
+2023-07-27 09:14:18,599 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 4
+2023-07-27 09:14:18,599 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:18,599 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 4
+2023-07-27 09:14:18,599 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:18,600 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 4
+2023-07-27 09:14:18,600 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 5
+2023-07-27 09:14:18,600 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:18,600 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 5
+2023-07-27 09:14:18,600 DEBUG   SenderThread:282 [sender.py:send():375] send: summary
+2023-07-27 09:14:18,600 INFO    SenderThread:282 [sender.py:_save_file():1378] saving file wandb-summary.json with policy end
+2023-07-27 09:14:18,600 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:18,600 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 5
+2023-07-27 09:14:18,600 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 6
+2023-07-27 09:14:18,601 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:18,601 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 6
+2023-07-27 09:14:18,601 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:18,601 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 6
+2023-07-27 09:14:18,605 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: status_report
+2023-07-27 09:14:18,811 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 7
+2023-07-27 09:14:18,811 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:18,811 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 7
+2023-07-27 09:14:18,811 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:18,811 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 7
+2023-07-27 09:14:18,857 INFO    Thread-12 :282 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/wandb-summary.json
+2023-07-27 09:14:18,857 INFO    Thread-12 :282 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/config.yaml
+2023-07-27 09:14:19,362 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 8
+2023-07-27 09:14:19,363 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:19,363 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 8
+2023-07-27 09:14:19,363 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:19,363 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 8
+2023-07-27 09:14:19,367 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 9
+2023-07-27 09:14:19,367 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:19,367 DEBUG   SenderThread:282 [sender.py:send():375] send: artifact
+2023-07-27 09:14:19,367 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 9
+2023-07-27 09:14:19,551 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-27 09:14:19,857 INFO    Thread-12 :282 [dir_watcher.py:_on_file_modified():295] file/dir modified: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/output.log
+2023-07-27 09:14:20,856 INFO    wandb-upload_1:282 [upload_job.py:push():95] Uploaded file /home/sooh/.local/share/wandb/artifacts/staging/tmpz_hbp7_s
+2023-07-27 09:14:20,860 INFO    wandb-upload_0:282 [upload_job.py:push():95] Uploaded file /home/sooh/.local/share/wandb/artifacts/staging/tmplwn5x3lu
+2023-07-27 09:14:22,389 INFO    SenderThread:282 [sender.py:send_artifact():1474] sent artifact job-https___github.com_dhlab-epfl_historical-adapters.git_alpaca_finetuning_v1_finetuning_hipe_prompt1.py - {'id': 'QXJ0aWZhY3Q6NTI0NzY3NzEy', 'digest': '567ea655e36c8e8e22af33a1c12408df', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg2MDMzMDg3', 'latestArtifact': None}, 'version': 'latest'}
+2023-07-27 09:14:22,389 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:22,389 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 9
+2023-07-27 09:14:22,389 INFO    SenderThread:282 [dir_watcher.py:finish():365] shutting down directory watcher
+2023-07-27 09:14:22,858 INFO    SenderThread:282 [dir_watcher.py:finish():395] scan: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files
+2023-07-27 09:14:22,858 INFO    SenderThread:282 [dir_watcher.py:finish():409] scan save: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/config.yaml config.yaml
+2023-07-27 09:14:22,858 INFO    SenderThread:282 [dir_watcher.py:finish():409] scan save: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/conda-environment.yaml conda-environment.yaml
+2023-07-27 09:14:22,859 INFO    SenderThread:282 [dir_watcher.py:finish():409] scan save: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/requirements.txt requirements.txt
+2023-07-27 09:14:22,861 INFO    SenderThread:282 [dir_watcher.py:finish():409] scan save: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/wandb-summary.json wandb-summary.json
+2023-07-27 09:14:22,861 INFO    SenderThread:282 [dir_watcher.py:finish():409] scan save: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/wandb-metadata.json wandb-metadata.json
+2023-07-27 09:14:22,861 INFO    SenderThread:282 [dir_watcher.py:finish():409] scan save: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/output.log output.log
+2023-07-27 09:14:22,861 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 10
+2023-07-27 09:14:22,861 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: poll_exit
+2023-07-27 09:14:22,862 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:22,865 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 10
+2023-07-27 09:14:22,866 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:22,868 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 10
+2023-07-27 09:14:22,868 INFO    SenderThread:282 [file_pusher.py:finish():167] shutting down file pusher
+2023-07-27 09:14:23,274 INFO    wandb-upload_3:282 [upload_job.py:push():137] Uploaded file /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/output.log
+2023-07-27 09:14:23,307 INFO    wandb-upload_0:282 [upload_job.py:push():137] Uploaded file /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/requirements.txt
+2023-07-27 09:14:23,330 INFO    wandb-upload_1:282 [upload_job.py:push():137] Uploaded file /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/config.yaml
+2023-07-27 09:14:23,404 INFO    wandb-upload_2:282 [upload_job.py:push():137] Uploaded file /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/files/wandb-summary.json
+2023-07-27 09:14:23,605 INFO    Thread-11 :282 [sender.py:transition_state():626] send defer: 11
+2023-07-27 09:14:23,605 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:23,605 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 11
+2023-07-27 09:14:23,606 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:23,606 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 11
+2023-07-27 09:14:23,606 INFO    SenderThread:282 [file_pusher.py:join():172] waiting for file pusher
+2023-07-27 09:14:23,606 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 12
+2023-07-27 09:14:23,606 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:23,606 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 12
+2023-07-27 09:14:23,606 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:23,606 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 12
+2023-07-27 09:14:23,766 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 13
+2023-07-27 09:14:23,766 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:23,766 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 13
+2023-07-27 09:14:23,766 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:23,766 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 13
+2023-07-27 09:14:23,766 INFO    SenderThread:282 [sender.py:transition_state():626] send defer: 14
+2023-07-27 09:14:23,767 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: defer
+2023-07-27 09:14:23,767 DEBUG   SenderThread:282 [sender.py:send():375] send: final
+2023-07-27 09:14:23,767 INFO    HandlerThread:282 [handler.py:handle_request_defer():170] handle defer: 14
+2023-07-27 09:14:23,767 DEBUG   SenderThread:282 [sender.py:send():375] send: footer
+2023-07-27 09:14:23,767 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: defer
+2023-07-27 09:14:23,767 INFO    SenderThread:282 [sender.py:send_request_defer():622] handle sender defer: 14
+2023-07-27 09:14:23,768 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: poll_exit
+2023-07-27 09:14:23,768 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: server_info
+2023-07-27 09:14:23,768 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: poll_exit
+2023-07-27 09:14:23,769 DEBUG   SenderThread:282 [sender.py:send_request():402] send_request: server_info
+2023-07-27 09:14:23,771 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: get_summary
+2023-07-27 09:14:23,771 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: sampled_history
+2023-07-27 09:14:23,912 INFO    MainThread:282 [wandb_run.py:_footer_history_summary_info():3469] rendering history
+2023-07-27 09:14:23,912 INFO    MainThread:282 [wandb_run.py:_footer_history_summary_info():3501] rendering summary
+2023-07-27 09:14:23,912 INFO    MainThread:282 [wandb_run.py:_footer_sync_info():3428] logging synced files
+2023-07-27 09:14:23,912 DEBUG   HandlerThread:282 [handler.py:handle_request():144] handle_request: shutdown
+2023-07-27 09:14:23,912 INFO    HandlerThread:282 [handler.py:finish():842] shutting down handler
+2023-07-27 09:14:24,769 INFO    WriterThread:282 [datastore.py:close():298] close: /home/sooh/historical-adapters/alpaca_finetuning_v1/wandb/run-20230727_091414-7dg1ihls/run-7dg1ihls.wandb
+2023-07-27 09:14:24,911 INFO    SenderThread:282 [sender.py:finish():1550] shutting down sender
+2023-07-27 09:14:24,912 INFO    SenderThread:282 [file_pusher.py:finish():167] shutting down file pusher
+2023-07-27 09:14:24,912 INFO    SenderThread:282 [file_pusher.py:join():172] waiting for file pusher

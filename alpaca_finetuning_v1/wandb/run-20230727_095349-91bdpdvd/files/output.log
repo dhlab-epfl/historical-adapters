@@ -1,0 +1,118 @@
+
+| distributed init (rank 0): env://, gpu 0
+[09:53:52.869735] job dir: /home/sooh/historical-adapters/alpaca_finetuning_v1
+[09:53:52.870639] Namespace(accum_iter=1,
+adapter_layer=30,
+adapter_len=10,
+batch_size=4,
+blr=0.009,
+data_path='/instruction_dataset/',
+device='cuda',
+dist_backend='nccl',
+dist_on_itp=False,
+dist_url='env://',
+distributed=True,
+epochs=10,
+gpu=0,
+llama_model_path='/data1/data/sooh-data/llama/',
+local_rank=8,
+log_dir='./output_dir',
+lr=None,
+max_seq_len=512,
+min_lr=0.0,
+model='Llama7B_adapter',
+num_workers=10,
+output_dir='/data1/data/sooh-data/llama/hipe/checkpoint-prompt1/',
+pin_mem=True,
+rank=0,
+resume='',
+seed=0,
+start_epoch=0,
+warmup_epochs=2,
+weight_decay=0.02,
+world_size=4)
+[09:53:53.337158] =================DATA VALIDATION=================
+[09:53:53.337704] Sampler_train = <torch.utils.data.distributed.DistributedSampler object at 0x7fc64f063250>
+[09:53:57.696792] /data1/data/sooh-data/llama/7B/consolidated.00.pth
+[09:53:59.433736] Model = Transformer(
+  (tok_embeddings): Embedding(32000, 4096)
+  (adapter_query): Embedding(300, 4096)
+  (criterion): CrossEntropyLoss()
+  (layers): ModuleList(
+    (0-31): 32 x TransformerBlock(
+      (attention): Attention(
+        (wq): Linear(in_features=4096, out_features=4096, bias=False)
+        (wk): Linear(in_features=4096, out_features=4096, bias=False)
+        (wv): Linear(in_features=4096, out_features=4096, bias=False)
+        (wo): Linear(in_features=4096, out_features=4096, bias=False)
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=4096, out_features=11008, bias=False)
+        (w2): Linear(in_features=11008, out_features=4096, bias=False)
+        (w3): Linear(in_features=4096, out_features=11008, bias=False)
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+  )
+  (norm): RMSNorm()
+  (output): Linear(in_features=4096, out_features=32000, bias=False)
+)
+[09:53:59.434075] base lr: 9.00e-03
+[09:53:59.434204] actual lr: 5.62e-04
+[09:53:59.434294] accumulate grad iterations: 1
+[09:53:59.434381] effective batch size: 16
+[09:54:00.418891] AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0005625
+    maximize: False
+    weight_decay: 0.0
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0005625
+    maximize: False
+    weight_decay: 0.02
+)
+[09:54:00.419313] Start training for 10 epochs
+[09:54:00.420816] log_dir: ./output_dir
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/wandb/sdk/lib/exit_hooks.py", line 41, in exc_handler
+    def exc_handler(
+KeyboardInterrupt
+Original exception was:
+Traceback (most recent call last):
+  File "finetuning_hipe_prompt1.py", line 411, in <module>
+    main(args)
+  File "finetuning_hipe_prompt1.py", line 368, in main
+    train_stats = train_one_epoch(
+  File "/home/sooh/historical-adapters/alpaca_finetuning_v1/engine_finetuning.py", line 30, in train_one_epoch
+    for data_iter_step, (examples, labels, example_mask) in enumerate(metric_logger.log_every(data_loader, print_freq, header)):
+  File "/home/sooh/historical-adapters/alpaca_finetuning_v1/util/misc.py", line 144, in log_every
+    for obj in iterable:
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1328, in _next_data
+    idx, data = self._get_data()
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1284, in _get_data
+    success, data = self._try_get_data()
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1132, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/queue.py", line 179, in get
+    self.not_empty.wait(remaining)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/threading.py", line 306, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt

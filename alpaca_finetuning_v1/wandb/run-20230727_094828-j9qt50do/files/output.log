@@ -1,0 +1,30 @@
+
+| distributed init (rank 2): env://, gpu 2
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/wandb/sdk/lib/exit_hooks.py", line 41, in exc_handler
+    def exc_handler(
+KeyboardInterrupt
+Original exception was:
+Traceback (most recent call last):
+  File "finetuning_hipe_prompt1.py", line 410, in <module>
+    main(args)
+  File "finetuning_hipe_prompt1.py", line 367, in main
+    train_stats = train_one_epoch(
+  File "/home/sooh/historical-adapters/alpaca_finetuning_v1/engine_finetuning.py", line 30, in train_one_epoch
+    for data_iter_step, (examples, labels, example_mask) in enumerate(metric_logger.log_every(data_loader, print_freq, header)):
+  File "/home/sooh/historical-adapters/alpaca_finetuning_v1/util/misc.py", line 144, in log_every
+    for obj in iterable:
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 633, in __next__
+    data = self._next_data()
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1328, in _next_data
+    idx, data = self._get_data()
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1284, in _get_data
+    success, data = self._try_get_data()
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1132, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/queue.py", line 179, in get
+    self.not_empty.wait(remaining)
+  File "/home/sooh/.conda/envs/myenv/lib/python3.8/threading.py", line 306, in wait
+    gotit = waiter.acquire(True, timeout)
+KeyboardInterrupt

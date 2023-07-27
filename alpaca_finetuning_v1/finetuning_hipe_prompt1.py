@@ -49,10 +49,18 @@ PROMPT_DICT = {
         ),
 
     "HIPE": (
-    
-        "INPUT: {context}\n\nOUTPUT: "
-    )
+        """
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
 
+        INPUT: {context}
+        
+        OUTPUT:
+        """
+    )
 }
 
 class InputExample():
@@ -65,6 +73,10 @@ template_list = [" is a time entity.", " is a location entity.", " is a person e
                 " is an product entity.", " is not a named entity."]
 entity_dict = {'TIME':0, 'LOCATION':1, 'PERSON':2, 'ORGANIZATION':3, 'PRODUCT':4, 'O':5}
 inv_entity = {v: k for k, v in entity_dict.items()}
+
+def split(strng, sep, pos):
+    strng = strng.split(sep)
+    return sep.join(strng[:pos]), sep.join(strng[pos:])
 
 class InstructionDataset(Dataset):
     def __init__(self, model_path, max_words=30, partition='train'):
@@ -86,16 +98,15 @@ class InstructionDataset(Dataset):
         # HIPE
         if partition == 'train':
             total = []
-            total_ans = []
             for i in range(len(train_dataset)):
                 temp = {}
                 data = train_dataset[i]
                 context = ' '.join(data.words)
-
+                total_ans = []
                 for j in data.nat_labels:
                     temp_dict = {}
-                    token = j.split(' is')[0]
-                    label = ' is' + j.split(' is')[1]
+                    token = split(j, ' is ', -1)[0]
+                    label = ' is ' + split(j, ' is ', -1)[1]
                     entity = inv_entity[template_list.index(label)]
                     if entity != 'O':
                         temp_dict['entity'] = entity
@@ -113,11 +124,11 @@ class InstructionDataset(Dataset):
                 temp = {}
                 data = val_dataset[i]
                 context = ' '.join(data.words)
-
+                total_ans = []
                 for j in data.nat_labels:
                     temp_dict = {}
-                    token = j.split(' is')[0]
-                    label = ' is' + j.split(' is')[1]
+                    token = split(j, ' is ', -1)[0]
+                    label = ' is ' + split(j, ' is ', -1)[1]
                     entity = inv_entity[template_list.index(label)]
                     if entity != 'O':
                         temp_dict['entity'] = entity
@@ -140,7 +151,6 @@ class InstructionDataset(Dataset):
     def __getitem__(self, index):
 
         ann = self.ann[index]
-        #print(ann)
     # ScienceQA
         # prompt = build_prompt(ann, test=True)
         # example = build_prompt(ann, test=False)
@@ -272,8 +282,6 @@ def main(args):
     dataset_val = InstructionDataset(model_path = args.llama_model_path, max_words=args.max_seq_len, partition='val')
     
     print("=================DATA VALIDATION=================")
-    print(dataset_train)
-    print(dataset_val)
 
     if True:  # args.distributed:
         num_tasks = misc.get_world_size()

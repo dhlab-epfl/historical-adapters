@@ -1,0 +1,944 @@
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: G R E E F E . 1 .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'G R E E F E . 1 .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Le public est averti que Charlotte née Bourgoin , femme - de Joseph Digiez , et Maurice Bourgoin , enfant mineur représenté par le sieur Jaques Charles Gicot son curateur , ont été admis par arrêt du Conseil d ' Etat du 5 décembre 1797 , à solliciter une renonciation générale et absolue aux biens et aux dettes présentes et futures de Jean - Baptiste Bourgoin leur pe ' re , et qu ' en conséquence , les susdits enfans , duement assistés et autorisés , se présenteront par - devant ia noble justice du Landeron _ , le mer - , credi 17 janvier courant , pour y porter la prédite renonciation ; assignant péremptoirement tous ceux qui estimeraient être ' fondés à s ' y opposer , à _ comparcutre ce jour - là en dite justice , pour hure va _ ^ pir leurs droits et alléguer leurs moyens d ' _ opposW _ | _ priS , sou 3 peine ' de forclusion . X . En vertu d ' un gracieux arrêt du Gouvernement en date di » 3 octobre , et ensuite de la direction donnée le 35 novembre dernier .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Landeron _'}, {'entity': 'PERSON', 'text': 'Charlotte née Bourgoin , femme - de Joseph Digiez , et Maurice Bourgoin , enfant mineur'}, {'entity': 'PERSON', 'text': 'Charlotte née Bourgoin , femme - de Joseph Dig
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: par l ' honorable cour dé justice du Val - de - Travers , : le sieur Daniel Meuron , maïUe charpentier , _ bourgeois de Neuchatel , en sa qualité de tuteur juridiquement établi aux . quatre enfans en bas âge de Frédéric - Henri _ Lequin de Fleurier et de Marie - Louise Meuron , qui sont nommément , ' Jouas Frédéric , Auguste , Alexandre et Louise - Rosalio Lequin , fait savoir qu ' il se présentera en dite justice le samedi 30 janvier courant , pour y solliciter eu faveur de ses susdits pupilles , une renonciation formelle et jiiridique aux bien 3 et dettes présens et * futurs dudit Frédéric Henri Lequin leur père .
+        
+        OUTPUT:
+        
+        [{'entity': 'PERSON', 'text': 'Frédéric - Henri Lequin'}, {'entity': 'PERSON', 'text': 'Marie - Louise Meuron'}, {'entity': 'PERSON', 'text': 'Frédéric - Henri Lequin'}, {'entity': 'PERSON', 'text': 'Marie - Louise Meuron'}, {'entity': 'PERSON', 'text': 'Frédéric - Henri Lequin'}, {'entity': 'PERSON', 'text': 'Frédéric - Henri Lequin'}, {'entity': 'PERSON', 'text': 'Fréd
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: En conséquence de quoi tous ceux qui pourraient opposer à ladite renonciation , sont cités péremptoirement à se présenter en justice dudit Val de - Travers 1 © dit 30 janvier cornant , _ poar y _ seuieuir leurs durits , ( « 14 s pain » « la forclusion . AVIS DIVERS . 1 .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Val de - Travers'}, {'entity': 'PERSON', 'text': 'Val de - Travers'}, {'entity': 'LOCATION', 'text': 's pain'}, {'entity': 'LOCATION', 'text': 's pain'}, {'entity': 'LOCATION', 'text': 's pain'}, {'entity': 'LOCATION', 'text': 's pain'}, {'entity': 'LOCATION', 'text': 's pain'}, {'entity': 'LOCATION', 'text': 's pain'}, {'entity': 'LOCATION',
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Les circonstances ttu moment ont engage le Magistrat rie . Neuchatel à renvoyer le tirage de ia première classe dix ' neuvième Loterie à une époque plus favorable , ce dont on aura soin d ' informer le public par des bulletins impri ' mes qui seront délivrés par les Collecteurs à tous les intéressés . g . ' Tous les créanciers à la masse des biens du nommé Jean ' " Fréderic / Stnuffer , meunier aux moulins de la Prise , sont avisés . que M . le maire a fixé la journée pour procéder aux _ collocatlons au vendredi 16 février courant , en conséquence de quoi ils sont cités à se présenter ce jour là à neuf heures " dû matin dans l ' hôtel - de - ville , , . , . , 37 ' Les ' sœurs _ Gendre ayant entiepriE , l ' établissement en pâtisserie que tenoit feu Mlle .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Neuchatel'}, {'entity': 'PERSON', 'text': 'M . le maire'}, {'entity': 'PERSON', 'text': 'Mlle .'}, {'entity': 'LOCATION', 'text': 'Stnuffer'}, {'entity': 'LOCATION', 'text': 'Prise'}, {'entity': 'PERSON', 'text': 'M . Fréderic'}, {'entity': 'PERSON', 'text': 'Jean '}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Eckard à la rue des Moulins , avisent lé public qu ' elles le tiendront sur le même pied que ladite demoiselle Eckard .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'Eckard'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Elles osent se flatter que les p ersonnes qui voudront bien les honorer de leur confianceauront lieu d ' être satisfaites à tous égards . . 4 . , Un bourgeois de cette ville , connu avantageusement par ses bonnesi mœurs et conduite , desireroit nouver une petite auberge a louer , ou un emplacement propre à un vendage de vin ; ou encore ' un jardin avec logement , où ! l ' on pût tenir un quilier .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'ville'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: S ' adresser au bureau d ' avis .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'bureau d ' avis'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: ' ; 5 . Mercredi 7 du courant , on a trouvé un paquet de toile sur lé Crêt .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Crêt'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: La _ personne qui l ' a perdu apprendra au bureau d ' avis le nom de celle - qui l ' a trouvé . , 6 . Oh demande une fille qui sache fane un bon ordinaire et soigner des enfans , qui aye bonne conduite .
+        
+        OUTPUT:
+        
+        []
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Elle pourrait ' entrer en place dés à présent .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'dés à présent'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: S ' adr .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'S ' adr .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: au bureau d ' avis . 7 . ' Far due permission , vendredi 17 du courant , à 9 heures du matin , on exposera en montes dans l ' antï - chambre de lé salle du Concert , divers meubles , la plupart en bon état , tels que ' buffets , lits , matelas , batterie de cuisine , vieux étain , etc . 8 .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Concert'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Le lendemain de la prestation des sermens à Neuchatel i on a trouvé un chien d ' arrêt .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Neuchatel'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: La personne à qui il appartient peut le réclamer chez Jean - Frédéric Borel , maître charpentier à Couve t . ' - , g .
+        
+        OUTPUT:
+        
+        [{'entity': 'PERSON', 'text': 'Jean - Frédéric Borel , maître charpentier à Couve t .'}, {'entity': 'LOCATION', 'text': 'Couve t .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Dans une maison de cette ville on demande une jeune .
+        
+        OUTPUT:
+        
+        []
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: fille de bonne conduite et de bonnes mœurs , pour soigner un enfant .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'fille de bonne conduite et de bonnes mœurs'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: S ' adr .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'S ' adr .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: au " bureau d ' avis . 10 . M . Rougemont , commissaire général , demande à acheter des bosses à char et des bollers de diverses grandeurs . 11 . M . Fa vre , négociant sur la place , a reçu e j .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'M . Rougemont'}, {'entity': 'PERSON', 'text': 'M . Fa vre'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: commission de la graine de .
+        
+        OUTPUT:
+         [{'entity': 'ORGANIZATION', 'text': 'commission de la graine de '}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: tre lie nouvelle , qu ' il offre en gros et en détail - à un prix modique . £ 2 . Le sieur Quartier _ ^ instituteur , s ' étant décidé d ' aller passer tout au moins l ' été prochain à la campagne , invite les ) personnes qui voudraient se pourvoir chez lui d ' encre et .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Quartier'}, {'entity': 'PERSON', 'text': 'sieur Quartier _ ^ instituteur'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: de plumes taillées , de s ' annoncer au plutôt .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'de plumes taillées'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Il lui reste quelques papiers , tant de poste qu ' autres de différens formats , dont il veut se dèiaire , et qu ' il cédera pendant la foire au dessous du prix coûtant . Ï 3 . On demande pour le commencement de mars , une servante qui sache coudre et travailler dans un jardin .
+        
+        OUTPUT:
+        
+        []
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: S ' adr . au bureau d ' avis . ' 14 .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'S ' adr .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Le « 5 janvier dernier , on a trouvé de Neuchatel à _ Chaumont , un petit chien noir .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Neuchatel'}, {'entity': 'LOCATION', 'text': 'Chaumont'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: La personne à laquelle il appartient peut ie réclamer chtz Jean Pierre Baxdet .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'Jean Pierre Baxdet'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Le même est toujours assorti de toutes sortes de boisselages , seilles à tau , boues à tonneaux et coupons pour mettre iapâteau four . i 5 . La noble Compagnie des Marchands de Neuchatel offre à prête / une somme de L . 1400 d ' ici .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Neuchatel'}, {'entity': 'LOCATION', 'text': 'Marchands de Neuchatel'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Les personnes àqui elle pourrait convenir , peuvent s ' adresser à M . Henri Gigaud , membre du petit Conseti ; son procureur , soit à M . Ghatenay du grand Conseil , son receveur , ou à M . le greffier Péter , son secrétaire , eu présentant leurs sûretés . m _ ' ¦ ' — " . . ' i - i ' i ' — ' i m Nota . Les Avis à insérer dans cette Feuille , qui ne seront pas remis au Bureau le Mardi matin , à neuf - heures au plus tard , seront renvoyés irrévocablement à l ' ordinaire prochain _ . ARTICLES OFFICIELS . k . Le public est informé , qu ' au bénéfice d ' un gracieux arrêt de la Seigneurie , " et d ' une sentence de direction de l ' honorable Justice de la Chaux - de - Fonds , le tuteur et les parens des enfans ' de Henri Jean - Maire , se présenteront en cour de Justice de la dite Chaùx - de - Fonds , le Mardi _ s _ ?
+        
+        OUTPUT:
+        
+        [{'entity': 'PERSON', 'text': 'M . le greffier Péter , son secrétaire , eu présentant leurs sûretés'}, {'entity': 'PERSON', 'text': 'M . Ghatenay du grand Conseil , son receveur , ou à M . le greffier Péter , son secrétaire , eu présentant leurs sûretés'}, {'entity': 'PERSON', 'text': 'M . Henri Gigaud ,
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: o .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'o .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Septembre courant , au plaid ordinaire , aux lieu et heure accoutumés , ponr postuler au nom des enfans nés et à naître du dit Henri Jean - Maire et de Reine née Robert - Nicoud , mari et femme , une renonciation formelle et juridique aux biens et dettes présens et futurs , de leurs dits père et mère .
+        
+        OUTPUT:
+        
+        [{'entity': 'PERSON', 'text': 'Henri Jean - Maire'}, {'entity': 'PERSON', 'text': 'Henri Jean - Maire et de Reine née Robert - Nicoud , mari et femme'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: C ' est pourquoi tous les créanciers de ces derniers q ui croiront .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'C '}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: avoir des moyens d ' opposition à apporter à la dite demande eh renonciation , pourront s ' y présenter et Faire valoir leurs droits , ainsi et comme mieux leur conviendra , sous peine de forclusion .
+        
+        OUTPUT:
+        
+
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: * Greffe de la Chaux - de Fonds . jft .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Chaux - de Fonds'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Le Gouvernement ayant concède à Henriette , fille de feu le sieur cap itaine - lieutenant Jaques Henri Boûrquin , veuve de Jacob fils de Jaques Guye , des Verrières _ , résidante et paroissienne de la Cote - aux - Fées , de mettre ses biens en décret ; tous , ses sieurs créanciers sont dès là requis de se rencontrer aux dites Verrières , au siège de Justice , par - devant M . Charles Cousandièr , " maire du dit lieu , et , les sieurs Egaleurs par lui nommés , le Lundi Cinq Septembre prochain , munis de leurs _ tiires et prétentions , afin d ' être inscrits et ensuite colloques selon leurs " rangs " et dafëS 7 " " S 0 Trs - " peme ut ; forclusion .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Verrières'}, {'entity': 'LOCATION', 'text': 'Cote - aux - Fées'}, {'entity': 'LOCATION', 'text': 'Verrières'}, {'entity': 'LOCATION', 'text': 'Cote - aux - Fées'}, {'entity': 'LOCATION', 'text': 'Verrières'}, {'entity': 'LOCATION', 'text': 'Verrières'}, {'entity': 'LOCATION', 'text': 'Verrières'}, {'entity': 'LOCATION', 'text': 'Ver
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Donne par ordonnance au greffe des Verrières , le i 5 Août 1 S 08 . - , H . - F .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Verrières'}, {'entity': 'PERSON', 'text': 'H . - F .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: JEAHJAQUET , greffier . _ £ .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'JEAHJAQUET'}, {'entity': 'PERSON', 'text': 'greffier'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Le public est informé , que le sieur Charles - Henri vêpre , et la demoiselle Julie - Valérie Bonvêpre , fils et fille de feu M . Charles - Guillaume Bonvêpre , membre du Grand - Conseil et hôpitalier , et de la damé Susanne Petitpierre , sa veuve , bourgeoise de Neuchatel , ont ¦ été admis par arrêt du Conseil d ' Etat en date du 5 Juil - .
+        
+        OUTPUT:
+        
+        [{'entity': 'PERSON', 'text': 'M . Charles - Guillaume Bonvêpre , membre du Grand - Conseil'}, {'entity': 'PERSON', 'text': 'M . Charles - Henri vêpre , et la demoiselle Julie - Valérie Bonvêpre , fils et fille de feu M . Charles - Guillaume Bonvêpre , et de la damé Susanne Petitpierre , sa veuve , bourgeoise de Neuchatel'}, {'entity': 'PERSON', 'text': 'feu M . Charles - Guillaume Bonvêpre ,
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: let dernier , à postuler une renonciation formelle et ridique aux " biens et dettes présentes et futures de leurs dits père et mère .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'père et mère'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: En conséquence ils se présenteront par - devant la noble Cour - de - ' Justice de . Neuchatel , qui sera assemblée dans l ' hôtel - de cette ville , le Vendredi S 3 Septembre courant , à l ' heure ordinaire du plaid , jour auquel tous ceux qui pourraient opposer à la dite demande en renonciation , spntjpéremptoiiement assignés à se présenter en dite Justice , pour y soutenir leurs droits , à peine de forclusion . Greffe de Neuchatel . _ £ . La succession de feu l ' ancien d ' é glise Jonas Bes 6 on , d ' Engolon , ayant .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Neuchatel'}, {'entity': 'PERSON', 'text': 'Jonas Bes 6'}, {'entity': 'LOCATION', 'text': 'Engolon'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: été déclaréqjacente à la Seigneurie . liquidation en a été ordonnée et fixée au Vendredi 8 Septemb .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Seigneurie'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: < e courant .
+        
+        OUTPUT:
+         [{'entity': 'TIME', 'text': 'e courant .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Et Henri Favre , de Villard _ , et sa femme Jeanne - Marie née Morel , veuve de Jean - Daniel Favre , ayant ' obtenu la discussion de leurs biens , pour satisfaire à leurs dettes , qui a aussi été _ firfe au Mercredi 7 du dit mois : Tous créanciers quelcçtiqnes de ces deux masses , compris ceux de celle à la _ stfsdite veuve du chef de son premier mari , sont requis % è se présenter _ Jes jours sus - indiqués , devant M . le Maire de Valangin , et M . les égaleurs nommés , vers les huit heures du matin , afin de faire valoir leurs prétentions , et se colloqùer selon droit , _ BOOB peine de forclusion . Greffe de Valangin . > 5 . Marianne Perrenoud , de la Sagne , fille de feu Jacob Perrenoud , et de Judith née Jaquet , morte le 27 Juillet , c - t enterrée le 29 du même mois à _ .
+        
+        OUTPUT:
+        
+        [{'entity': 'PERSON', 'text': 'Jes jours sus - indiqués'}, {'entity': 'PERSON', 'text': 'Judith née Jaquet'}, {'entity': 'PERSON', 'text': 'Jes jours sus - indiqués'}, {'entity': 'PERSON', 'text': 'Judith née Jaquet'}, {'entity': 'PERSON', 'text': 'Jes jours sus - indiqués'}, {'entity': 'PERSON', 'text': 'Judith née Jaquet'}, {'entity': 'PERSON',
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Neuchatel , ayant par son testament du 7 Août 179 8 , appelle comme héritiers de ses biens , ses parens issus de germains , en disant : „ Je crée et institue pour mes seuls et uniques „ héritiers .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Neuchatel'}, {'entity': 'PERSON', 'text': 'son testament du 7 Août 179 8'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: en tous mes biens , mes cousins et cousines „ remués de germains , sans exception , ne les connois - „ sant pas tous par leurs noms , à la charge dé liur part „ d ' acquitter , etc . etc .
+        
+        OUTPUT:
+        
+        []
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: « Et les dits parens pouvant n ' être pas tous connus , on les avise par la présente , que le Vendredi 9 Septembre courant , est le jour fatal sur lequel la mise en possession et investiture des biens de la " défunte , doivent être réclamées devant \ i noble Cour de Justice , assemblée dans l ' hôtel - dê ville , par ceux des dits païens qui sont au pays , et qui estimeront avoir des droits à faire valoir .
+        
+        OUTPUT:
+        
+        [{'entity': 'PERSON', 'text': 'i noble Cour de Justice'}, {'entity': 'LOCATION', 'text': 'défunt'}, {'entity': 'PERSON', 'text': 'docile'}, {'entity': 'PERSON', 'text': 'docile'}, {'entity': 'PERSON', 'text': 'i noble Cour de Justice'}, {'entity': 'PERSON', 'text': 'docile'}, {'entity': 'PERSON', 'text': 'docile'}, {'entity': 'PERSON', 'text': 'docile'}, {'entity': 'PER
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: La présente information ainsi donnée sans conséquence , vu la clause extraordinaire ci - dessus , _ exiraite du testament de la défunte , qui est déposé en original au _ ' grefle de Neuchatel , sera inséré trois fois dans la présente , et publié au prône de l ' é glise de la _ Sagoe , juridiction de la défunte . MONTES . 6 . La Commission du bénéfice d ' inventaire de la succès » ' _ sion dû voitnrier Louis Floquet , donne avis par les présentes , que le Mardi 6 Septembre prochain , à neuf heures du matin , sur la place d ' Yverdon , on _ exposera en vente par voie d ' enchère publique et aux conditions qui seront lues , quaire voitures _ , deux chars - à - bancs , dont l ' un est couvert , un grand et fort char de routier , harnois et autres objets de l ' attirail de voilurier .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Yverdon'}, {'entity': 'LOCATION', 'text': 'Neuchatel'}, {'entity': 'LOCATION', 'text': 'Sagoe'}, {'entity': 'LOCATION', 'text': 'Yverdon'}, {'entity': 'LOCATION', 'text': 'Neuchatel'}, {'entity': 'LOCATION', 'text': 'Sagoe'}, {'entity': 'LOCATION', 'text': 'Yverdon'}, {'entity': 'LOCATION', 'text': 'Neuchatel'}, {'entity': 'LOC
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Donné à _ Yveidon , le _ ï 3 Août 3 * 08 . . AUBERJOSOIS , président .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'AUBERJOSOIS'}, {'entity': 'PERSON', 'text': '_ Yveidon , _ ï 3 Août 3 * 08 . .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: 25 .
+        
+        OUTPUT:
+         [{'entity': 'TIME', 'text': '25 .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: F . COREVOïT , greffier . 7 . Par permission obtenue , M . " les ' Quaire - Ministraux feront exposer eu montes .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'M . " les ' Quaire - Ministraux'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: le _ ?
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'le _ ?'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: 3 Septembre courant , a 1 issue du plaid , une vigne d ' environ deux ouvriers et un quart , compris 1 ancienne ruelle Honhomme atte - . nant , située au Plan de Serriere , entre l ' ancien chemin dû dit Serriere d ' ubère , le nouveau chemin aboutissant .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Plan de Serriere'}, {'entity': 'LOCATION', 'text': 'Serriere'}, {'entity': 'LOCATION', 'text': 'Serriere'}, {'entity': 'LOCATION', 'text': 'Serriere'}, {'entity': 'LOCATION', 'text': 'Serriere'}, {'entity': 'LOCATION', 'text': 'Serriere'}, {'entity': 'LOCATION', 'text': 'Serriere'}, {'entity': 'LOCATION', 'text': 'Serriere'}, {'entity': 'LOCATION', 'text': '
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: 1 au pont de .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'pont de .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: joran , la .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'joran'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: vigne de M . le capitaine Jacobel de ' vent .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'capitaine Jacobel de ' vent .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Cette vigne est entourée en grande partie d ' un mur , et elle sera exposée en montes , avec sa récolte , et aux conditions qui seront lues avant les dites montes . 8 . Ensuite de permission obtenue , on exposera en mon - ' tes publiques , le Vendredi 9 Septembre courant , à dix heures du matin , devant la maison De Charriera , au bas du village de Colombier , deux caresses , des selles , des harnois , _ coliers de chevaux , et autres objets de ce genre .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'village de Colombier'}, {'entity': 'PERSON', 'text': 'Charriera'}, {'entity': 'LOCATION', 'text': 'village de Colombier'}, {'entity': 'LOCATION', 'text': 'village de Colombier'}, {'entity': 'LOCATION', 'text': 'village de Colombier'}, {'entity': 'LOCATION', 'text': 'village de Colombier'}, {'entity': 'LOCATION', 'text': 'village de Colombier'}, {'entity
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: . .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': '.'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: ¦ .
+        
+        OUTPUT:
+        
+        []
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: ' " ' . g . Ensuite d ' une permission obtenue , on exposera en montes , en Justice de Colombier , le Mercredi 2 Novembre prochain , les pièces suivantes faisant partie du domaine appartenant à feu M . ne Charrière , dans la Juridiction de Colombier : i . " une possession dite la _ Mairesse , située entre Bôle et Colombier , contenant 8 poses 7 perches , garnie d ' arbres fruitiers , avec maison et , fontaine ; 2 .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Bôle'}, {'entity': 'LOCATION', 'text': 'Colombier'}, {'entity': 'PERSON', 'text': 'M . ne Charrière'}, {'entity': 'LOCATION', 'text': 'Colombier'}, {'entity': 'LOCATION', 'text': 'Colombier'}, {'entity': 'LOCATION', 'text': 'Colombier'}, {'entity': 'LOCATION', 'text': 'Colombier'}, {'entity': 'LOCATION', 'text': 'Colombier'}, {'entity': '
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: un champ à Preyla , contenant environ a poses , 3 . ° deux vignes à Chatenaya , plantées en rouge , contenant ensemble 18 .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Chatenaya'}, {'entity': 'LOCATION', 'text': 'Preyla'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: ouvriers . To .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'ouvriers . To .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Les sieurs Jean - David Mauley , et Jean Confesse , justiciers , agissant en qualité de curateurs conjoints de l ' hoirie de feu Félix Tinembart , et dé syndics de là masse de sa discussion , avisent le public , qu ' ils exposeront en montes publiques , sous des conditions râbles , en Justice à Bevaix , le 16 Septembre prochain , à dix heures du matin , une Superbe maison édifiée au bas du village de ' ce dernier lieu , sur la route de Neuchatel , consistant en troisTogemens distincts , une boulangerie a plain - pied , une grange , une cave , une huiliète avec les appartenances , verger et jardin y attenant , contenant une pose et quart , et où il existe une plantation de beaux arbres de plusieurs espèces ; plus .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Bevaix'}, {'entity': 'LOCATION', 'text': 'Neuchatel'}, {'entity': 'LOCATION', 'text': 'Tinembart'}, {'entity': 'LOCATION', 'text': 'Jean Confesse'}, {'entity': 'LOCATION', 'text': 'Jean - David Mauley'}, {'entity': 'LOCATION', 'text': 'Jean'}, {'entity': 'LOCATION', 'text': 'Félix Tinembart'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: et enfin , un superbe balancier avec lès pierres .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'pierres'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Les amateurs pourront s ' adresser .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'Les amateurs'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: avant les montes , pour prendre _ connois - .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'avant les montes'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: sance de tous ces objets , aux prédits sieurs syndics . Donné au greffe de Bevaix , le ï 3 Août 1808 . Par ordonnance ' : ' J .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Bevaix'}, {'entity': 'PERSON', 'text': 'J .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: - J .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'J .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: PERNET , greffier . ON OFFRE A VENDRE . IX .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'PERNET'}, {'entity': 'ORGANIZATION', 'text': 'ON'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: M . Roy s ' étant décidé , à la demande de plusieurs personnes , de vendre par parcelles un laigre d ' environ huit bosses vin blanc .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'M . Roy'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: 1802 , T ' offre au prix de cinq bàiz le pot , en .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': '1802'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: en prenant au moins 100 pots ; il en délivrera des échantillons aux amateurs , et recevra leurs souscriptions .
+        
+        OUTPUT:
+         [{'entity': 'ORGANIZATION', 'text': 'en prenant au moins 100 pots'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Ce * vin ne laisse rien à désirer pour la qualité , mais il laisse au vendeur dès regrets sur la dicité du prix » ARTICLES OFFICIELS . Noble et vertueux César d ' Ivernois , conseiller d ' Etat et maire de Colombier , ayant fixé une nouvelle journée pour reprendre les erremens du décret de la masse de Samuel Huguenin , ci - devant boucher en ce lieu ; en conséquence , tous les créanciers de ce dernier sont péremptoirement assignés à se rencontrer dans la salle deJusticeduditColombier , le Vendredi ; oJuin courant , dès les huit heures du matin , pour procéder aux collocations , sous peine de forclusion .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'César d ' Ivernois , conseiller d ' Etat et maire de Colombier'}, {'entity': 'PERSON', 'text': 'Samuel Huguenin , ci - devant boucher'}, {'entity': 'PERSON', 'text': 'César'}, {'entity': 'LOCATION', 'text': 'Colombier'}, {'entity': 'LOCATION', 'text': 'Colombier'}, {'entity': 'LOCATION', 'text': 'Colombier'}, {'entity': 'LOCATION', '
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Parord .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Parord'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: F . C ' LtRC , £ ffier . Dans le décret des biens de AL Fiançois .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'AL Fiançois'}, {'entity': 'PERSON', 'text': 'F . C '}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Racle , de Neuveville , ci - devant _ négociant à Berne , publié l ' année 1824 , et dont la liquidation dique sur le doit et l ' avoir a eu lieu le 3 1 Août igî _ ? , AlAL Millier , Sivary père et Comp , de Fribourg en Suisse , suivant une obligation avec nantissement , des 7 et 11 Juin 15 - 2 * 4 , ont à réclamer un solde de réclamation admise de L . 32,371 » 2 _ J r .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'Berne'}, {'entity': 'LOCATION', 'text': 'Fribourg en Suisse'}, {'entity': 'LOCATION', 'text': 'Neuveville'}, {'entity': 'PERSON', 'text': 'Racle'}, {'entity': 'PERSON', 'text': 'Sivary père et Comp'}, {'entity': 'PERSON', 'text': 'Millier'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: _ ipes .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': '_ ipes .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Conformément à la loi i page 30 c du code civil de la ville de Berne , Al Al . les notifians ont demandé d ' être premièrement assignes pour cette somme sur les objets qui leur ont été cédés en nantissement et effectivement livrés , et en oute colloques suivant leur rang , et conformément à la loi , sur des objets de valeur réelle .
+        
+        OUTPUT:
+        
+        []
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Cependant , n ' ayant point été assignés pour cette réclamation , suivant le prescrit de la loi ci - dessus citée , mais sur le restant de la masse des dettes actives en valeur et non - valeur de L . 12,481 , , 4 * ; râpes , pour L . 2947 , , < ; 2 ' / - râpes , et ensuite colloques à la patience pour la somme restante de L . 29,423 „ 72 ' / ; râpes , vu que les biens de la masse 5 e trouvaient absorbés , et leur étant arrivé par - là du tort et préjudice , MAL les notifians ont recours à la voie de revision , suivant ce qui est prescrit par la loi 1 ' _ < * , page 316 du susdit code civil .
+        
+        OUTPUT:
+        
+        [{'entity': 'LOCATION', 'text': 'MAL'}, {'entity': 'LOCATION', 'text': 'MAL'}, {'entity': 'LOCATION', 'text': 'MAL'}, {'entity': 'LOCATION', 'text': 'MAL'}, {'entity': 'LOCATION', 'text': 'MAL'}, {'entity': 'LOCATION', 'text': 'MAL'}, {'entity': 'LOCATION', 'text': 'MAL'}, {'entity': 'LOCATION', 'text': 'MAL'}, {'entity': 'LOCATION', 'text': 'MAL
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: En conséquence , AlAL les notifians , ou un chargé de procuration , se présenteront , le 2 Juillet 1828 , .
+        
+        OUTPUT:
+         [{'entity': 'TIME', 'text': 'le 2 Juillet 1828'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: à l ' audience de Al . le juge civil Freudo ' nreich , lieutenant d ' Avoyer de la Préfecture à Berne , à 9 heures du matin , pour demander que , dans le but mentioiié , révision leur soit accordée du décret des biens de AI .
+        
+        OUTPUT:
+        
+        [{'entity': 'PERSON', 'text': 'juge civil Freudo ' nreich'}, {'entity': 'LOCATION', 'text': 'Berne'}, {'entity': 'LOCATION', 'text': 'AI'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: François Racle , de Neuveville , ci - devant négociant à Berne , et absent du pays ; d ' après cela tous les créanciers qui auraient l ' intention de s ' opposer à la dite demande en révision , sont formellement invités à se rencontrer à la dire audience , et en cas de non - comparution , tenus de s ' en tenir à cet éL .
+        
+        OUTPUT:
+        
+        [{'entity': 'PERSON', 'text': 'François Racle'}, {'entity': 'LOCATION', 'text': 'Berne'}, {'entity': 'LOCATION', 'text': 'Neuveville'}, {'entity': 'LOCATION', 'text': 'Berne'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: ard à ce qui est statué par les lois .
+        
+        OUTPUT:
+         [{'entity': 'LOCATION', 'text': 'Pennsylvaina'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: Donné sous l ' autorisation juri _ .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'juri _ .'}]
+
+        You are working as a named entity recognition expert and your task is to label a given text with named entity labels.
+        Your task is to identify and label any named entities present in the text. 
+        The named entity labels that you will be using are TIME (time), LOCATION (location), PERSON (person), ORGANIZATION (organization), and PRODUCT (product).
+        
+        NOTE: Your output format should be a JSON format, where each data consists of a word from the input text and its corresponding named entity label.
+
+        INPUT: tique de Al . Freudenreich , lieutenant d ' Avoyer de la Préfecture de Berne , à Berne le 30 Avril 1828 - Au nom rie aMM .
+        
+        OUTPUT:
+         [{'entity': 'PERSON', 'text': 'Al . Freudenreich'}, {'entity': 'LOCATION', 'text': 'Berne'}, {'entity': 'PERSON', 'text': 'Avoyer de la Préfecture de Berne'}]
