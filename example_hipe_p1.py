@@ -90,7 +90,7 @@ def load(
     adapter_path: str,
     local_rank: int,
     world_size: int,
-    max_seq_len: 512,
+    max_seq_len: 1800,
     max_batch_size: int,
 ) -> LLaMA:
     start_time = time.time()
@@ -127,7 +127,7 @@ def main(
     adapter_path: str,
     temperature: float = 0.1,
     top_p: float = 0.75,
-    max_seq_len: int = 512,
+    max_seq_len: int = 1800,
     max_batch_size: int = 1,
 ):
     # test_dataset = json.load(open('./data/HIPE/HIPE_converted_test_fr.json'))
@@ -173,32 +173,30 @@ def main(
 
         hypothesis.append(context)
         answers.append(total_ans)
-    with open('./results/org-finetuned-hipe-prompt1-result.json','w') as fp:
-        for start in range(0, len(hypothesis), batch):
-            end = min(start + batch, len(hypothesis))
+        
+    for start in range(0, len(hypothesis), batch):
+        end = min(start + batch, len(hypothesis))
         # batch_idx = indices[start:end]
-            prompt = hypothesis[start:end]
-            answer = answers[start:end]
+        prompt = hypothesis[start:end]
+        answer = answers[start:end]
 
         # prompt = prompts[batch_idx]
-            prompt = [PROMPT_DICT["HIPE"].format_map({"context": x}) for x in prompt]
-            print(len(prompt[0]))
-            results = generator.generate(
-                    prompt, max_gen_len=128,temperature=temperature, top_p=top_p
-                )
-            for i in results:
-                fp.write(i)
-                fp.write('\n')
-                print(i) 
-
-        #for i in range(len(results)):
-         #   all_outputs.append(results[i])
-
-    #save_results_json['output'] = all_outputs
+        prompt = [PROMPT_DICT["HIPE"].format_map({"context": x}) for x in prompt]
+        print(len(prompt[0]))
+        results = generator.generate(
+                prompt, max_gen_len=128,temperature=temperature, top_p=top_p
+            )
+            
 
 
-    #with open('./results/org-finetuned-hipe-prompt1-result.json', 'w') as fp:     
-     #   json.dump(save_results_json, fp, indent=4)
+        for i in range(len(results)):
+            all_outputs.append(results[i])
+
+        save_results_json['output'] = all_outputs
+
+
+    with open('./results/org-finetuned-hipe-prompt1-result.json', 'w') as fp:     
+        json.dump(save_results_json, fp, indent=4)
 
 
 if __name__ == "__main__":
