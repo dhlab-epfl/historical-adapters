@@ -1,0 +1,360 @@
+
+| distributed init (rank 0): env://, gpu 0
+[14:17:54.688313] job dir: /home/sooh/historical-adapters/alpaca_finetuning_v1
+[14:17:54.688921] Namespace(accum_iter=1,
+adapter_layer=30,
+adapter_len=10,
+batch_size=4,
+blr=0.009,
+data_path='/instruction_dataset/',
+device='cuda',
+dist_backend='nccl',
+dist_on_itp=False,
+dist_url='env://',
+distributed=True,
+epochs=10,
+gpu=0,
+llama_model_path='/data1/data/sooh-data/llama/',
+local_rank=8,
+log_dir='./output_dir',
+lr=None,
+max_seq_len=512,
+min_lr=0.0,
+model='Llama7B_adapter',
+num_workers=10,
+output_dir='/data1/data/sooh-data/llama/hipe/checkpoint-prompt2/',
+pin_mem=True,
+rank=0,
+resume='',
+seed=0,
+start_epoch=0,
+warmup_epochs=2,
+weight_decay=0.02,
+world_size=7)
+[14:17:55.092400] =================DATA VALIDATION=================
+[14:17:55.092864] <__main__.InstructionDataset object at 0x7fc2743939d0>
+[14:17:55.092989] <__main__.InstructionDataset object at 0x7fc1bc1d8040>
+[14:17:55.093163] Sampler_train = <torch.utils.data.distributed.DistributedSampler object at 0x7fc13c0570a0>
+[14:18:00.184576] /data1/data/sooh-data/llama/7B/consolidated.00.pth
+[14:18:02.415862] Model = Transformer(
+  (tok_embeddings): Embedding(32000, 4096)
+  (adapter_query): Embedding(300, 4096)
+  (criterion): CrossEntropyLoss()
+  (layers): ModuleList(
+    (0-31): 32 x TransformerBlock(
+      (attention): Attention(
+        (wq): Linear(in_features=4096, out_features=4096, bias=False)
+        (wk): Linear(in_features=4096, out_features=4096, bias=False)
+        (wv): Linear(in_features=4096, out_features=4096, bias=False)
+        (wo): Linear(in_features=4096, out_features=4096, bias=False)
+      )
+      (feed_forward): FeedForward(
+        (w1): Linear(in_features=4096, out_features=11008, bias=False)
+        (w2): Linear(in_features=11008, out_features=4096, bias=False)
+        (w3): Linear(in_features=4096, out_features=11008, bias=False)
+      )
+      (attention_norm): RMSNorm()
+      (ffn_norm): RMSNorm()
+    )
+  )
+  (norm): RMSNorm()
+  (output): Linear(in_features=4096, out_features=32000, bias=False)
+)
+[14:18:02.416122] base lr: 9.00e-03
+[14:18:02.416235] actual lr: 9.84e-04
+[14:18:02.416322] accumulate grad iterations: 1
+[14:18:02.416411] effective batch size: 28
+[14:18:02.891210] AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.000984375
+    maximize: False
+    weight_decay: 0.0
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.000984375
+    maximize: False
+    weight_decay: 0.02
+)
+[14:18:02.891566] Start training for 10 epochs
+[14:18:02.893019] log_dir: ./output_dir
+[14:18:04.744047] Epoch: [0]  [  0/205]  eta: 0:06:19  lr: 0.000000  closs: 0.3396 (0.3396)  time: 1.8493  data: 0.7840  max mem: 36518
+[14:18:09.438345] Epoch: [0]  [ 10/205]  eta: 0:01:55  lr: 0.000024  closs: 0.3179 (0.3239)  time: 0.5948  data: 0.0714  max mem: 36550
+[14:18:14.126876] Epoch: [0]  [ 20/205]  eta: 0:01:38  lr: 0.000048  closs: 0.2925 (0.3125)  time: 0.4690  data: 0.0001  max mem: 36550
+[14:18:18.819841] Epoch: [0]  [ 30/205]  eta: 0:01:29  lr: 0.000072  closs: 0.2588 (0.2995)  time: 0.4690  data: 0.0001  max mem: 36550
+[14:18:23.511532] Epoch: [0]  [ 40/205]  eta: 0:01:22  lr: 0.000096  closs: 0.2710 (0.2978)  time: 0.4691  data: 0.0001  max mem: 36550
+[14:18:28.209292] Epoch: [0]  [ 50/205]  eta: 0:01:16  lr: 0.000120  closs: 0.2783 (0.2957)  time: 0.4694  data: 0.0001  max mem: 36550
+[14:18:32.906255] Epoch: [0]  [ 60/205]  eta: 0:01:11  lr: 0.000144  closs: 0.2500 (0.2863)  time: 0.4696  data: 0.0001  max mem: 36550
+[14:18:37.606814] Epoch: [0]  [ 70/205]  eta: 0:01:05  lr: 0.000168  closs: 0.2496 (0.2875)  time: 0.4697  data: 0.0001  max mem: 36550
+[14:18:42.303248] Epoch: [0]  [ 80/205]  eta: 0:01:00  lr: 0.000192  closs: 0.2766 (0.2885)  time: 0.4697  data: 0.0001  max mem: 36550
+[14:18:47.003677] Epoch: [0]  [ 90/205]  eta: 0:00:55  lr: 0.000216  closs: 0.2766 (0.2866)  time: 0.4697  data: 0.0001  max mem: 36550
+[14:18:51.718034] Epoch: [0]  [100/205]  eta: 0:00:50  lr: 0.000240  closs: 0.2744 (0.2838)  time: 0.4706  data: 0.0001  max mem: 36550
+[14:18:56.419818] Epoch: [0]  [110/205]  eta: 0:00:45  lr: 0.000264  closs: 0.2231 (0.2752)  time: 0.4707  data: 0.0002  max mem: 36550
+[14:19:01.119153] Epoch: [0]  [120/205]  eta: 0:00:40  lr: 0.000288  closs: 0.1877 (0.2689)  time: 0.4699  data: 0.0002  max mem: 36550
+[14:19:05.822638] Epoch: [0]  [130/205]  eta: 0:00:36  lr: 0.000312  closs: 0.1841 (0.2635)  time: 0.4700  data: 0.0001  max mem: 36550
+[14:19:10.523152] Epoch: [0]  [140/205]  eta: 0:00:31  lr: 0.000336  closs: 0.1801 (0.2586)  time: 0.4701  data: 0.0001  max mem: 36550
+[14:19:15.227581] Epoch: [0]  [150/205]  eta: 0:00:26  lr: 0.000360  closs: 0.1642 (0.2508)  time: 0.4701  data: 0.0001  max mem: 36550
+[14:19:19.936747] Epoch: [0]  [160/205]  eta: 0:00:21  lr: 0.000384  closs: 0.1240 (0.2424)  time: 0.4706  data: 0.0001  max mem: 36550
+[14:19:24.641136] Epoch: [0]  [170/205]  eta: 0:00:16  lr: 0.000408  closs: 0.1075 (0.2343)  time: 0.4706  data: 0.0001  max mem: 36550
+[14:19:29.346265] Epoch: [0]  [180/205]  eta: 0:00:11  lr: 0.000432  closs: 0.1027 (0.2263)  time: 0.4704  data: 0.0001  max mem: 36550
+[14:19:34.053026] Epoch: [0]  [190/205]  eta: 0:00:07  lr: 0.000456  closs: 0.0951 (0.2188)  time: 0.4705  data: 0.0001  max mem: 36550
+[14:19:38.755398] Epoch: [0]  [200/205]  eta: 0:00:02  lr: 0.000480  closs: 0.0734 (0.2113)  time: 0.4704  data: 0.0001  max mem: 36550
+[14:19:40.635708] Epoch: [0]  [204/205]  eta: 0:00:00  lr: 0.000490  closs: 0.0717 (0.2087)  time: 0.4701  data: 0.0001  max mem: 36550
+[14:19:40.700194] Epoch: [0] Total time: 0:01:37 (0.4771 s / it)
+[14:19:40.724540] Averaged stats: lr: 0.000490  closs: 0.0717 (0.2054)
+[14:19:40.728806] log_dir: ./output_dir
+[14:19:41.254935] Epoch: [0]  [ 0/44]  eta: 0:00:23  lr: 0.000490  closs: 0.0865 (0.0865)  time: 0.5249  data: 0.2567  max mem: 36550
+[14:19:40.724540] Averaged stats: lr: 0.000490  closs: 0.0717 (0.2054)
+[14:19:45.413099] Epoch: [0]  [20/44]  eta: 0:00:05  lr: 0.000490  closs: 0.0594 (0.0680)  time: 0.2078  data: 0.0001  max mem: 36550
+[14:19:45.413099] Epoch: [0]  [20/44]  eta: 0:00:05  lr: 0.000490  closs: 0.0594 (0.0680)  time: 0.2078  data: 0.0001  max mem: 36550
+[14:19:50.283341] Epoch: [0] Total time: 0:00:09 (0.2171 s / it)0  closs: 0.0594 (0.0680)  time: 0.2078  data: 0.0001  max mem: 36550
+[14:19:50.283341] Epoch: [0] Total time: 0:00:09 (0.2171 s / it)0  closs: 0.0594 (0.0680)  time: 0.2078  data: 0.0001  max mem: 36550
+[14:21:43.471465] Epoch: [1]  [ 10/205]  eta: 0:01:36  lr: 0.000516  closs: 0.0417 (0.0407)  time: 0.4958  data: 0.0228  max mem: 36550
+[14:21:43.471465] Epoch: [1]  [ 10/205]  eta: 0:01:36  lr: 0.000516  closs: 0.0417 (0.0407)  time: 0.4958  data: 0.0228  max mem: 36550
+[14:21:43.471465] Epoch: [1]  [ 10/205]  eta: 0:01:36  lr: 0.000516  closs: 0.0417 (0.0407)  time: 0.4958  data: 0.0228  max mem: 36550
+[14:21:43.471465] Epoch: [1]  [ 10/205]  eta: 0:01:36  lr: 0.000516  closs: 0.0417 (0.0407)  time: 0.4958  data: 0.0228  max mem: 36550
+[14:22:02.274816] Epoch: [1]  [ 50/205]  eta: 0:01:13  lr: 0.000612  closs: 0.0229 (0.0422)  time: 0.4706  data: 0.0001  max mem: 36550
+[14:22:02.274816] Epoch: [1]  [ 50/205]  eta: 0:01:13  lr: 0.000612  closs: 0.0229 (0.0422)  time: 0.4706  data: 0.0001  max mem: 36550
+[14:22:02.274816] Epoch: [1]  [ 50/205]  eta: 0:01:13  lr: 0.000612  closs: 0.0229 (0.0422)  time: 0.4706  data: 0.0001  max mem: 36550
+[14:22:02.274816] Epoch: [1]  [ 50/205]  eta: 0:01:13  lr: 0.000612  closs: 0.0229 (0.0422)  time: 0.4706  data: 0.0001  max mem: 36550
+[14:22:21.074029] Epoch: [1]  [ 90/205]  eta: 0:00:54  lr: 0.000708  closs: 0.0316 (0.0389)  time: 0.4701  data: 0.0001  max mem: 36550
+[14:22:21.074029] Epoch: [1]  [ 90/205]  eta: 0:00:54  lr: 0.000708  closs: 0.0316 (0.0389)  time: 0.4701  data: 0.0001  max mem: 36550
+[14:22:21.074029] Epoch: [1]  [ 90/205]  eta: 0:00:54  lr: 0.000708  closs: 0.0316 (0.0389)  time: 0.4701  data: 0.0001  max mem: 36550
+[14:22:21.074029] Epoch: [1]  [ 90/205]  eta: 0:00:54  lr: 0.000708  closs: 0.0316 (0.0389)  time: 0.4701  data: 0.0001  max mem: 36550
+[14:22:39.895460] Epoch: [1]  [130/205]  eta: 0:00:35  lr: 0.000804  closs: 0.0195 (0.0366)  time: 0.4707  data: 0.0001  max mem: 36550
+[14:22:39.895460] Epoch: [1]  [130/205]  eta: 0:00:35  lr: 0.000804  closs: 0.0195 (0.0366)  time: 0.4707  data: 0.0001  max mem: 36550
+[14:22:39.895460] Epoch: [1]  [130/205]  eta: 0:00:35  lr: 0.000804  closs: 0.0195 (0.0366)  time: 0.4707  data: 0.0001  max mem: 36550
+[14:22:39.895460] Epoch: [1]  [130/205]  eta: 0:00:35  lr: 0.000804  closs: 0.0195 (0.0366)  time: 0.4707  data: 0.0001  max mem: 36550
+[14:22:58.717298] Epoch: [1]  [170/205]  eta: 0:00:16  lr: 0.000900  closs: 0.0336 (0.0356)  time: 0.4705  data: 0.0001  max mem: 36550
+[14:22:58.717298] Epoch: [1]  [170/205]  eta: 0:00:16  lr: 0.000900  closs: 0.0336 (0.0356)  time: 0.4705  data: 0.0001  max mem: 36550
+[14:22:58.717298] Epoch: [1]  [170/205]  eta: 0:00:16  lr: 0.000900  closs: 0.0336 (0.0356)  time: 0.4705  data: 0.0001  max mem: 36550
+[14:22:58.717298] Epoch: [1]  [170/205]  eta: 0:00:16  lr: 0.000900  closs: 0.0336 (0.0356)  time: 0.4705  data: 0.0001  max mem: 36550
+[14:23:14.734359] Epoch: [1]  [204/205]  eta: 0:00:00  lr: 0.000982  closs: 0.0255 (0.0346)  time: 0.4707  data: 0.0001  max mem: 36550
+[14:23:15.375123] Epoch: [1]  [ 0/44]  eta: 0:00:23  lr: 0.000982  closs: 0.0083 (0.0083)  time: 0.5326  data: 0.2601  max mem: 3655050
+[14:23:15.375123] Epoch: [1]  [ 0/44]  eta: 0:00:23  lr: 0.000982  closs: 0.0083 (0.0083)  time: 0.5326  data: 0.2601  max mem: 3655050
+[14:23:15.375123] Epoch: [1]  [ 0/44]  eta: 0:00:23  lr: 0.000982  closs: 0.0083 (0.0083)  time: 0.5326  data: 0.2601  max mem: 3655050
+[14:23:15.375123] Epoch: [1]  [ 0/44]  eta: 0:00:23  lr: 0.000982  closs: 0.0083 (0.0083)  time: 0.5326  data: 0.2601  max mem: 3655050
+[14:23:24.426166] log_dir: ./output_direta: 0:00:00  lr: 0.000982  closs: 0.0174 (0.0197)  time: 0.2079  data: 0.0001  max mem: 3655050
+[14:23:24.426166] log_dir: ./output_direta: 0:00:00  lr: 0.000982  closs: 0.0174 (0.0197)  time: 0.2079  data: 0.0001  max mem: 3655050
+[14:23:24.426166] log_dir: ./output_direta: 0:00:00  lr: 0.000982  closs: 0.0174 (0.0197)  time: 0.2079  data: 0.0001  max mem: 3655050
+[14:23:24.426166] log_dir: ./output_direta: 0:00:00  lr: 0.000982  closs: 0.0174 (0.0197)  time: 0.2079  data: 0.0001  max mem: 3655050
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:23:39.362346] Epoch: [2]  [ 30/205]  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:01.415888] log_dir: ./output_dir  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:01.415888] log_dir: ./output_dir  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:01.415888] log_dir: ./output_dir  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:01.415888] log_dir: ./output_dir  eta: 0:01:24  lr: 0.000984  closs: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:25:11.038337] Averaged stats: lr: 0.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:47.979229] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:47.979229] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:47.979229] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:47.979229] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:47.979229] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:26:57.548825] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:34.677701] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:34.677701] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:34.677701] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:34.677701] log_dir: ./output_dir.000947  closs: 0.0178 (0.0161)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:28:44.255653] Averaged stats: lr: 0.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:21.261141] log_dir: ./output_dir.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:21.261141] log_dir: ./output_dir.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:21.261141] log_dir: ./output_dir.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:21.261141] log_dir: ./output_dir.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:21.261141] log_dir: ./output_dir.000681  closs: 0.0068 (0.0129)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:30:30.847589] Averaged stats: lr: 0.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:07.894018] log_dir: ./output_dir.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:07.894018] log_dir: ./output_dir.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:07.894018] log_dir: ./output_dir.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:07.894018] log_dir: ./output_dir.000493  closs: 0.0094 (0.0121)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:32:17.445868] Averaged stats: lr: 0.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:33:54.505356] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:33:54.505356] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:33:54.505356] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:33:54.505356] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:33:54.505356] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:34:04.116076] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:41.154267] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:41.154267] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:41.154267] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:41.154267] log_dir: ./output_dir.000305  closs: 0.0074 (0.0123)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:35:50.711257] Averaged stats: lr: 0.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:39:15.323494] log_dir: ./output_dir.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:39:15.323494] log_dir: ./output_dir.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:39:15.323494] log_dir: ./output_dir.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:39:15.323494] log_dir: ./output_dir.000038  closs: 0.0082 (0.0124)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:39:24.883190] Averaged stats: lr: 0.000000  closs: 0.0098 (0.0125)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:39:24.883190] Averaged stats: lr: 0.000000  closs: 0.0098 (0.0125)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550
+[14:39:24.883190] Averaged stats: lr: 0.000000  closs: 0.0098 (0.0125)loss: 0.0165 (0.0242)  time: 0.4715  data: 0.0001  max mem: 36550

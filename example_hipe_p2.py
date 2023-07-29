@@ -189,7 +189,7 @@ def main(
                 )
             print(results)
         else:
-            results = []
+            results = ['']
 
         for i in range(len(results)):
             all_outputs.append(results[i])

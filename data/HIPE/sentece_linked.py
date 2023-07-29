@@ -4,7 +4,7 @@ import math
 import pickle
 import pandas as pd
 
-df = pd.read_csv('../fr/HIPE-2022-v2.1-hipe2020-test-fr.tsv', sep='\t+')
+df = pd.read_csv('./HIPE-2022-data/data/v2.1/hipe2020/fr/HIPE-2022-v2.1-hipe2020-test-fr.tsv', sep='\t+')
 df['org_index'] = df.index.tolist()
 drop_df = df[df['NE-COARSE-LIT'].notna()]
 drop_df = drop_df[drop_df['TOKEN'].notna()]
@@ -175,5 +175,5 @@ with open(f'parag-label-HIPE-test.pickle', 'wb') as file:
     pickle.dump(examples, file) 
 
 #load
-with open(f'parag-label-HIPE-test.pickle', 'rb') as file2:
-    examples = pickle.load(file2)
+#with open(f'parag-label-HIPE-test.pickle', 'rb') as file2:
+#    examples = pickle.load(file2)
