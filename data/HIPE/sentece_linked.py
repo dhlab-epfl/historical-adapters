@@ -127,7 +127,7 @@ for i in range(len(drop_df)):
     line = drop_df.iloc[i]
     
 # Every sentence
-    if line['MISC'] == 'EndOfSentence':
+    if 'EndOfSentence' in line['MISC']:
         words.append(line['TOKEN'])
         labels.append(line['NE-COARSE-LIT'])
         
