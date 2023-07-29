@@ -152,7 +152,7 @@ def main(
     all_preds = []
     hypothesis = []
     answers = []
-    batch = 2
+    batch = 1
     cnt = 0
     n_samples = len(examples)
 
@@ -180,11 +180,17 @@ def main(
 
         # prompt = prompts[batch_idx]
         prompt = [PROMPT_DICT["HIPE"].format_map({"input": x}) for x in prompt]
-        print(prompt[0])
-        results = generator.generate(
-                prompt, max_gen_len=256, temperature=temperature, top_p=top_p
-            )
-        print(results[0])
+        
+        print(len(prompt[0].split(' ')))
+        if len(prompt[0].split(' ')) < 1000:
+
+            results = generator.generate(
+                    prompt, max_gen_len=256, temperature=temperature, top_p=top_p
+                )
+            print(results)
+        else:
+            results = []
+
         for i in range(len(results)):
             all_outputs.append(results[i])
 
