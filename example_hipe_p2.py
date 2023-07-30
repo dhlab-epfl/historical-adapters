@@ -182,7 +182,7 @@ def main(
         prompt = [PROMPT_DICT["HIPE"].format_map({"input": x}) for x in prompt]
         
         print(len(prompt[0].split(' ')))
-        if len(prompt[0].split(' ')) < 1000:
+        if len(prompt[0].split(' ')) < 900:
 
             results = generator.generate(
                     prompt, max_gen_len=256, temperature=temperature, top_p=top_p
