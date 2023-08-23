@@ -10,7 +10,7 @@ import time
 import json
 import numpy as np
 import pandas as pd
-from eval_em_f1 import *
+from inference.eval_em_f1 import *
 
 from pathlib import Path
 
