@@ -1,5 +1,5 @@
 # historical-adapters
-The repository for the experiments to validate the efficiency of using [LLaMA 7B-Adapter](https://github.com/OpenGVLab/LLaMA-Adapter) on the historical dataset compared to in-context learning (i.e., zero- and three-shot learnings). 
+The repository for the experiments to validate the efficiency of using [LLaMA 7B-Adapter](https://github.com/OpenGVLab/LLaMA-Adapter) on the historical dataset compared to in-context learning (i.e., zero- and three-shot learnings). You can find the [Project Report](/Project_Report.pdf) to check the whole process of the experiments and results. 
 
 ## Dataset
 
