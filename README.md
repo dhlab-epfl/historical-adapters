@@ -18,7 +18,7 @@ We follow the fine-tuning process of [LLaMA-Adapter V1](https://github.com/OpenG
 Run `bash alpaca_finetuning_v1/finetuning.sh` with the command below:
 
 ```
-TARGET_FOLDER='/data1/data/sooh-data/llama'
+TARGET_FOLDER='llama'
 
 torchrun --nproc_per_node 8 finetuning_science.py \
     --model Llama7B_adapter \
@@ -31,7 +31,7 @@ torchrun --nproc_per_node 8 finetuning_science.py \
     --warmup_epochs 2 \
     --blr 9e-3 \
     --weight_decay 0.02 \
-    --output_dir /data1/data/sooh-data/llama/science/checkpoint/
+    --output_dir /data1/data/XXX-data/llama/science/checkpoint/
 ```
 Specify the argument `--nproc_per_node` with the available GPU number of your working environment.
 
@@ -41,7 +41,7 @@ Specify the argument `--nproc_per_node` with the available GPU number of your wo
 Run `bash alpaca_finetuning_v1/finetuning.sh` with the command below:
 
 ```
-TARGET_FOLDER='/data1/data/sooh-data/llama'
+TARGET_FOLDER='llama'
 
 torchrun --nproc_per_node 8 finetuning_archiv.py \
     --model Llama7B_adapter \
@@ -54,7 +54,7 @@ torchrun --nproc_per_node 8 finetuning_archiv.py \
     --warmup_epochs 2 \
     --blr 9e-3 \
     --weight_decay 0.02 \
-    --output_dir /data1/data/sooh-data/llama/archiv/checkpoint/
+    --output_dir /data1/data/XXX-data/llama/archiv/checkpoint/
 ```
 Specify the argument `--nproc_per_node` with the available GPU number of your working environment.
 
@@ -66,7 +66,7 @@ Specify the argument `--nproc_per_node` with the available GPU number of your wo
 Run `bash alpaca_finetuning_v1/finetuning.sh` with the command below:
 
 ```
-TARGET_FOLDER='/data1/data/sooh-data/llama'
+TARGET_FOLDER='llama'
 
 torchrun --nproc_per_node 8 finetuning_hipe_prompt1.py \
     --model Llama7B_adapter \
@@ -79,7 +79,7 @@ torchrun --nproc_per_node 8 finetuning_hipe_prompt1.py \
     --warmup_epochs 2 \
     --blr 9e-3 \
     --weight_decay 0.02 \
-    --output_dir /data1/data/sooh-data/llama/hipe/checkpoint/
+    --output_dir /data1/data/XXX-data/llama/hipe/checkpoint/
 ```
 Specify the argument `--nproc_per_node` with the available GPU number of your working environment.
 
@@ -88,7 +88,7 @@ Specify the argument `--nproc_per_node` with the available GPU number of your wo
 Run `bash alpaca_finetuning_v1/finetuning.sh` with the command below:
 
 ```
-TARGET_FOLDER='/data1/data/sooh-data/llama'
+TARGET_FOLDER='llama'
 
 torchrun --nproc_per_node 8 finetuning_hipe_prompt2.py \
     --model Llama7B_adapter \
@@ -101,7 +101,7 @@ torchrun --nproc_per_node 8 finetuning_hipe_prompt2.py \
     --warmup_epochs 2 \
     --blr 9e-3 \
     --weight_decay 0.02 \
-    --output_dir /data1/data/sooh-data/llama/hipe/checkpoint/
+    --output_dir /data1/data/XXX-data/llama/hipe/checkpoint/
 ```
 Specify the argument `--nproc_per_node` with the available GPU number of your working environment.
 
@@ -115,8 +115,8 @@ Run `bash generate.sh` with the command below:
 ```
 torchrun --nproc_per_node 1 example_science.py \
 --ckpt_dir /data1/data/sooh-data/llama/7B \
---tokenizer_path /data1/data/sooh-data/llama/tokenizer.model \
---adapter_path /data1/data/sooh-data/llama/science/checkpoint/adapter_adapter_len10_layer30_epoch9.pth
+--tokenizer_path /data1/data/XXX-data/llama/tokenizer.model \
+--adapter_path /data1/data/XXX-data/llama/science/checkpoint/adapter_adapter_len10_layer30_epoch9.pth
 ```
 
 Specify the arguments based on your working environment.
@@ -136,8 +136,8 @@ Run `bash generate.sh` with the command below:
 ```
 torchrun --nproc_per_node 1 example_archiv.py \
 --ckpt_dir /data1/data/sooh-data/llama/7B \
---tokenizer_path /data1/data/sooh-data/llama/tokenizer.model \
---adapter_path /data1/data/sooh-data/llama/archiv/checkpoint/adapter_adapter_len10_layer30_epoch9.pth
+--tokenizer_path /data1/data/XXX-data/llama/tokenizer.model \
+--adapter_path /data1/data/XXX-data/llama/archiv/checkpoint/adapter_adapter_len10_layer30_epoch9.pth
 ```
 
 Specify the arguments based on your working environment.
@@ -155,8 +155,8 @@ Run `bash generate.sh` with the command below:
 ```
 torchrun --nproc_per_node 1 example_hipe_p1.py \
 --ckpt_dir /data1/data/sooh-data/llama/7B \
---tokenizer_path /data1/data/sooh-data/llama/tokenizer.model \
---adapter_path /data1/data/sooh-data/llama/hipe/checkpoint/adapter_adapter_len10_layer30_epoch9.pth
+--tokenizer_path /data1/data/XXX-data/llama/tokenizer.model \
+--adapter_path /data1/data/XXX-data/llama/hipe/checkpoint/adapter_adapter_len10_layer30_epoch9.pth
 ```
 
 Specify the arguments based on your working environment.
@@ -177,8 +177,8 @@ Run `bash generate.sh` with the command below:
 ```
 torchrun --nproc_per_node 1 example_hipe_p2.py \
 --ckpt_dir /data1/data/sooh-data/llama/7B \
---tokenizer_path /data1/data/sooh-data/llama/tokenizer.model \
---adapter_path /data1/data/sooh-data/llama/hipe/checkpoint2/adapter_adapter_len10_layer30_epoch9.pth
+--tokenizer_path /data1/data/XXX-data/llama/tokenizer.model \
+--adapter_path /data1/data/XXX-data/llama/hipe/checkpoint2/adapter_adapter_len10_layer30_epoch9.pth
 ```
 
 Specify the arguments based on your working environment.
