@@ -114,7 +114,7 @@ Run `bash generate.sh` with the command below:
 
 ```
 torchrun --nproc_per_node 1 example_science.py \
---ckpt_dir /data1/data/sooh-data/llama/7B \
+--ckpt_dir /data1/data/XXX-data/llama/7B \
 --tokenizer_path /data1/data/XXX-data/llama/tokenizer.model \
 --adapter_path /data1/data/XXX-data/llama/science/checkpoint/adapter_adapter_len10_layer30_epoch9.pth
 ```
@@ -135,7 +135,7 @@ Run `bash generate.sh` with the command below:
 
 ```
 torchrun --nproc_per_node 1 example_archiv.py \
---ckpt_dir /data1/data/sooh-data/llama/7B \
+--ckpt_dir /data1/data/XXX-data/llama/7B \
 --tokenizer_path /data1/data/XXX-data/llama/tokenizer.model \
 --adapter_path /data1/data/XXX-data/llama/archiv/checkpoint/adapter_adapter_len10_layer30_epoch9.pth
 ```
@@ -154,7 +154,7 @@ Run `bash generate.sh` with the command below:
 
 ```
 torchrun --nproc_per_node 1 example_hipe_p1.py \
---ckpt_dir /data1/data/sooh-data/llama/7B \
+--ckpt_dir /data1/data/XXX-data/llama/7B \
 --tokenizer_path /data1/data/XXX-data/llama/tokenizer.model \
 --adapter_path /data1/data/XXX-data/llama/hipe/checkpoint/adapter_adapter_len10_layer30_epoch9.pth
 ```
@@ -176,7 +176,7 @@ Run `bash generate.sh` with the command below:
 
 ```
 torchrun --nproc_per_node 1 example_hipe_p2.py \
---ckpt_dir /data1/data/sooh-data/llama/7B \
+--ckpt_dir /data1/data/XXX-data/llama/7B \
 --tokenizer_path /data1/data/XXX-data/llama/tokenizer.model \
 --adapter_path /data1/data/XXX-data/llama/hipe/checkpoint2/adapter_adapter_len10_layer30_epoch9.pth
 ```
